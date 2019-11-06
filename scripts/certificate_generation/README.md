@@ -14,14 +14,21 @@ Tested Windows versions ... :
 6. Copy the master.crt file into the certgen folder.
 
 7. Open a command line in certgen folder.
-8. Type: gen_ah_core_certs.bat "core.system.password" "ip.address.for.core.systems" "cloud_certificate_password" "cloud_name" "cloud_alias"
+8. Type:
+```
+gen_ah_core_certs.bat "core.system.password" "ip.address.for.core.systems" "cloud_certificate_password" "cloud_name" "cloud_alias"
+
+```
 Where : 
 "core.system.password" = password for the core system certifications
 "ip.address.for.core.systems" = the actual ip address of your systems
 "cloud_name" = cloud file name without extention 
 "cloud_alias" = alias of cloud certificate 
 
-example : gen_ah_core_sys_certs.bat 123abc 10.0.0.1 567890 testcloud2 testcloud2.aitia.arrowhead.eu
+example :
+```
+gen_ah_core_sys_certs.bat 123abc 10.0.0.1 567890 testcloud2 testcloud2.aitia.arrowhead.eu
+```
 
 9. Press Enter.
 

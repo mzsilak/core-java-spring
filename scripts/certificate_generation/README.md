@@ -18,21 +18,24 @@ Tested Linux versions ... :
 5. Copy the cloud certificate (testcloud2.p12) into the certgen directory.
 6. Copy the master.crt file into the certgen directory.
 7. Type: 
+```
+./genSystemCert.sh "system_name" "system_password" "system_hostname" "system_ip" "cloud_name" "cloud_password" "cloud_alias"
 
-```./genSystemCert.sh "system_name" "system_password" "system_hostname" "system_ip" "cloud_name" "cloud_password" "cloud_alias" ```  
-
+```
  Where : 
- "system_name" = file name and alias of the new system certifiacate   
- "system_password" = password for the new system certificate   
- "system_hostname" = hostname of the system   
- "system_ip" = actual ip address of the system   
- "cloud_name" = file name of the cloud certificate without extention    
- "cloud_password" = password of the cloud certificate    
- "cloud_alias" =  alias of the cloud certificate
+ * "system_name" = file name and alias of the new system certifiacate   
+ * "system_password" = password for the new system certificate   
+ * "system_hostname" = hostname of the system   
+ * "system_ip" = actual ip address of the system   
+ * "cloud_name" = file name of the cloud certificate without extention    
+ * "cloud_password" = password of the cloud certificate    
+ * "cloud_alias" =  alias of the cloud certificate
  
 example :
+```
+./genSystemCert.sh system001 123456 hostname 192.168.0.12  testcloud2 567890 testcloud2.aitia.arrowhead.eu
 
-``` ./genSystemCert.sh system001 123456 hostname 192.168.0.12  testcloud2 567890 testcloud2.aitia.arrowhead.eu ```  
+```
 
 8. Press Enter.
 
@@ -92,12 +95,12 @@ generate_cloud_certificate.bat "cloud_name" "cloud_password" "master_certificate
 
 ```
 Where : 
-"cloud_name" = name of the new cloud
-"cloud_password" = password for the new cloud
-"master_certificate_path" = absulute path of the master certificate 
-"master_file_name" = name of the master certificate file without extention 
-"master_password" = password of the master certificate
-"master_alias" = alias of the master certificate (this parameter is optional - if not filled it uses master_file_name as alias)
+ * "cloud_name" = name of the new cloud 
+ * "cloud_password" = password for the new cloud 
+ * "master_certificate_path" = absulute path of the master certificate  
+ * "master_file_name" = name of the master certificate file without extention  
+ * "master_password" = password of the master certificate 
+ * "master_alias" = alias of the master certificate (this parameter is optional - if not filled it uses master_file_name as alias) 
 
 example :
 ```

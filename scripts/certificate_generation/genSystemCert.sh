@@ -37,12 +37,12 @@ fi
 
 
 AH_CLOUD_NAME=${5}
-
-if [ -z ${6} ];
+AH_CLOUD_PASS=${6}
+if [ -z ${7} ];
 	then
 		AH_CLOUD_ALIAS=${5}
 	else
-		AH_CLOUD_ALIAS=${6}
+		AH_CLOUD_ALIAS=${7}
 fi
 
 AH_OPERATOR="aitia"
@@ -158,7 +158,7 @@ ah_cert_signed_system () {
 
         keytool -export \
             -alias ${AH_CLOUD_ALIAS} \
-            -storepass ${AH_PASS_CERT} \
+            -storepass ${AH_CLOUD_PASS} \
             -keystore ${src_file} \
         | keytool -import \
             -trustcacerts \
@@ -176,9 +176,9 @@ ah_cert_signed_system () {
             -storepass ${passwd} \
         | keytool -gencert \
             -alias ${AH_CLOUD_ALIAS} \
-            -keypass ${AH_PASS_CERT} \
+            -keypass ${AH_CLOUD_PASS} \
             -keystore ${src_file} \
-            -storepass ${AH_PASS_CERT} \
+            -storepass ${AH_CLOUD_PASS} \
             -validity 3650 \
 			-ext SubjectAlternativeName=IP:127.0.0.1,DNS:localhost,DNS:${host},IP:${ip} \
         | keytool -importcert \

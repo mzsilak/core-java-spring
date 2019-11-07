@@ -1,3 +1,5 @@
+still in progress ...
+
 ## Generating  system certificates
 
 Usage of the certificate generating scripts
@@ -19,7 +21,7 @@ Tested Linux versions ... :
 6. Copy the master.crt file into the certgen directory.
 7. Type: 
 ```
-./genSystemCert.sh "system_name" "system_password" "system_hostname" "system_ip" "cloud_name" "cloud_password" "cloud_alias"
+sudo ./genSystemCert.sh "system_name" "system_password" "system_hostname" "system_ip" "cloud_name" "cloud_password" "cloud_alias"
 
 ```
  Where : 
@@ -33,7 +35,7 @@ Tested Linux versions ... :
  
 example :
 ```
-./genSystemCert.sh system001 123456 hostname 192.168.0.12  testcloud2 567890 testcloud2.aitia.arrowhead.eu
+sudo ./genSystemCert.sh system001 123456 hostname 192.168.0.12  testcloud2 567890 testcloud2.aitia.arrowhead.eu
 
 ```
 
@@ -105,6 +107,34 @@ Where :
 example :
 ```
 generate_cloud_certificate.bat cloudxx2 123456 F:\Users\...\...\core-java-spring\certificates master 567890 arrowhead.eu
+```
+
+6. Press Enter.
+
+### 2. Usage in Linux
+Tested Linux versions ... : 
+
+1. Check if keytool is present
+2. Create a directory : cloudcertgen .
+3. Copy the genCloudCert.sh file into the newly created cloudcertgen directory.
+4. Change genCloudCert.sh  permissions as   
+```chmod 500 genCloudCert.sh```
+5. Type:
+```
+sudo ./genCloudCert.sh "cloud_name" "cloud_password" "master_certificate_path"  "master_file_name" "master_password" "master_alias"
+
+```
+Where : 
+ * "cloud_name" = name of the new cloud 
+ * "cloud_password" = password for the new cloud 
+ * "master_certificate_path" = absulute path of the master certificate  
+ * "master_file_name" = name of the master certificate file without extention  
+ * "master_password" = password of the master certificate 
+ * "master_alias" = alias of the master certificate (this parameter is optional - if not filled it uses master_file_name as alias) 
+
+example :
+```
+sudo ./genCloudCert.sh cloudxx2 123456 $PWD master 567890 arrowhead.eu
 ```
 
 6. Press Enter.

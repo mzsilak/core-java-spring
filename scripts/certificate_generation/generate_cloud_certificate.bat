@@ -2,33 +2,24 @@
 
 SET AH_CONF_DIR=%cd%
 
-SET AH_CLOUDS_DIR=%AH_CONF_DIR%
-SET AH_SYSTEMS_DIR=%AH_CONF_DIR%
-
-SET AH_PASS_CERT=123456
-SET AH_CLOUD_NAME=testcloud
 SET AH_OPERATOR=aitia
 SET AH_COMPANY=arrowhead
 SET AH_COUNTRY=eu
 
-SET SYSTEM_NAME=%1
-SET SYSTEM_PASSWORD=%2
-SET SYSTEM_HOSTNAME=%3
-SET SYSTEM_IP=%4
-SET CLOUD_NAME=%5
-SET CLOUD_ALIAS=%6
+SET CLOUD_NAME=%1
+SET CLOUD_PASSWORD=%2
+SET MASTER_CONF_DIR=%3
+SET MASTER_FILE_NAME=%4
+SET MASTER_PASS_CERT=%5%
+SET MASTER_ALIAS=%6
 
-IF [%6] == [] SET CLOUD_ALIAS=%CLOUD_NAME%
-
-SET AH_CLOUD_NAME=%CLOUD_NAME%
-
-SET OWN_IP=%SYSTEM_IP%
+IF [%6] == [] SET MASTER_ALIAS=%MASTER_FILE_NAME%
 
 ::   ============================
 :: system certificate generation starts here
 ::   ============================
 
-CALL :ah_cert_signed_cloud %SYSTEM_NAME% %SYSTEM_PASSWORD% %SYSTEM_HOSTNAME% %SYSTEM_IP%
+CALL :ah_cert_signed_cloud
 
 EXIT /B 0
 
@@ -48,9 +39,7 @@ REM	ECHO ============================
 	SET dst_path=%1
 	SET dst_name=%2
 	SET cn=%3
-	SET password=%4
-	
-	IF [%4] == [] SET password=%AH_PASS_CERT%
+	SET password=%CLOUD_PASSWORD%
 
 	SET file=%dst_path%\%dst_name%.p12
 	
@@ -75,18 +64,12 @@ REM	ECHO ============================
 REM	ECHO ah_cert_signed_cloud started ...
 REM	ECHO parameters: %*
 REM	ECHO ============================
-	SET name=%1
-	SET passwd=%2
-	SET host=%3
-	SET ip=%4
-	SET base_path=%5
+	SET name=%CLOUD_NAME%
+	SET passwd=%CLOUD_PASSWORD%
+	SET base_path=%AH_CONF_DIR%
+
 	
-	IF [%2] == [] SET passwd=%AH_PASS_CERT%
-	IF [%3] == [] SET host=host
-	IF [%4] == [] SET ip=0.0.0.0
-	IF [%5] == [] SET base_path=%AH_CONF_DIR%
-	
-	SET src_file=%AH_CONF_DIR%\%CLOUD_NAME%.p12
+	SET src_file=%MASTER_CONF_DIR%\%MASTER_FILE_NAME%.p12
 	SET system_dst_file=%AH_CONF_DIR%\%name%.p12
 	
 	IF EXIST %system_dst_file% (
@@ -100,11 +83,11 @@ REM	ECHO ============================
 		
 		ECHO src_file %src_file%
 
-		keytool -export -alias %CLOUD_ALIAS% -storepass %AH_PASS_CERT% -keystore %src_file% ^
-		| keytool -import -trustcacerts -alias %CLOUD_ALIAS% -keystore %system_dst_file% -keypass %passwd% -storepass %passwd% -storetype PKCS12 -noprompt
+		keytool -export -alias %MASTER_ALIAS% -storepass %MASTER_PASS_CERT% -keystore %src_file% ^
+		| keytool -import -trustcacerts -alias %MASTER_ALIAS% -keystore %system_dst_file% -keypass %passwd% -storepass %passwd% -storetype PKCS12 -noprompt
 
 		keytool -certreq -alias %name% -keypass %passwd% -keystore %system_dst_file% -storepass %passwd% ^
-		| keytool -gencert -rfc -alias %CLOUD_ALIAS% -keypass %AH_PASS_CERT% -keystore %src_file% -storepass %AH_PASS_CERT% -validity 3650 -ext BasicConstraints=ca:true,pathlen:2 ^
+		| keytool -gencert -rfc -alias %MASTER_ALIAS% -keypass %MASTER_PASS_CERT% -keystore %src_file% -storepass %MASTER_PASS_CERT% -validity 3650 -ext BasicConstraints=ca:true,pathlen:2 ^
 		| keytool -importcert -alias %name% -keypass %passwd% -keystore %system_dst_file% -storepass %passwd% -noprompt
 
 	)

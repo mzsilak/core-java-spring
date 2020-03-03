@@ -6,4 +6,5 @@ import eu.arrowhead.common.database.entity.ChoreographerActionPlanActionConnecti
 
 @Repository
 public interface ChoreographerActionPlanActionConnectionRepository extends RefreshableRepository<ChoreographerActionPlanActionConnection,Long> {
+
 }

@@ -8,4 +8,5 @@ import eu.arrowhead.common.security.DefaultSecurityConfig;
 @Configuration
 @EnableWebSecurity
 public class AuthSecurityConfig extends DefaultSecurityConfig {
+
 }

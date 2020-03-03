@@ -8,8 +8,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.util.Assert;
 
 import eu.arrowhead.common.dto.internal.DTOUtilities;
-import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
 import eu.arrowhead.common.dto.shared.PreferredProviderDataDTO;
+import eu.arrowhead.common.dto.shared.ServiceRegistryResponseDTO;
 
 public class RandomIntraCloudProviderMatchmaker implements IntraCloudProviderMatchmakingAlgorithm {
 	
@@ -28,10 +28,10 @@ public class RandomIntraCloudProviderMatchmaker implements IntraCloudProviderMat
 	 * This algorithm returns the first (preferred) provider.
 	 */
 	@Override
-	public OrchestrationResultDTO doMatchmaking(final List<OrchestrationResultDTO> orList, final IntraCloudProviderMatchmakingParameters params) {
+	public ServiceRegistryResponseDTO doMatchmaking(final List<ServiceRegistryResponseDTO> srList, final IntraCloudProviderMatchmakingParameters params) {
 		logger.debug("RandomIntraCloudProviderMatchmaker.doMatchmaking started...");
 		
-		Assert.isTrue(orList != null && !orList.isEmpty(), "orList is null or empty.");
+		Assert.isTrue(srList != null && !srList.isEmpty(), "srList is null or empty.");
 		Assert.notNull(params, "params is null");
 		
 		if (rng == null) {
@@ -39,21 +39,21 @@ public class RandomIntraCloudProviderMatchmaker implements IntraCloudProviderMat
 		}
 		
 		if (params.getPreferredLocalProviders().isEmpty()) {
-			logger.debug("No preferred provider is specified, a random one in the list is selected.");
-			return orList.get(rng.nextInt(orList.size()));
+			logger.debug("No preferred provider is specified, a random one in the SR list is selected.");
+			return srList.get(rng.nextInt(srList.size()));
 		}
 		
-		for (final OrchestrationResultDTO orResult : orList) {
+		for (final ServiceRegistryResponseDTO srResult : srList) {
 			for (final PreferredProviderDataDTO provider : params.getPreferredLocalProviders()) {
-				if (DTOUtilities.equalsSystemInResponseAndRequest(orResult.getProvider(), provider.getProviderSystem())) {
-					logger.debug("The first preferred provider found in the list is selected.");
-					return orResult;
+				if (DTOUtilities.equalsSystemInResponseAndRequest(srResult.getProvider(), provider.getProviderSystem())) {
+					logger.debug("The first preferred provider found in SR is selected.");
+					return srResult;
 				}
 			}
 		}
 		
 		logger.debug("no match was found between preferred providers, a random one is selected.");
 		
-		return orList.get(rng.nextInt(orList.size()));
+		return srList.get(rng.nextInt(srList.size()));
 	}
 }

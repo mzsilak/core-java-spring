@@ -14,7 +14,7 @@ services:
 
   serviceregistry:
     container_name: serviceregistry
-    image: svetlint/serviceregistry:latest
+    image: portus.arrowhead-ci.tmit.bme.hu/arrowhead/serviceregistry:latest
     depends_on:
       - mysql
     volumes:
@@ -26,7 +26,7 @@ services:
 
   authorization:
     container_name: authorization
-    image: svetlint/authorization:latest
+    image: portus.arrowhead-ci.tmit.bme.hu/arrowhead/authorization:latest
     depends_on:
       - mysql
     volumes:
@@ -36,7 +36,7 @@ services:
 
   orchestrator:
     container_name: orchestrator
-    image: svetlint/orchestrator:latest
+    image: portus.arrowhead-ci.tmit.bme.hu/arrowhead/orchestrator:latest
     depends_on:
       - mysql
     volumes:
@@ -46,7 +46,7 @@ services:
 
   eventhandler:
     container_name: eventhandler
-    image: svetlint/eventhandler:latest
+    image: portus.arrowhead-ci.tmit.bme.hu/arrowhead/eventhandler:latest
     depends_on:
       - mysql
     volumes:
@@ -56,7 +56,7 @@ services:
   
   gatekeeper:
     container_name: gatekeeper
-    image: svetlint/gatekeeper:latest
+    image: portus.arrowhead-ci.tmit.bme.hu/arrowhead/gatekeeper:latest
     depends_on:
       - mysql
     volumes:
@@ -66,7 +66,7 @@ services:
 
   gateway:
     container_name: gateway
-    image: svetlint/gateway:latest
+    image: portus.arrowhead-ci.tmit.bme.hu/arrowhead/gateway:latest
     depends_on:
       - mysql
     volumes:

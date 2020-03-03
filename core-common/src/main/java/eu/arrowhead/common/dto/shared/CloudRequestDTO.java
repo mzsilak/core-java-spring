@@ -52,15 +52,12 @@ public class CloudRequestDTO implements Serializable {
 		if (this == obj) {
 			return true;
 		}
-		
 		if (obj == null) {
 			return false;
 		}
-		
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		
 		final CloudRequestDTO other = (CloudRequestDTO) obj;
 		
 		return Objects.equals(name, other.name) && Objects.equals(operator, other.operator);

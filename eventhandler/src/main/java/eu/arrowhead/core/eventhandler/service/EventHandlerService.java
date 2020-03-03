@@ -161,12 +161,12 @@ public class EventHandlerService {
 			throw new InvalidParameterException("Payload" + NULL_OR_BLANK_PARAMETER_ERROR_MESSAGE);
 		}
 		
-		checkTimeStamp(request.getTimeStamp());	
+		ckeckTimeStamp(request.getTimeStamp());	
 		checkSystemRequestDTO(request.getSource());
 	}
 	
 	//-------------------------------------------------------------------------------------------------
-	private void checkTimeStamp(final String timeStampString) {
+	private void ckeckTimeStamp(final String timeStampString) {
 		logger.debug("ckeckTimeStamp started...");
 		
 		if (Utilities.isEmpty(timeStampString)) {

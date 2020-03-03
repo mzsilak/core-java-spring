@@ -6,4 +6,5 @@ import eu.arrowhead.common.database.entity.CloudGatewayRelay;
 
 @Repository
 public interface CloudGatewayRelayRepository extends RefreshableRepository<CloudGatewayRelay,Long> {
+
 }

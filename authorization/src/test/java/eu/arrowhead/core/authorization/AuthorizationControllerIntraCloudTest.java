@@ -511,7 +511,7 @@ public class AuthorizationControllerIntraCloudTest {
 	
 	//-------------------------------------------------------------------------------------------------
 	private List<Long> createIdList(final int firstNum, final int lastNum) {
-		final List<Long> idList = new ArrayList<>(lastNum - firstNum + 1);
+		final List<Long> idList = new ArrayList<>(lastNum);
 		for (int i = firstNum; i <= lastNum; ++i) {
 			idList.add((long) i);
 		}

@@ -22,5 +22,7 @@ public interface AuthorizationIntraCloudRepository extends RefreshableRepository
 	
 	//-------------------------------------------------------------------------------------------------
 	public Optional<AuthorizationIntraCloud> findByConsumerSystemAndProviderSystemAndServiceDefinition(final System consumer, final System provider, final ServiceDefinition serviceDefinition);
+	
+	//-------------------------------------------------------------------------------------------------
 	public List<AuthorizationIntraCloud> findAllByConsumerSystem(final System consumer);
 }

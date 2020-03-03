@@ -2,7 +2,7 @@ package eu.arrowhead.core.orchestrator.matchmaking;
 
 import java.util.List;
 
-import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
+import eu.arrowhead.common.dto.shared.ServiceRegistryResponseDTO;
 
 public interface IntraCloudProviderMatchmakingAlgorithm {
 
@@ -10,5 +10,5 @@ public interface IntraCloudProviderMatchmakingAlgorithm {
 	// methods
 	
 	//-------------------------------------------------------------------------------------------------
-	public OrchestrationResultDTO doMatchmaking(final List<OrchestrationResultDTO> orList, final IntraCloudProviderMatchmakingParameters params);
+	public ServiceRegistryResponseDTO doMatchmaking(final List<ServiceRegistryResponseDTO> srList, final IntraCloudProviderMatchmakingParameters params);
 }

@@ -7,8 +7,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.util.Assert;
 
 import eu.arrowhead.common.dto.internal.DTOUtilities;
-import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
 import eu.arrowhead.common.dto.shared.PreferredProviderDataDTO;
+import eu.arrowhead.common.dto.shared.ServiceRegistryResponseDTO;
 
 public class DefaultIntraCloudProviderMatchmaker implements IntraCloudProviderMatchmakingAlgorithm {
 	
@@ -25,28 +25,28 @@ public class DefaultIntraCloudProviderMatchmaker implements IntraCloudProviderMa
 	 * This algorithm returns the first (preferred) provider.
 	 */
 	@Override
-	public OrchestrationResultDTO doMatchmaking(final List<OrchestrationResultDTO> orList, final IntraCloudProviderMatchmakingParameters params) {
+	public ServiceRegistryResponseDTO doMatchmaking(final List<ServiceRegistryResponseDTO> srList, final IntraCloudProviderMatchmakingParameters params) {
 		logger.debug("DefaultIntraCloudProviderMatchmaker.doMatchmaking started...");
 		
-		Assert.isTrue(orList != null && !orList.isEmpty(), "orList is null or empty.");
+		Assert.isTrue(srList != null && !srList.isEmpty(), "srList is null or empty.");
 		Assert.notNull(params, "params is null");
 		
 		if (params.getPreferredLocalProviders().isEmpty()) {
-			logger.debug("No preferred provider is specified, the first one in the list is selected.");
-			return orList.get(0);
+			logger.debug("No preferred provider is specified, the first one in the SR list is selected.");
+			return srList.get(0);
 		}
 		
-		for (final OrchestrationResultDTO orResult : orList) {
+		for (final ServiceRegistryResponseDTO srResult : srList) {
 			for (final PreferredProviderDataDTO provider : params.getPreferredLocalProviders()) {
-				if (DTOUtilities.equalsSystemInResponseAndRequest(orResult.getProvider(), provider.getProviderSystem())) {
-					logger.debug("The first preferred provider found in the list is selected.");
-					return orResult;
+				if (DTOUtilities.equalsSystemInResponseAndRequest(srResult.getProvider(), provider.getProviderSystem())) {
+					logger.debug("The first preferred provider found in SR is selected.");
+					return srResult;
 				}
 			}
 		}
 		
 		logger.debug("no match was found between preferred providers, the first one is selected.");
 		
-		return orList.get(0);
+		return srList.get(0);
 	}
 }

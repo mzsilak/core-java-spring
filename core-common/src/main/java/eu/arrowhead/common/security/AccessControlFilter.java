@@ -1,7 +1,6 @@
 package eu.arrowhead.common.security;
 
 import java.io.IOException;
-import java.security.cert.X509Certificate;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -18,8 +17,8 @@ import org.springframework.util.Assert;
 
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.exception.ArrowheadException;
-import eu.arrowhead.common.exception.AuthException;
+import eu.arrowhead.common.api.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.AuthException;
 import eu.arrowhead.common.filter.ArrowheadFilter;
 import eu.arrowhead.common.filter.thirdparty.MultiReadRequestWrapper;
 

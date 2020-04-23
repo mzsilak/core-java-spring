@@ -2,6 +2,8 @@ package eu.arrowhead.common.dto.shared;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import eu.arrowhead.common.api.model.CertificateCreationResponseDTO;
+import eu.arrowhead.deviceregistry.api.model.DeviceResponseDTO;
 import org.springframework.util.Assert;
 
 import java.io.Serializable;
@@ -47,8 +49,7 @@ public abstract class SystemRegistryOnboardingResponseDTO extends SystemRegistry
                 .toString();
     }
 
-    public void load(final SystemRegistryResponseDTO dto)
-    {
+    public void load(final SystemRegistryResponseDTO dto) {
         Assert.notNull(dto, "SystemRegistryResponseDTO must not be null");
 
         this.setId(dto.getId());

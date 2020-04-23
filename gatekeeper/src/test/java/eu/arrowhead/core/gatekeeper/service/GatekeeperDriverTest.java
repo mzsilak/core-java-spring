@@ -16,7 +16,7 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.SSLProperties;
-import eu.arrowhead.common.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.ArrowheadException;
 
 @RunWith(SpringRunner.class)
 public class GatekeeperDriverTest {

@@ -14,8 +14,8 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.dto.shared.ErrorMessageDTO;
-import eu.arrowhead.common.exception.ArrowheadException;
+import eu.arrowhead.common.api.model.ErrorMessageDTO;
+import eu.arrowhead.common.api.exception.ArrowheadException;
 
 @Component
 public class ArrowheadHttpClientResponseErrorHandler extends DefaultResponseErrorHandler {
@@ -50,6 +50,6 @@ public class ArrowheadHttpClientResponseErrorHandler extends DefaultResponseErro
 		
 		logger.debug("Error occured at {}. Returned with {}", url, response.getRawStatusCode());
 		logger.error("Request returned with {}: {}", dto.getExceptionType(), dto.getErrorMessage());
-		Utilities.createExceptionFromErrorMessageDTO(dto);
+		Utilities.throwExceptionFromErrorMessageDTO(dto);
 	}
 }

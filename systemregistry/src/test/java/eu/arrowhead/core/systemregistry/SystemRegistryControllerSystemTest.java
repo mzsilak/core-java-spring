@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import eu.arrowhead.common.dto.internal.SystemListResponseDTO;
 import eu.arrowhead.common.dto.shared.SystemRequestDTO;
 import eu.arrowhead.common.dto.shared.SystemResponseDTO;
-import eu.arrowhead.common.exception.InvalidParameterException;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
 import eu.arrowhead.core.systemregistry.database.service.SystemRegistryDBService;
 import org.junit.Before;
 import org.junit.Test;

@@ -14,9 +14,9 @@ import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.Utilities;
 import eu.arrowhead.common.dto.internal.GeneralAdvertisementMessageDTO;
-import eu.arrowhead.common.dto.shared.ErrorMessageDTO;
-import eu.arrowhead.common.exception.ArrowheadException;
-import eu.arrowhead.common.exception.BadPayloadException;
+import eu.arrowhead.common.api.model.ErrorMessageDTO;
+import eu.arrowhead.common.api.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.BadPayloadException;
 import eu.arrowhead.core.gatekeeper.service.GatekeeperService;
 
 public class GatekeeperTask implements Runnable {

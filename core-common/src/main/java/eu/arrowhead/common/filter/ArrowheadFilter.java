@@ -18,8 +18,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.dto.shared.ErrorMessageDTO;
-import eu.arrowhead.common.exception.ArrowheadException;
+import eu.arrowhead.common.api.model.ErrorMessageDTO;
+import eu.arrowhead.common.api.exception.ArrowheadException;
 
 public abstract class ArrowheadFilter extends GenericFilterBean {
 	

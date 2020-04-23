@@ -16,7 +16,7 @@ import eu.arrowhead.common.dto.shared.ServiceRegistryResponseDTO;
 import eu.arrowhead.common.dto.shared.ServiceSecurityType;
 import eu.arrowhead.common.dto.shared.SystemRequestDTO;
 import eu.arrowhead.common.dto.shared.SystemResponseDTO;
-import eu.arrowhead.common.exception.UnavailableServerException;
+import eu.arrowhead.common.api.exception.UnavailableServerException;
 import eu.arrowhead.common.http.HttpService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

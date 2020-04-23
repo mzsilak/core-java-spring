@@ -1,13 +1,12 @@
 package eu.arrowhead.core.deviceregistry;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import eu.arrowhead.common.database.service.CommonDBService;
 import eu.arrowhead.common.dto.internal.DeviceRegistryListResponseDTO;
-import eu.arrowhead.common.dto.shared.DeviceRegistryRequestDTO;
-import eu.arrowhead.common.dto.shared.DeviceRegistryResponseDTO;
-import eu.arrowhead.common.dto.shared.DeviceRequestDTO;
-import eu.arrowhead.common.dto.shared.DeviceResponseDTO;
-import eu.arrowhead.common.exception.InvalidParameterException;
+import eu.arrowhead.deviceregistry.api.model.DeviceRegistryRequestDTO;
+import eu.arrowhead.deviceregistry.api.model.DeviceRegistryResponseDTO;
+import eu.arrowhead.deviceregistry.api.model.DeviceRequestDTO;
+import eu.arrowhead.deviceregistry.api.model.DeviceResponseDTO;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
 import eu.arrowhead.core.deviceregistry.database.service.DeviceRegistryDBService;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,7 +28,6 @@ import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.reset;

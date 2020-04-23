@@ -4,7 +4,7 @@ import eu.arrowhead.common.SSLProperties;
 import eu.arrowhead.common.Utilities;
 import eu.arrowhead.common.dto.internal.CertificateSigningRequestDTO;
 import eu.arrowhead.common.dto.internal.CertificateSigningResponseDTO;
-import eu.arrowhead.common.exception.InvalidParameterException;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

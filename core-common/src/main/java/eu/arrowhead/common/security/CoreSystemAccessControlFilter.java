@@ -2,7 +2,7 @@ package eu.arrowhead.common.security;
 
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.core.CoreSystem;
-import eu.arrowhead.common.exception.AuthException;
+import eu.arrowhead.common.api.exception.AuthException;
 
 public abstract class CoreSystemAccessControlFilter extends AccessControlFilter {
 

@@ -44,7 +44,7 @@ import eu.arrowhead.common.dto.shared.ServiceRegistryResponseDTO;
 import eu.arrowhead.common.dto.shared.ServiceSecurityType;
 import eu.arrowhead.common.dto.shared.SystemRequestDTO;
 import eu.arrowhead.common.dto.shared.SystemResponseDTO;
-import eu.arrowhead.common.exception.BadPayloadException;
+import eu.arrowhead.common.api.exception.BadPayloadException;
 import eu.arrowhead.common.intf.ServiceInterfaceNameVerifier;
 import eu.arrowhead.core.serviceregistry.database.service.ServiceRegistryDBService;
 import io.swagger.annotations.Api;

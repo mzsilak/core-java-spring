@@ -12,11 +12,16 @@
   	<description>SQL-based Device Registry core service</description>
   	
   	<dependencies>
-	    <dependency>
-	      	<groupId>eu.arrowhead</groupId>
-	      	<artifactId>arrowhead-core-common</artifactId>
-	      	<version>${revision}</version>
-	    </dependency>
+		<dependency>
+			<groupId>eu.arrowhead</groupId>
+			<artifactId>arrowhead-core-common</artifactId>
+			<version>${revision}</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.arrowhead</groupId>
+			<artifactId>arrowhead-deviceregistry-api</artifactId>
+			<version>${revision}</version>
+		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>

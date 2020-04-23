@@ -29,7 +29,7 @@ import org.springframework.util.Assert;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.SSLProperties;
 import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.ArrowheadException;
 import eu.arrowhead.core.gateway.relay.GatewayRelayClient;
 import eu.arrowhead.core.gateway.service.ActiveSessionDTO;
 

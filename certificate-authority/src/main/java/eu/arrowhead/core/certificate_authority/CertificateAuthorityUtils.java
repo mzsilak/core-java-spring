@@ -2,10 +2,10 @@ package eu.arrowhead.core.certificate_authority;
 
 import eu.arrowhead.common.Utilities;
 import eu.arrowhead.common.dto.internal.CertificateSigningRequestDTO;
-import eu.arrowhead.common.exception.AuthException;
-import eu.arrowhead.common.exception.BadPayloadException;
-import eu.arrowhead.common.exception.DataNotFoundException;
-import eu.arrowhead.common.exception.InvalidParameterException;
+import eu.arrowhead.common.api.exception.AuthException;
+import eu.arrowhead.common.api.exception.BadPayloadException;
+import eu.arrowhead.common.api.exception.DataNotFoundException;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bouncycastle.asn1.pkcs.Attribute;

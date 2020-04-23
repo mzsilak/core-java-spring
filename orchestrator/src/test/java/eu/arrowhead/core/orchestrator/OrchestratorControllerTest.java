@@ -31,7 +31,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.dto.shared.CloudRequestDTO;
-import eu.arrowhead.common.dto.shared.ErrorMessageDTO;
+import eu.arrowhead.common.api.model.ErrorMessageDTO;
 import eu.arrowhead.common.dto.shared.OrchestrationFlags;
 import eu.arrowhead.common.dto.shared.OrchestrationFlags.Flag;
 import eu.arrowhead.common.dto.shared.OrchestrationFormRequestDTO;
@@ -39,7 +39,7 @@ import eu.arrowhead.common.dto.shared.OrchestrationResponseDTO;
 import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
 import eu.arrowhead.common.dto.shared.ServiceQueryFormDTO;
 import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.exception.ExceptionType;
+import eu.arrowhead.common.api.exception.ExceptionType;
 import eu.arrowhead.core.orchestrator.service.OrchestratorService;
 
 @RunWith(SpringRunner.class)

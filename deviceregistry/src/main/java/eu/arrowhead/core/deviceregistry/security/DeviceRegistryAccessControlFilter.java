@@ -3,7 +3,7 @@ package eu.arrowhead.core.deviceregistry.security;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.SecurityUtilities;
-import eu.arrowhead.common.dto.shared.CertificateType;
+import eu.arrowhead.common.api.model.CertificateType;
 import eu.arrowhead.common.security.CoreSystemAccessControlFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

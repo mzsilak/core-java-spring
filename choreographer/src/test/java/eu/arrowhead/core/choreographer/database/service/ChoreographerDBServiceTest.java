@@ -3,12 +3,10 @@ package eu.arrowhead.core.choreographer.database.service;
 import eu.arrowhead.common.Utilities;
 import eu.arrowhead.common.database.entity.ChoreographerAction;
 import eu.arrowhead.common.database.entity.ChoreographerPlan;
-import eu.arrowhead.common.database.repository.ChoreographerActionRepository;
 import eu.arrowhead.common.database.repository.ChoreographerPlanRepository;
-import eu.arrowhead.common.database.repository.ChoreographerStepRepository;
 import eu.arrowhead.common.dto.internal.ChoreographerActionRequestDTO;
 import eu.arrowhead.common.dto.internal.ChoreographerStepRequestDTO;
-import eu.arrowhead.common.exception.InvalidParameterException;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 

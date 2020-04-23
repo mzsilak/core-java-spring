@@ -3,16 +3,15 @@ package eu.arrowhead.core.systemregistry;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.Utilities;
 import eu.arrowhead.common.core.CoreSystem;
-import eu.arrowhead.common.dto.shared.DeviceRequestDTO;
+import eu.arrowhead.deviceregistry.api.model.DeviceRequestDTO;
 import eu.arrowhead.common.dto.shared.SystemRegistryOnboardingWithCsrRequestDTO;
 import eu.arrowhead.common.dto.shared.SystemRegistryOnboardingWithNameRequestDTO;
 import eu.arrowhead.common.dto.shared.SystemRegistryRequestDTO;
 import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.exception.BadPayloadException;
+import eu.arrowhead.common.api.exception.BadPayloadException;
 import org.apache.http.HttpStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.format.DateTimeParseException;

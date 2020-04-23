@@ -21,8 +21,8 @@ import eu.arrowhead.common.dto.internal.ChoreographerStatusType;
 import eu.arrowhead.common.dto.internal.ChoreographerStepRequestDTO;
 import eu.arrowhead.common.dto.internal.DTOConverter;
 import eu.arrowhead.common.dto.shared.ChoreographerPlanResponseDTO;
-import eu.arrowhead.common.exception.ArrowheadException;
-import eu.arrowhead.common.exception.InvalidParameterException;
+import eu.arrowhead.common.api.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

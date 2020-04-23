@@ -1,5 +1,7 @@
 package eu.arrowhead.common.dto.shared;
 
+import eu.arrowhead.common.api.model.CertificateCreationResponseDTO;
+
 import java.io.Serializable;
 import java.util.StringJoiner;
 

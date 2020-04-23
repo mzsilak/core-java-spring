@@ -42,7 +42,7 @@ import eu.arrowhead.common.dto.internal.RelayResponseDTO;
 import eu.arrowhead.common.dto.internal.RelayType;
 import eu.arrowhead.common.dto.shared.CloudRequestDTO;
 import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.exception.BadPayloadException;
+import eu.arrowhead.common.api.exception.BadPayloadException;
 import eu.arrowhead.core.gatekeeper.database.service.GatekeeperDBService;
 import eu.arrowhead.core.gatekeeper.service.GatekeeperService;
 import io.swagger.annotations.Api;
@@ -415,7 +415,7 @@ public class GatekeeperController {
 		
 		validateRelayRequestDTO(dto, origin);
 		final RelayResponseDTO relayResponse = gatekeeperDBService.updateRelayByIdResponse(id, dto.getAddress(), dto.getPort(), dto.isSecure(), dto.isExclusive(),
-																						   Utilities.convertStringToRelayType(dto.getType()));
+																						   GateKeeperUtilities.convertStringToRelayType(dto.getType()));
 		
 		logger.debug("Relay with id '{}' is successfully updated", id);
 		return relayResponse;
@@ -499,7 +499,7 @@ public class GatekeeperController {
 		
 		final boolean isAddressInvalid = Utilities.isEmpty(dto.getAddress());
 		final boolean isPortInvalid = dto.getPort() == null || isPortOutOfValidRange(dto.getPort());
-		final boolean isTypeInvalid = Utilities.convertStringToRelayType(dto.getType()) == null;
+		final boolean isTypeInvalid = GateKeeperUtilities.convertStringToRelayType(dto.getType()) == null;
 		final boolean isGatekeeperRelayAndExclusive = dto.isExclusive() && dto.getType().trim().equalsIgnoreCase(RelayType.GATEKEEPER_RELAY.toString());
 		final boolean isGeneralRelayAndExclusive = dto.isExclusive() && dto.getType().trim().equalsIgnoreCase(RelayType.GENERAL_RELAY.toString());
 		

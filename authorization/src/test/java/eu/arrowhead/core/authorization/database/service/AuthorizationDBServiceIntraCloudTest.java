@@ -35,7 +35,7 @@ import eu.arrowhead.common.database.repository.ServiceInterfaceRepository;
 import eu.arrowhead.common.database.repository.SystemRepository;
 import eu.arrowhead.common.dto.internal.AuthorizationIntraCloudCheckResponseDTO;
 import eu.arrowhead.common.dto.internal.IdIdListDTO;
-import eu.arrowhead.common.exception.InvalidParameterException;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
 
 @RunWith(SpringRunner.class)
 public class AuthorizationDBServiceIntraCloudTest {

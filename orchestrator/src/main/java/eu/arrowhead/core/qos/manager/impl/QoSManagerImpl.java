@@ -16,7 +16,7 @@ import eu.arrowhead.common.database.entity.QoSReservation;
 import eu.arrowhead.common.dto.shared.OrchestrationFormRequestDTO;
 import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
 import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.ArrowheadException;
 import eu.arrowhead.core.qos.database.service.QoSReservationDBService;
 import eu.arrowhead.core.qos.manager.QoSManager;
 import eu.arrowhead.core.qos.manager.QoSVerifier;

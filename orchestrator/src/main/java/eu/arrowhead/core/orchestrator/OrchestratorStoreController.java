@@ -33,7 +33,7 @@ import eu.arrowhead.common.dto.internal.OrchestratorStoreListResponseDTO;
 import eu.arrowhead.common.dto.internal.OrchestratorStoreModifyPriorityRequestDTO;
 import eu.arrowhead.common.dto.internal.OrchestratorStoreRequestDTO;
 import eu.arrowhead.common.dto.internal.OrchestratorStoreResponseDTO;
-import eu.arrowhead.common.exception.BadPayloadException;
+import eu.arrowhead.common.api.exception.BadPayloadException;
 import eu.arrowhead.core.orchestrator.database.service.OrchestratorStoreDBService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

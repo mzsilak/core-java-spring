@@ -38,9 +38,9 @@ import eu.arrowhead.common.dto.internal.GatewayConsumerConnectionRequestDTO;
 import eu.arrowhead.common.dto.internal.GatewayProviderConnectionRequestDTO;
 import eu.arrowhead.common.dto.internal.RelayRequestDTO;
 import eu.arrowhead.common.dto.shared.CloudRequestDTO;
-import eu.arrowhead.common.dto.shared.ErrorMessageDTO;
+import eu.arrowhead.common.api.model.ErrorMessageDTO;
 import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.exception.ExceptionType;
+import eu.arrowhead.common.api.exception.ExceptionType;
 import eu.arrowhead.core.gateway.service.ActiveSessionDTO;
 import eu.arrowhead.core.gateway.service.ActiveSessionListDTO;
 

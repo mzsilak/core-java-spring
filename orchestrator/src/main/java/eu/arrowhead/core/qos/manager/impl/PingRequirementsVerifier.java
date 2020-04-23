@@ -14,7 +14,7 @@ import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.dto.internal.PingMeasurementResponseDTO;
 import eu.arrowhead.common.dto.shared.OrchestrationFormRequestDTO;
 import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
-import eu.arrowhead.common.exception.InvalidParameterException;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
 import eu.arrowhead.core.orchestrator.service.OrchestratorDriver;
 import eu.arrowhead.core.qos.manager.QoSVerifier;
 

@@ -2,6 +2,7 @@ package eu.arrowhead.common.dto.shared;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import eu.arrowhead.deviceregistry.api.model.DeviceRequestDTO;
 
 import java.io.Serializable;
 import java.util.Map;

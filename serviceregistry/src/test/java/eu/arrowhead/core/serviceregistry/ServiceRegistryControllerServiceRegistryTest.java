@@ -58,7 +58,7 @@ import eu.arrowhead.common.dto.internal.ServiceRegistryGroupedResponseDTO;
 import eu.arrowhead.common.dto.internal.ServiceRegistryListResponseDTO;
 import eu.arrowhead.common.dto.internal.ServicesGroupedByServiceDefinitionResponseDTO;
 import eu.arrowhead.common.dto.internal.ServicesGroupedBySystemsResponseDTO;
-import eu.arrowhead.common.dto.shared.ErrorMessageDTO;
+import eu.arrowhead.common.api.model.ErrorMessageDTO;
 import eu.arrowhead.common.dto.shared.ServiceQueryFormDTO;
 import eu.arrowhead.common.dto.shared.ServiceQueryResultDTO;
 import eu.arrowhead.common.dto.shared.ServiceRegistryRequestDTO;
@@ -66,7 +66,7 @@ import eu.arrowhead.common.dto.shared.ServiceRegistryResponseDTO;
 import eu.arrowhead.common.dto.shared.ServiceSecurityType;
 import eu.arrowhead.common.dto.shared.SystemRequestDTO;
 import eu.arrowhead.common.dto.shared.SystemResponseDTO;
-import eu.arrowhead.common.exception.ExceptionType;
+import eu.arrowhead.common.api.exception.ExceptionType;
 import eu.arrowhead.core.serviceregistry.database.service.ServiceRegistryDBService;
 
 @RunWith(SpringRunner.class)

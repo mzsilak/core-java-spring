@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import eu.arrowhead.common.database.entity.ServiceDefinition;
 import eu.arrowhead.common.database.repository.ServiceDefinitionRepository;
-import eu.arrowhead.common.exception.InvalidParameterException;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
 
 @RunWith (SpringRunner.class)
 public class ServiceRegistryDBServiceServiceDefinitionTest {

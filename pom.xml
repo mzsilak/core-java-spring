@@ -23,7 +23,8 @@
   	</licenses>
   	
   	<modules>
-	    <module>core-common</module>
+		<module>common-api</module>
+		<module>core-common</module>
 	    <module>serviceregistry</module>
 	    <module>authorization</module>
 	    <module>certificate-authority</module>
@@ -33,6 +34,7 @@
 	    <module>gateway</module>
 	    <module>choreographer</module>
 		<module>systemregistry</module>
+		<module>deviceregistry-api</module>
 		<module>deviceregistry</module>
 		<module>onboarding</module>
 	    <module>qos-monitor</module>

@@ -228,7 +228,7 @@ public class GatekeeperControllerRelayTest {
 		
 		final List<RelayRequestDTO> requestDTOList = List.of(new RelayRequestDTO(testAddress, testPort, testSecure, testExclusive, testType));
 		final RelayListResponseDTO responseDTOList = new RelayListResponseDTO(List.of(new RelayResponseDTO(1, testAddress, testPort, testSecure, testExclusive,
-																					  Utilities.convertStringToRelayType(testType), "", "")), 1);
+																										   GateKeeperUtilities.convertStringToRelayType(testType), "", "")), 1);
 		when(gatekeeperDBService.registerBulkRelaysResponse(any())).thenReturn(responseDTOList); 
 		
 		final MvcResult response = this.mockMvc.perform(post(RELAYS_MGMT_URI)
@@ -376,7 +376,7 @@ public class GatekeeperControllerRelayTest {
 		final String testType = "GENERAL_RELAY";
 		
 		final RelayRequestDTO requestDTO = new RelayRequestDTO(testAddress, testPort, testSecure, testExclusive, testType);
-		final RelayResponseDTO responseDTO = new RelayResponseDTO(testId, testAddress, testPort, testSecure, testExclusive, Utilities.convertStringToRelayType(testType), "", "");
+		final RelayResponseDTO responseDTO = new RelayResponseDTO(testId, testAddress, testPort, testSecure, testExclusive, GateKeeperUtilities.convertStringToRelayType(testType), "", "");
 		when(gatekeeperDBService.updateRelayByIdResponse(anyLong(), any(), anyInt(), anyBoolean(), anyBoolean(), any())).thenReturn(responseDTO); 
 		
 		final MvcResult response = this.mockMvc.perform(put(RELAYS_MGMT_URI + "/" + testId)

@@ -49,7 +49,7 @@ import eu.arrowhead.common.dto.shared.SubscriptionRequestDTO;
 import eu.arrowhead.common.dto.shared.SubscriptionResponseDTO;
 import eu.arrowhead.common.dto.shared.SystemRequestDTO;
 import eu.arrowhead.common.dto.shared.SystemResponseDTO;
-import eu.arrowhead.common.exception.InvalidParameterException;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
 import eu.arrowhead.core.eventhandler.service.EventHandlerDriver;
 import eu.arrowhead.core.eventhandler.service.EventHandlerService;
 

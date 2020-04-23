@@ -22,6 +22,16 @@
 			<version>1.64</version>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>eu.arrowhead</groupId>
+			<artifactId>arrowhead-common-api</artifactId>
+			<version>${revision}</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.arrowhead</groupId>
+			<artifactId>arrowhead-deviceregistry-api</artifactId>
+			<version>${revision}</version>
+		</dependency>
 	</dependencies>
 
 	<build>

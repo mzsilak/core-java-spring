@@ -9,7 +9,7 @@ import org.springframework.util.Assert;
 import eu.arrowhead.common.Utilities;
 import eu.arrowhead.common.dto.internal.GSDPollRequestDTO;
 import eu.arrowhead.common.dto.internal.ICNProposalRequestDTO;
-import eu.arrowhead.common.exception.DataNotFoundException;
+import eu.arrowhead.common.api.exception.DataNotFoundException;
 
 public class GatekeeperRelayRequest {
 

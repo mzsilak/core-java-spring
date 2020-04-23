@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 
 import eu.arrowhead.common.ApplicationInitListener;
 import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.ArrowheadException;
 import eu.arrowhead.core.gateway.service.ActiveSessionDTO;
 import eu.arrowhead.core.gateway.service.GatewayService;
 

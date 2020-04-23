@@ -14,9 +14,9 @@ import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.Utilities;
 import eu.arrowhead.common.database.entity.Cloud;
 import eu.arrowhead.common.database.repository.CloudRepository;
-import eu.arrowhead.common.exception.ArrowheadException;
-import eu.arrowhead.common.exception.DataNotFoundException;
-import eu.arrowhead.common.exception.InvalidParameterException;
+import eu.arrowhead.common.api.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.DataNotFoundException;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
 
 @Service
 public class CommonDBService {

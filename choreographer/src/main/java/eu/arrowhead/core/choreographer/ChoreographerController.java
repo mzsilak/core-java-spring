@@ -13,7 +13,7 @@ import eu.arrowhead.common.dto.internal.ChoreographerRunPlanRequestDTO;
 import eu.arrowhead.common.dto.internal.ChoreographerStartSessionDTO;
 import eu.arrowhead.common.dto.shared.ChoreographerSessionRunningStepDataDTO;
 import eu.arrowhead.common.dto.shared.ChoreographerPlanResponseDTO;
-import eu.arrowhead.common.exception.BadPayloadException;
+import eu.arrowhead.common.api.exception.BadPayloadException;
 import eu.arrowhead.core.choreographer.database.service.ChoreographerDBService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

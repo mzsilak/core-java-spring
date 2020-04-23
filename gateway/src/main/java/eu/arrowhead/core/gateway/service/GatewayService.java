@@ -12,6 +12,7 @@ import javax.annotation.Resource;
 import javax.jms.JMSException;
 import javax.jms.Session;
 
+import eu.arrowhead.core.gateway.GateWayUtilities;
 import org.apache.http.HttpStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -34,9 +35,9 @@ import eu.arrowhead.common.dto.internal.RelayRequestDTO;
 import eu.arrowhead.common.dto.internal.RelayType;
 import eu.arrowhead.common.dto.shared.CloudRequestDTO;
 import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.exception.ArrowheadException;
-import eu.arrowhead.common.exception.InvalidParameterException;
-import eu.arrowhead.common.exception.UnavailableServerException;
+import eu.arrowhead.common.api.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
+import eu.arrowhead.common.api.exception.UnavailableServerException;
 import eu.arrowhead.core.gateway.relay.ConsumerSideRelayInfo;
 import eu.arrowhead.core.gateway.relay.ControlRelayInfo;
 import eu.arrowhead.core.gateway.relay.GatewayRelayClient;
@@ -302,7 +303,7 @@ public class GatewayService {
 			throw new InvalidParameterException("Relay type is null or blank");
 		}
 		
-		final RelayType type = Utilities.convertStringToRelayType(relay.getType());
+		final RelayType type = GateWayUtilities.convertStringToRelayType(relay.getType());
 		if (type == null || type == RelayType.GATEKEEPER_RELAY) {
 			throw new InvalidParameterException("Relay type is invalid");
 		}

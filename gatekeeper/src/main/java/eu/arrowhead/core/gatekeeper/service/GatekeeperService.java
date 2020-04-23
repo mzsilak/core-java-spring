@@ -8,6 +8,7 @@ import java.util.Set;
 
 import javax.annotation.Resource;
 
+import eu.arrowhead.core.gatekeeper.GateKeeperUtilities;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +39,8 @@ import eu.arrowhead.common.dto.internal.ICNResultDTO;
 import eu.arrowhead.common.dto.internal.RelayRequestDTO;
 import eu.arrowhead.common.dto.internal.RelayType;
 import eu.arrowhead.common.dto.shared.CloudRequestDTO;
-import eu.arrowhead.common.dto.shared.ErrorMessageDTO;
-import eu.arrowhead.common.dto.shared.ErrorWrapperDTO;
+import eu.arrowhead.common.api.model.ErrorMessageDTO;
+import eu.arrowhead.common.api.model.ErrorWrapperDTO;
 import eu.arrowhead.common.dto.shared.OrchestrationFlags.Flag;
 import eu.arrowhead.common.dto.shared.OrchestrationFormRequestDTO;
 import eu.arrowhead.common.dto.shared.OrchestrationResponseDTO;
@@ -49,9 +50,9 @@ import eu.arrowhead.common.dto.shared.ServiceInterfaceResponseDTO;
 import eu.arrowhead.common.dto.shared.ServiceQueryResultDTO;
 import eu.arrowhead.common.dto.shared.ServiceRegistryResponseDTO;
 import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.exception.AuthException;
-import eu.arrowhead.common.exception.InvalidParameterException;
-import eu.arrowhead.common.exception.UnavailableServerException;
+import eu.arrowhead.common.api.exception.AuthException;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
+import eu.arrowhead.common.api.exception.UnavailableServerException;
 import eu.arrowhead.core.gatekeeper.database.service.GatekeeperDBService;
 import eu.arrowhead.core.gatekeeper.service.matchmaking.ICNProviderMatchmakingAlgorithm;
 import eu.arrowhead.core.gatekeeper.service.matchmaking.ICNProviderMatchmakingParameters;
@@ -143,7 +144,7 @@ public class GatekeeperService {
 		}
 		
 		if (successfulResponses.isEmpty() && !errorMessageResponses.isEmpty()) {
-			Utilities.createExceptionFromErrorMessageDTO(errorMessageResponses.get(0));
+			Utilities.throwExceptionFromErrorMessageDTO(errorMessageResponses.get(0));
 		}
 		
 		return new GSDQueryResultDTO(successfulResponses, unsuccessfulRequests);
@@ -493,7 +494,7 @@ public class GatekeeperService {
 			throw new InvalidParameterException("Relay type is null or blank");
 		}
 		
-		final RelayType type = Utilities.convertStringToRelayType(relay.getType());
+		final RelayType type = GateKeeperUtilities.convertStringToRelayType(relay.getType());
 		if (type == null || type == RelayType.GATEKEEPER_RELAY) {
 			throw new InvalidParameterException("Relay type is invalid");
 		}

@@ -8,7 +8,7 @@ import eu.arrowhead.common.CoreUtilities.ValidatedPageParams;
 import eu.arrowhead.common.Defaults;
 import eu.arrowhead.common.dto.internal.PingMeasurementListResponseDTO;
 import eu.arrowhead.common.dto.internal.PingMeasurementResponseDTO;
-import eu.arrowhead.common.exception.BadPayloadException;
+import eu.arrowhead.common.api.exception.BadPayloadException;
 import eu.arrowhead.core.qos.database.service.QoSDBService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

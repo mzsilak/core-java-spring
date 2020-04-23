@@ -12,7 +12,7 @@ import eu.arrowhead.common.Utilities;
 import eu.arrowhead.common.core.CoreSystem;
 import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
 import eu.arrowhead.common.dto.shared.SubscriptionRequestDTO;
-import eu.arrowhead.common.exception.AuthException;
+import eu.arrowhead.common.api.exception.AuthException;
 import eu.arrowhead.common.security.CoreSystemAccessControlFilter;
 
 @Component

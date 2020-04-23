@@ -48,8 +48,8 @@ import eu.arrowhead.common.dto.internal.DTOUtilities;
 import eu.arrowhead.common.dto.internal.IdIdListDTO;
 import eu.arrowhead.common.dto.shared.SystemRequestDTO;
 import eu.arrowhead.common.dto.shared.SystemResponseDTO;
-import eu.arrowhead.common.exception.ArrowheadException;
-import eu.arrowhead.common.exception.InvalidParameterException;
+import eu.arrowhead.common.api.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
 import eu.arrowhead.core.authorization.service.AuthorizationDriver;
 import eu.arrowhead.core.authorization.service.PublishAuthUpdateTask;
 

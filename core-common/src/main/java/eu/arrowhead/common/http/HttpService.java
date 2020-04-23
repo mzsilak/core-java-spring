@@ -49,8 +49,8 @@ import org.springframework.web.util.UriComponents;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.SSLProperties;
 import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.exception.AuthException;
-import eu.arrowhead.common.exception.UnavailableServerException;
+import eu.arrowhead.common.api.exception.AuthException;
+import eu.arrowhead.common.api.exception.UnavailableServerException;
 
 @Component
 public class HttpService {

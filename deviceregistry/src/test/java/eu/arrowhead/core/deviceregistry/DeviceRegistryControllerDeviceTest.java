@@ -2,8 +2,6 @@ package eu.arrowhead.core.deviceregistry;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doThrow;
@@ -17,17 +15,14 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import eu.arrowhead.common.database.service.CommonDBService;
 import eu.arrowhead.common.dto.internal.DeviceListResponseDTO;
-import eu.arrowhead.common.dto.shared.DeviceRequestDTO;
-import eu.arrowhead.common.dto.shared.DeviceResponseDTO;
-import eu.arrowhead.common.exception.InvalidParameterException;
+import eu.arrowhead.deviceregistry.api.model.DeviceRequestDTO;
+import eu.arrowhead.deviceregistry.api.model.DeviceResponseDTO;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
 import eu.arrowhead.core.deviceregistry.database.service.DeviceRegistryDBService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.mockito.stubbing.OngoingStubbing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;

@@ -21,10 +21,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.dto.shared.ErrorMessageDTO;
-import eu.arrowhead.common.exception.ArrowheadException;
-import eu.arrowhead.common.exception.AuthException;
-import eu.arrowhead.common.exception.ExceptionType;
+import eu.arrowhead.common.api.model.ErrorMessageDTO;
+import eu.arrowhead.common.api.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.AuthException;
+import eu.arrowhead.common.api.exception.ExceptionType;
 
 @RunWith(SpringRunner.class)
 public class RelayCryptographerEncodeTest {

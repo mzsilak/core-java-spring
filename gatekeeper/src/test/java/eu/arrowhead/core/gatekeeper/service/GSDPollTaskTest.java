@@ -38,11 +38,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import eu.arrowhead.common.dto.internal.GSDPollRequestDTO;
 import eu.arrowhead.common.dto.internal.GSDPollResponseDTO;
-import eu.arrowhead.common.dto.shared.ErrorMessageDTO;
-import eu.arrowhead.common.dto.shared.ErrorWrapperDTO;
-import eu.arrowhead.common.exception.BadPayloadException;
-import eu.arrowhead.common.exception.ExceptionType;
-import eu.arrowhead.common.exception.InvalidParameterException;
+import eu.arrowhead.common.api.model.ErrorMessageDTO;
+import eu.arrowhead.common.api.model.ErrorWrapperDTO;
+import eu.arrowhead.common.api.exception.BadPayloadException;
+import eu.arrowhead.common.api.exception.ExceptionType;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
 import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayClient;
 import eu.arrowhead.core.gatekeeper.relay.GeneralAdvertisementResult;
 

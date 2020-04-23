@@ -18,9 +18,9 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import eu.arrowhead.common.dto.internal.CertificateSigningRequestDTO;
-import eu.arrowhead.common.exception.AuthException;
-import eu.arrowhead.common.exception.BadPayloadException;
-import eu.arrowhead.common.exception.DataNotFoundException;
+import eu.arrowhead.common.api.exception.AuthException;
+import eu.arrowhead.common.api.exception.BadPayloadException;
+import eu.arrowhead.common.api.exception.DataNotFoundException;
 
 @RunWith(SpringRunner.class)
 public class CertificateAuthorityUtilsTest {

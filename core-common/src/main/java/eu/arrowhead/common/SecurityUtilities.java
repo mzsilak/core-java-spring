@@ -1,11 +1,11 @@
 package eu.arrowhead.common;
 
-import eu.arrowhead.common.dto.shared.CertificateCreationRequestDTO;
-import eu.arrowhead.common.dto.shared.CertificateCreationResponseDTO;
-import eu.arrowhead.common.dto.shared.CertificateType;
-import eu.arrowhead.common.dto.shared.KeyPairDTO;
-import eu.arrowhead.common.exception.ArrowheadException;
-import eu.arrowhead.common.exception.AuthException;
+import eu.arrowhead.common.api.model.CertificateCreationRequestDTO;
+import eu.arrowhead.common.api.model.CertificateCreationResponseDTO;
+import eu.arrowhead.common.api.model.CertificateType;
+import eu.arrowhead.common.api.model.KeyPairDTO;
+import eu.arrowhead.common.api.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.AuthException;
 import org.apache.http.HttpStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

@@ -4,13 +4,11 @@ import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.SecurityUtilities;
 import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.exception.ArrowheadException;
-import eu.arrowhead.common.exception.AuthException;
+import eu.arrowhead.common.api.exception.ArrowheadException;
 import eu.arrowhead.common.filter.thirdparty.MultiReadRequestWrapper;
 import eu.arrowhead.common.security.CoreSystemAccessControlFilter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
-import org.springframework.util.Assert;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -19,8 +17,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Map;
-
-import static eu.arrowhead.common.CommonConstants.ONBOARDING_AUTH_WITH_SHARED_SECRET_URI;
 
 @Component
 @ConditionalOnProperty(name = CommonConstants.SERVER_SSL_ENABLED, matchIfMissing = true)

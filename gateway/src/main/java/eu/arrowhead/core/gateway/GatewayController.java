@@ -42,8 +42,8 @@ import eu.arrowhead.common.dto.internal.RelayRequestDTO;
 import eu.arrowhead.common.dto.internal.RelayType;
 import eu.arrowhead.common.dto.shared.CloudRequestDTO;
 import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.exception.ArrowheadException;
-import eu.arrowhead.common.exception.BadPayloadException;
+import eu.arrowhead.common.api.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.BadPayloadException;
 import eu.arrowhead.core.gateway.service.ActiveSessionDTO;
 import eu.arrowhead.core.gateway.service.ActiveSessionListDTO;
 import eu.arrowhead.core.gateway.service.GatewayService;
@@ -369,7 +369,7 @@ public class GatewayController {
 			throw new BadPayloadException("Relay type is null or blank", HttpStatus.SC_BAD_REQUEST, origin);
 		}
 		
-		final RelayType type = Utilities.convertStringToRelayType(relay.getType());
+		final RelayType type = GateWayUtilities.convertStringToRelayType(relay.getType());
 		if (type == null || type == RelayType.GATEKEEPER_RELAY) {
 			throw new BadPayloadException("Relay type is invalid", HttpStatus.SC_BAD_REQUEST, origin);
 		}

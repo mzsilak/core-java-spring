@@ -15,6 +15,7 @@ import javax.annotation.Resource;
 import javax.jms.JMSException;
 import javax.jms.Session;
 
+import eu.arrowhead.core.gatekeeper.GateKeeperUtilities;
 import org.apache.http.HttpStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -48,7 +49,7 @@ import eu.arrowhead.common.dto.internal.IdIdListDTO;
 import eu.arrowhead.common.dto.internal.RelayRequestDTO;
 import eu.arrowhead.common.dto.internal.RelayType;
 import eu.arrowhead.common.dto.shared.CloudRequestDTO;
-import eu.arrowhead.common.dto.shared.ErrorWrapperDTO;
+import eu.arrowhead.common.api.model.ErrorWrapperDTO;
 import eu.arrowhead.common.dto.shared.OrchestrationFormRequestDTO;
 import eu.arrowhead.common.dto.shared.OrchestrationResponseDTO;
 import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
@@ -57,8 +58,8 @@ import eu.arrowhead.common.dto.shared.ServiceQueryFormDTO;
 import eu.arrowhead.common.dto.shared.ServiceQueryResultDTO;
 import eu.arrowhead.common.dto.shared.ServiceRegistryResponseDTO;
 import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.exception.ArrowheadException;
-import eu.arrowhead.common.exception.TimeoutException;
+import eu.arrowhead.common.api.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.TimeoutException;
 import eu.arrowhead.common.http.HttpService;
 import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayClient;
 import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayClientFactory;
@@ -478,7 +479,7 @@ public class GatekeeperDriver {
 		Assert.notNull(relay.getPort(), "relay port is null");
 		validateSystemPortRange(relay.getPort());
 		Assert.isTrue(!Utilities.isEmpty(relay.getType()), "relay type is null or blank");
-		final RelayType relayType = Utilities.convertStringToRelayType(relay.getType());
+		final RelayType relayType = GateKeeperUtilities.convertStringToRelayType(relay.getType());
 		if (relayType == null || relayType == RelayType.GATEKEEPER_RELAY) {
 			throw new IllegalArgumentException("Relay type is invalid");
 		}

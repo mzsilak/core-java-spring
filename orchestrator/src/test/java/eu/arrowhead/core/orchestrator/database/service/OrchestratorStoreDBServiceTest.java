@@ -40,7 +40,7 @@ import eu.arrowhead.common.dto.internal.OrchestratorStoreModifyPriorityRequestDT
 import eu.arrowhead.common.dto.internal.OrchestratorStoreRequestDTO;
 import eu.arrowhead.common.dto.shared.CloudRequestDTO;
 import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.exception.InvalidParameterException;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
 import eu.arrowhead.common.intf.ServiceInterfaceNameVerifier;
 
 @RunWith(SpringRunner.class)

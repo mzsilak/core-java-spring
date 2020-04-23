@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.database.entity.Relay;
-import eu.arrowhead.common.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.ArrowheadException;
 import eu.arrowhead.core.gatekeeper.database.service.GatekeeperDBService;
 import eu.arrowhead.core.gatekeeper.quartz.subscriber.RelaySubscriberDataContainer.RelayResource;
 import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayClient;

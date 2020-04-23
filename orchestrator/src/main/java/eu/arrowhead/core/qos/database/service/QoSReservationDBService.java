@@ -18,7 +18,7 @@ import eu.arrowhead.common.database.entity.QoSReservation;
 import eu.arrowhead.common.database.repository.QoSReservationRepository;
 import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
 import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.ArrowheadException;
 import eu.arrowhead.core.orchestrator.service.OrchestratorDriver;
 
 @Service

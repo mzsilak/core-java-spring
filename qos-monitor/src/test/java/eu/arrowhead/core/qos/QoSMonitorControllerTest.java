@@ -37,11 +37,11 @@ import eu.arrowhead.common.Utilities;
 import eu.arrowhead.common.dto.internal.PingMeasurementListResponseDTO;
 import eu.arrowhead.common.dto.internal.PingMeasurementResponseDTO;
 import eu.arrowhead.common.dto.internal.QoSIntraMeasurementResponseDTO;
-import eu.arrowhead.common.dto.shared.ErrorMessageDTO;
+import eu.arrowhead.common.api.model.ErrorMessageDTO;
 import eu.arrowhead.common.dto.shared.QoSMeasurementType;
 import eu.arrowhead.common.dto.shared.SystemResponseDTO;
-import eu.arrowhead.common.exception.ArrowheadException;
-import eu.arrowhead.common.exception.ExceptionType;
+import eu.arrowhead.common.api.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.ExceptionType;
 import eu.arrowhead.core.qos.database.service.QoSDBService;
 
 @RunWith(SpringRunner.class)

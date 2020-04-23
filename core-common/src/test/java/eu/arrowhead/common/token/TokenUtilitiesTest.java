@@ -12,8 +12,8 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.exception.AuthException;
-import eu.arrowhead.common.exception.InvalidParameterException;
+import eu.arrowhead.common.api.exception.AuthException;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
 import eu.arrowhead.common.token.TokenUtilities.TokenInfo;
 
 @RunWith(SpringRunner.class)

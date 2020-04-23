@@ -37,10 +37,10 @@ import eu.arrowhead.common.dto.internal.GSDPollResponseDTO;
 import eu.arrowhead.common.dto.internal.GeneralAdvertisementMessageDTO;
 import eu.arrowhead.common.dto.internal.ICNProposalRequestDTO;
 import eu.arrowhead.common.dto.internal.ICNProposalResponseDTO;
-import eu.arrowhead.common.dto.shared.ErrorMessageDTO;
-import eu.arrowhead.common.exception.ArrowheadException;
-import eu.arrowhead.common.exception.AuthException;
-import eu.arrowhead.common.exception.InvalidParameterException;
+import eu.arrowhead.common.api.model.ErrorMessageDTO;
+import eu.arrowhead.common.api.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.AuthException;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
 import eu.arrowhead.common.relay.RelayCryptographer;
 import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayClient;
 import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayRequest;
@@ -526,7 +526,7 @@ public class ActiveMQGatekeeperRelayClient implements GatekeeperRelayClient {
 		}
 		
 		logger.error("Request returned with {}: {}", dto.getExceptionType(), dto.getErrorMessage());
-		Utilities.createExceptionFromErrorMessageDTO(dto);
+		Utilities.throwExceptionFromErrorMessageDTO(dto);
 	}
 	
 	//-------------------------------------------------------------------------------------------------

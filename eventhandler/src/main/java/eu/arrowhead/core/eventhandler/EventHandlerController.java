@@ -34,7 +34,7 @@ import eu.arrowhead.common.dto.shared.SubscriptionListResponseDTO;
 import eu.arrowhead.common.dto.shared.SubscriptionRequestDTO;
 import eu.arrowhead.common.dto.shared.SubscriptionResponseDTO;
 import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.exception.BadPayloadException;
+import eu.arrowhead.common.api.exception.BadPayloadException;
 import eu.arrowhead.core.eventhandler.database.service.EventHandlerDBService;
 import eu.arrowhead.core.eventhandler.service.EventHandlerService;
 import io.swagger.annotations.Api;

@@ -11,7 +11,7 @@ import java.util.Map;
 import org.springframework.util.Assert;
 
 import eu.arrowhead.common.dto.shared.OrchestrationFlags.Flag;
-import eu.arrowhead.common.exception.BadPayloadException;
+import eu.arrowhead.common.api.exception.BadPayloadException;
 
 public class OrchestrationFormRequestDTO implements Serializable {
 	

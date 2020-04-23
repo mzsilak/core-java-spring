@@ -7,7 +7,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import eu.arrowhead.common.CoreUtilities.ValidatedPageParams;
-import eu.arrowhead.common.exception.BadPayloadException;
+import eu.arrowhead.common.api.exception.BadPayloadException;
 
 @RunWith(SpringRunner.class)
 public class CoreUtilitiesTest {

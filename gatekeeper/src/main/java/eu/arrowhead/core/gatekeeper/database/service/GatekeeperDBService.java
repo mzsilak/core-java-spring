@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
+import eu.arrowhead.core.gatekeeper.GateKeeperUtilities;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +38,8 @@ import eu.arrowhead.common.dto.internal.RelayRequestDTO;
 import eu.arrowhead.common.dto.internal.RelayResponseDTO;
 import eu.arrowhead.common.dto.internal.RelayType;
 import eu.arrowhead.common.dto.shared.CloudRequestDTO;
-import eu.arrowhead.common.exception.ArrowheadException;
-import eu.arrowhead.common.exception.InvalidParameterException;
+import eu.arrowhead.common.api.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.InvalidParameterException;
 
 @Service
 public class GatekeeperDBService {
@@ -539,7 +540,8 @@ public class GatekeeperDBService {
 					throw new InvalidParameterException("List of RelayRequestDTO contains uinque constraint violation: " + address + " address with " + dto.getPort() + " port");
 				}
 				
-				relaysToSave.put(uniqueConstraint, new Relay(address, dto.getPort(), dto.isSecure(), dto.isExclusive(), Utilities.convertStringToRelayType(dto.getType())));
+				relaysToSave.put(uniqueConstraint, new Relay(address, dto.getPort(), dto.isSecure(), dto.isExclusive(), GateKeeperUtilities
+						.convertStringToRelayType(dto.getType())));
 			}
 			
 			final List<Relay> savedRelays = relayRepository.saveAll(relaysToSave.values());
@@ -716,7 +718,7 @@ public class GatekeeperDBService {
 		
 		exclusive = exclusive == null ? false : exclusive;
 		
-		final RelayType typeEnum = Utilities.convertStringToRelayType(type);
+		final RelayType typeEnum = GateKeeperUtilities.convertStringToRelayType(type);
 		if (typeEnum == null) {
 			throw new InvalidParameterException(type + " type is invalid");
 		}

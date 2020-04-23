@@ -1,50 +1,77 @@
 package eu.arrowhead.common;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 
-@Deprecated
 public class ClientSSLProperties {
 
     //=================================================================================================
     // members
-
-    @Value(CommonConstants.$SERVER_SSL_ENABLED_WD)
     private boolean sslEnabled;
-
-    @Value(CommonConstants.$KEYSTORE_TYPE)
     private String keyStoreType;
-
-    @Value(CommonConstants.$KEYSTORE_PATH)
     private Resource keyStore;
-
-    @Value(CommonConstants.$KEYSTORE_PASSWORD)
     private String keyStorePassword;
-
-    @Value(CommonConstants.$KEY_PASSWORD)
     private String keyPassword;
-
-    @Value(CommonConstants.$TRUSTSTORE_PATH)
     private Resource trustStore;
-
-    @Value(CommonConstants.$TRUSTSTORE_PASSWORD)
     private String trustStorePassword;
 
     //=================================================================================================
     // methods
 
     //-------------------------------------------------------------------------------------------------
-    public boolean isSslEnabled() { return sslEnabled; }
 
-    public String getKeyStoreType() { return keyStoreType; }
+    public boolean isSslEnabled() {
+        return sslEnabled;
+    }
 
-    public Resource getKeyStore() { return keyStore; }
+    public void setSslEnabled(final boolean sslEnabled) {
+        this.sslEnabled = sslEnabled;
+    }
 
-    public String getKeyStorePassword() { return keyStorePassword; }
+    public String getKeyStoreType() {
+        return keyStoreType;
+    }
 
-    public String getKeyPassword() { return keyPassword; }
+    public void setKeyStoreType(final String keyStoreType) {
+        this.keyStoreType = keyStoreType;
+    }
 
-    public Resource getTrustStore() { return trustStore; }
+    public Resource getKeyStore() {
+        return keyStore;
+    }
 
-    public String getTrustStorePassword() { return trustStorePassword; }
+    public void setKeyStore(final Resource keyStore) {
+        this.keyStore = keyStore;
+    }
+
+    public String getKeyStorePassword() {
+        return keyStorePassword;
+    }
+
+    public void setKeyStorePassword(final String keyStorePassword) {
+        this.keyStorePassword = keyStorePassword;
+    }
+
+    public String getKeyPassword() {
+        return keyPassword;
+    }
+
+    public void setKeyPassword(final String keyPassword) {
+        this.keyPassword = keyPassword;
+    }
+
+    public Resource getTrustStore() {
+        return trustStore;
+    }
+
+    public void setTrustStore(final Resource trustStore) {
+        this.trustStore = trustStore;
+    }
+
+    public String getTrustStorePassword() {
+        return trustStorePassword;
+    }
+
+    public void setTrustStorePassword(final String trustStorePassword) {
+        this.trustStorePassword = trustStorePassword;
+    }
 }

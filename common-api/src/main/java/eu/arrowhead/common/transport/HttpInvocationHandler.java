@@ -11,6 +11,7 @@ import eu.arrowhead.common.api.annotations.ArrowheadService;
 import eu.arrowhead.common.api.annotations.LookupPolicy;
 import eu.arrowhead.common.api.annotations.LookupSource;
 import eu.arrowhead.common.api.exception.ArrowheadException;
+import eu.arrowhead.common.api.exception.AuthException;
 import eu.arrowhead.common.api.exception.ExceptionType;
 import eu.arrowhead.common.api.exception.UnavailableServerException;
 import eu.arrowhead.common.api.model.ErrorMessageDTO;
@@ -26,6 +27,8 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 import reactor.core.publisher.Mono;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.List;
@@ -34,6 +37,9 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 public class HttpInvocationHandler implements InvocationHandler {
+
+    private static final String ERROR_MESSAGE_PART_PKIX_PATH = "PKIX path";
+    private static final String ERROR_MESSAGE_PART_SUBJECT_ALTERNATIVE_NAMES = "doesn't match any of the subject alternative names";
 
     private final Logger logger = LogManager.getLogger();
     private final Protocol protocol = Protocol.HTTP;
@@ -45,26 +51,26 @@ public class HttpInvocationHandler implements InvocationHandler {
     private final ClientSSLProperties sslProperties;
     private final WebClient webClient;
 
-    public HttpInvocationHandler(final UriComponents srUri) {
-        this(new TransportCache<>(), srUri, new ClientSSLProperties());
+    public HttpInvocationHandler(final UriComponents srUri) throws IOException {
+        this(srUri, new TransportCache<>(), new ClientSSLProperties());
     }
 
-    public HttpInvocationHandler(final UriComponents srUri, final ClientSSLProperties sslProperties) {
-        this(new TransportCache<>(), srUri, sslProperties);
+    public HttpInvocationHandler(final UriComponents srUri, final ClientSSLProperties sslProperties) throws IOException {
+        this(srUri, new TransportCache<>(), sslProperties);
     }
 
-    public HttpInvocationHandler(final TransportCache<UriComponents> serviceCache, final UriComponents srUri, final ClientSSLProperties sslProperties) {
+    public HttpInvocationHandler(final UriComponents srUri, final TransportCache<UriComponents> cache) throws IOException {
+        this(srUri, cache, new ClientSSLProperties());
+    }
+
+    public HttpInvocationHandler(final UriComponents srUri, final TransportCache<UriComponents> serviceCache, final ClientSSLProperties sslProperties)
+            throws IOException {
         this.serviceCache = Objects.requireNonNull(serviceCache, "TransportCache must not be null");
         this.srUri = Objects.requireNonNull(srUri, "ServiceRegistry URI must not be null");
         this.sslProperties = Objects.requireNonNull(sslProperties, "SSLProperties must not be null");
 
-        final JettyClientHttpConnector jettyConnector;
-        if (sslProperties.isSslEnabled()) {
-            final SslContextFactory sslFactory = create(sslProperties);
-            jettyConnector = new JettyClientHttpConnector(new HttpClient(sslFactory));
-        } else {
-            jettyConnector = new JettyClientHttpConnector();
-        }
+        final SslContextFactory sslFactory = create(sslProperties);
+        final JettyClientHttpConnector jettyConnector = new JettyClientHttpConnector(new HttpClient(sslFactory));
 
         webClient = WebClient.builder().clientConnector(jettyConnector).build();
     }
@@ -117,12 +123,14 @@ public class HttpInvocationHandler implements InvocationHandler {
     }
 
 
-    private Optional<UriComponents> findUriByOrchestrationService(final LookupPolicy.Policy policy, final String serviceDef,
+    private Optional<UriComponents> findUriByOrchestrationService(final LookupPolicy.Policy policy,
+                                                                  final String serviceDef,
                                                                   final Optional<UriComponents> cacheUri) {
         return Optional.empty();
     }
 
-    private Optional<UriComponents> findUriByServiceRegistry(final LookupPolicy.Policy policy, final String serviceDef,
+    private Optional<UriComponents> findUriByServiceRegistry(final LookupPolicy.Policy policy,
+                                                             final String serviceDef,
                                                              final Optional<UriComponents> cacheUri) {
         return Optional.empty();
     }
@@ -130,29 +138,45 @@ public class HttpInvocationHandler implements InvocationHandler {
     private boolean ping(final UriComponents cacheUri) {
         final UriComponents echoUri = createEchoUri(cacheUri);
         try {
+            logger.trace("pinging {}", echoUri);
             webClient.get()
                      .uri(echoUri.toUri())
                      .retrieve()
-                     .onStatus(errorPredicate, this::mapException)
+                     .onStatus(errorPredicate, r -> mapException(r, echoUri))
                      .bodyToMono(String.class)
                      .block();
+
             return true;
         } catch (final Throwable ex) {
+            if (ex.getMessage().contains(ERROR_MESSAGE_PART_PKIX_PATH)) {
+                logger.error("The system at {} is not part of the same certificate chain of trust!", echoUri.toUriString());
+                throw new AuthException("The system at " + echoUri.toUriString() + " is not part of the same certificate chain of trust!",
+                                        HttpStatus.UNAUTHORIZED.value(), ex);
+            } else if (ex.getMessage().contains(ERROR_MESSAGE_PART_SUBJECT_ALTERNATIVE_NAMES)) {
+                logger.error("The certificate of the system at {} does not contain the specified IP address or DNS name as a Subject Alternative Name.",
+                             echoUri.toString());
+                throw new AuthException("The certificate of the system at " + echoUri
+                        .toString() + " does not contain the specified IP address or DNS name as a Subject Alternative Name.");
+            }
+            logger.warn("Ping to {} failed with: {}", echoUri.toUriString(), ex.getMessage());
             return false;
         }
     }
 
-    private Mono<? extends Throwable> mapException(final ClientResponse clientResponse) {
-
+    private Mono<? extends Throwable> mapException(final ClientResponse clientResponse, final UriComponents echoUri) {
         return clientResponse.bodyToMono(ErrorMessageDTO.class)
-                             .onErrorResume(ex -> createUnknownException(ex, clientResponse))
-                             .flatMap(this::dtoToExceptionTransformer);
+                             .onErrorResume(ex -> createUnknownException(ex, clientResponse, echoUri))
+                             .flatMap(dto -> dtoToExceptionTransformer(dto, clientResponse, echoUri));
     }
 
-    private Mono<? extends Throwable> dtoToExceptionTransformer(final ErrorMessageDTO dto) {
+    private Mono<? extends Throwable> dtoToExceptionTransformer(final ErrorMessageDTO dto,
+                                                                final ClientResponse clientResponse,
+                                                                final UriComponents echoUri) {
+
+        final HttpStatus httpStatus = clientResponse.statusCode();
         if (Objects.isNull(dto.getExceptionType())) {
-            logger.error("Request failed at '{}' with status {}, error message: {}", dto.getOrigin(), dto.getErrorCode(), dto.getErrorMessage());
-            return Mono.error(new ArrowheadException("Unknown error occurred: " + dto.getErrorMessage(), dto.getErrorCode()));
+            logger.error("Request failed at '{}' with status {}, error message: {}", echoUri.toUriString(), httpStatus.value(), httpStatus.getReasonPhrase());
+            return Mono.error(new ArrowheadException("Unknown error occurred: " + httpStatus.getReasonPhrase(), httpStatus.value()));
         }
 
         logger.error("Request failed at '{}' with status {}, error message: {}", dto.getOrigin(), dto.getErrorCode(), dto.getErrorMessage());
@@ -160,12 +184,14 @@ public class HttpInvocationHandler implements InvocationHandler {
     }
 
     private Mono<? extends ErrorMessageDTO> createUnknownException(final Throwable ex,
-                                                                   final ClientResponse clientResponse) {
+                                                                   final ClientResponse clientResponse,
+                                                                   final UriComponents echoUri) {
         logger.debug("Unable to deserialize error message: {}", ex.getMessage(), ex);
         final ErrorMessageDTO dto = new ErrorMessageDTO();
         dto.setErrorMessage(ex.getMessage());
         dto.setErrorCode(clientResponse.rawStatusCode());
         dto.setExceptionType(ExceptionType.GENERIC);
+        dto.setOrigin(echoUri.toUriString());
 
         return Mono.just(dto);
     }
@@ -207,17 +233,18 @@ public class HttpInvocationHandler implements InvocationHandler {
         }
     }
 
-
-    private SslContextFactory create(final ClientSSLProperties sslProperties) {
+    private SslContextFactory create(final ClientSSLProperties sslProperties) throws IOException {
         final SslContextFactory sslFactory = new SslContextFactory.Client();
         if (Objects.nonNull(sslProperties.getKeyStore())) {
-            sslFactory.setKeyStorePath(Objects.requireNonNull(sslProperties.getKeyStore().getFilename()));
+            final File keyStore = sslProperties.getKeyStore().getFile();
+            sslFactory.setKeyStorePath(keyStore.getAbsolutePath());
             sslFactory.setKeyStorePassword(sslProperties.getKeyStorePassword());
             sslFactory.setKeyStoreType(sslProperties.getKeyStoreType());
             sslFactory.setKeyManagerPassword(sslProperties.getKeyPassword());
         }
         if (Objects.nonNull(sslProperties.getTrustStore())) {
-            sslFactory.setTrustStorePath(Objects.requireNonNull(sslProperties.getTrustStore().getFilename()));
+            final File trustStore = sslProperties.getTrustStore().getFile();
+            sslFactory.setTrustStorePath(trustStore.getAbsolutePath());
             sslFactory.setTrustStorePassword(sslProperties.getTrustStorePassword());
             sslFactory.setTrustStoreType(sslProperties.getKeyStoreType());
         }

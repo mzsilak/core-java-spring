@@ -18,7 +18,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
-
 import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.Set;

@@ -1,21 +1,20 @@
 package eu.arrowhead.core.gatekeeper.service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import javax.annotation.Resource;
-
-import eu.arrowhead.core.gatekeeper.GateKeeperUtilities;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
-import org.springframework.util.Assert;
-
+import eu.arrowhead.api.common.exception.AuthException;
+import eu.arrowhead.api.common.exception.InvalidParameterException;
+import eu.arrowhead.api.common.exception.UnavailableServerException;
+import eu.arrowhead.api.common.model.ErrorMessageDTO;
+import eu.arrowhead.api.common.model.ErrorWrapperDTO;
+import eu.arrowhead.api.cloud.model.CloudRequestDTO;
+import eu.arrowhead.api.orchestration.model.OrchestrationFlags.Flag;
+import eu.arrowhead.api.orchestration.model.OrchestrationFormRequestDTO;
+import eu.arrowhead.api.orchestration.model.OrchestrationResponseDTO;
+import eu.arrowhead.api.orchestration.model.OrchestrationResultDTO;
+import eu.arrowhead.api.orchestration.model.PreferredProviderDataDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceInterfaceResponseDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceQueryResultDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceRegistryResponseDTO;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.Utilities;
@@ -38,26 +37,25 @@ import eu.arrowhead.common.dto.internal.ICNRequestFormDTO;
 import eu.arrowhead.common.dto.internal.ICNResultDTO;
 import eu.arrowhead.common.dto.internal.RelayRequestDTO;
 import eu.arrowhead.common.dto.internal.RelayType;
-import eu.arrowhead.common.dto.shared.CloudRequestDTO;
-import eu.arrowhead.common.api.model.ErrorMessageDTO;
-import eu.arrowhead.common.api.model.ErrorWrapperDTO;
-import eu.arrowhead.common.dto.shared.OrchestrationFlags.Flag;
-import eu.arrowhead.common.dto.shared.OrchestrationFormRequestDTO;
-import eu.arrowhead.common.dto.shared.OrchestrationResponseDTO;
-import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
-import eu.arrowhead.common.dto.shared.PreferredProviderDataDTO;
-import eu.arrowhead.common.dto.shared.ServiceInterfaceResponseDTO;
-import eu.arrowhead.common.dto.shared.ServiceQueryResultDTO;
-import eu.arrowhead.common.dto.shared.ServiceRegistryResponseDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.api.exception.AuthException;
-import eu.arrowhead.common.api.exception.InvalidParameterException;
-import eu.arrowhead.common.api.exception.UnavailableServerException;
+import eu.arrowhead.core.gatekeeper.GateKeeperUtilities;
 import eu.arrowhead.core.gatekeeper.database.service.GatekeeperDBService;
 import eu.arrowhead.core.gatekeeper.service.matchmaking.ICNProviderMatchmakingAlgorithm;
 import eu.arrowhead.core.gatekeeper.service.matchmaking.ICNProviderMatchmakingParameters;
 import eu.arrowhead.core.gatekeeper.service.matchmaking.RelayMatchmakingAlgorithm;
 import eu.arrowhead.core.gatekeeper.service.matchmaking.RelayMatchmakingParameters;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
+
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @Service
 public class GatekeeperService {

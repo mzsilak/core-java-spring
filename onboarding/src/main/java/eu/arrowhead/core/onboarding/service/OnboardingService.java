@@ -1,5 +1,10 @@
 package eu.arrowhead.core.onboarding.service;
 
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.common.model.CertificateCreationRequestDTO;
+import eu.arrowhead.api.common.model.CertificateCreationResponseDTO;
+import eu.arrowhead.api.common.model.CertificateType;
+import eu.arrowhead.api.serviceregistry.model.ServiceEndpoint;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.SecurityUtilities;
 import eu.arrowhead.common.core.CoreSystemService;
@@ -8,16 +13,11 @@ import eu.arrowhead.common.drivers.DriverUtilities;
 import eu.arrowhead.common.drivers.OrchestrationDriver;
 import eu.arrowhead.common.dto.internal.CertificateSigningRequestDTO;
 import eu.arrowhead.common.dto.internal.CertificateSigningResponseDTO;
-import eu.arrowhead.common.api.model.CertificateCreationRequestDTO;
-import eu.arrowhead.common.api.model.CertificateCreationResponseDTO;
-import eu.arrowhead.common.api.model.CertificateType;
 import eu.arrowhead.common.dto.shared.OnboardingResponseDTO;
 import eu.arrowhead.common.dto.shared.OnboardingWithCsrRequestDTO;
 import eu.arrowhead.common.dto.shared.OnboardingWithCsrResponseDTO;
 import eu.arrowhead.common.dto.shared.OnboardingWithNameRequestDTO;
 import eu.arrowhead.common.dto.shared.OnboardingWithNameResponseDTO;
-import eu.arrowhead.common.dto.shared.ServiceEndpoint;
-import eu.arrowhead.common.api.exception.ArrowheadException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

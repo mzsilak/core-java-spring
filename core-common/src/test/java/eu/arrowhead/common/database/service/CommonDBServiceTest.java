@@ -1,21 +1,20 @@
 package eu.arrowhead.common.database.service;
 
-import static org.mockito.Mockito.when;
-
-import java.util.List;
-import java.util.Optional;
-
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.common.exception.DataNotFoundException;
+import eu.arrowhead.api.common.exception.InvalidParameterException;
+import eu.arrowhead.common.database.entity.Cloud;
+import eu.arrowhead.common.database.repository.CloudRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import eu.arrowhead.common.database.entity.Cloud;
-import eu.arrowhead.common.database.repository.CloudRepository;
-import eu.arrowhead.common.api.exception.ArrowheadException;
-import eu.arrowhead.common.api.exception.DataNotFoundException;
-import eu.arrowhead.common.api.exception.InvalidParameterException;
+import java.util.List;
+import java.util.Optional;
+
+import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 public class CommonDBServiceTest {

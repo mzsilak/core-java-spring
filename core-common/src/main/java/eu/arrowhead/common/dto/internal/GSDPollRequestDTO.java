@@ -1,9 +1,9 @@
 package eu.arrowhead.common.dto.internal;
 
-import java.io.Serializable;
+import eu.arrowhead.api.cloud.model.CloudRequestDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceQueryFormDTO;
 
-import eu.arrowhead.common.dto.shared.CloudRequestDTO;
-import eu.arrowhead.common.dto.shared.ServiceQueryFormDTO;
+import java.io.Serializable;
 
 public class GSDPollRequestDTO implements Serializable {
 

@@ -1,9 +1,6 @@
 package eu.arrowhead.core.gateway.thread;
 
-import java.util.ServiceConfigurationError;
-
-import javax.net.ssl.SSLContext;
-
+import eu.arrowhead.common.SSLProperties;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,7 +10,8 @@ import org.springframework.core.io.Resource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 
-import eu.arrowhead.common.SSLProperties;
+import javax.net.ssl.SSLContext;
+import java.util.ServiceConfigurationError;
 
 @RunWith(SpringRunner.class)
 public class SSLContextFactoryTest {

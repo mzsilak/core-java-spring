@@ -1,11 +1,10 @@
 package eu.arrowhead.core.authorization;
 
+import eu.arrowhead.core.authorization.token.TokenGenerationService;
 import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-
-import eu.arrowhead.core.authorization.token.TokenGenerationService;
 
 @Configuration
 public class AuthorizationServiceTestContext {

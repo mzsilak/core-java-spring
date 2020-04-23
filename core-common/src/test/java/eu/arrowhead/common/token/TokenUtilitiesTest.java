@@ -1,20 +1,19 @@
 package eu.arrowhead.common.token;
 
-import java.io.InputStream;
-import java.security.KeyStore;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-
+import eu.arrowhead.api.common.exception.AuthException;
+import eu.arrowhead.api.common.exception.InvalidParameterException;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.token.TokenUtilities.TokenInfo;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.api.exception.AuthException;
-import eu.arrowhead.common.api.exception.InvalidParameterException;
-import eu.arrowhead.common.token.TokenUtilities.TokenInfo;
+import java.io.InputStream;
+import java.security.KeyStore;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 
 @RunWith(SpringRunner.class)
 public class TokenUtilitiesTest {

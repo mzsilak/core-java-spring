@@ -1,37 +1,37 @@
 package eu.arrowhead.common.dto.internal;
 
+import eu.arrowhead.api.serviceregistry.model.ServiceDefinitionResponseDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceInterfaceResponseDTO;
+import eu.arrowhead.api.systemregistry.model.SystemResponseDTO;
+
 import java.io.Serializable;
 import java.util.Map;
 
-import eu.arrowhead.common.dto.shared.ServiceDefinitionResponseDTO;
-import eu.arrowhead.common.dto.shared.ServiceInterfaceResponseDTO;
-import eu.arrowhead.common.dto.shared.SystemResponseDTO;
-
 public class OrchestratorStoreResponseDTO implements Serializable {
-	
+
 	//=================================================================================================
 	// members
 
 	private static final long serialVersionUID = -6099079027561380554L;
 
 	private long id;
-	private ServiceDefinitionResponseDTO serviceDefinition;	
+	private ServiceDefinitionResponseDTO serviceDefinition;
 	private SystemResponseDTO consumerSystem;
 	private boolean foreign;
 	private SystemResponseDTO providerSystem;
 	private CloudResponseDTO providerCloud;
 	private ServiceInterfaceResponseDTO serviceInterface;
-	private int priority;	
-	private Map<String,String> attribute;	
-	private String createdAt;	
+	private int priority;
+	private Map<String,String> attribute;
+	private String createdAt;
 	private String updatedAt;
-	
+
 	//=================================================================================================
 	// methods
-	
+
 	//-------------------------------------------------------------------------------------------------
 	public OrchestratorStoreResponseDTO() {}
-	
+
 	//-------------------------------------------------------------------------------------------------
 	public OrchestratorStoreResponseDTO(final long id, final ServiceDefinitionResponseDTO serviceDefinition, final SystemResponseDTO consumerSystem, final boolean foreign,
 									    final SystemResponseDTO providerSystem, final CloudResponseDTO providerCloud, final ServiceInterfaceResponseDTO serviceInterface, final int priority,

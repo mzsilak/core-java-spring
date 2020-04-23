@@ -1,29 +1,10 @@
 package eu.arrowhead.core.serviceregistry.database.service;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.when;
-
-import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
-
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Spy;
-import org.springframework.data.domain.Sort.Direction;
-import org.springframework.test.context.junit4.SpringRunner;
-
+import eu.arrowhead.api.common.exception.InvalidParameterException;
+import eu.arrowhead.api.serviceregistry.model.ServiceQueryFormDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceQueryResultDTO;
+import eu.arrowhead.api.systemregistry.model.ServiceSecurityType;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.SSLProperties;
 import eu.arrowhead.common.database.entity.ServiceDefinition;
@@ -36,13 +17,31 @@ import eu.arrowhead.common.database.repository.ServiceInterfaceRepository;
 import eu.arrowhead.common.database.repository.ServiceRegistryInterfaceConnectionRepository;
 import eu.arrowhead.common.database.repository.ServiceRegistryRepository;
 import eu.arrowhead.common.database.repository.SystemRepository;
-import eu.arrowhead.common.dto.shared.ServiceQueryFormDTO;
-import eu.arrowhead.common.dto.shared.ServiceQueryResultDTO;
-import eu.arrowhead.common.dto.shared.ServiceRegistryRequestDTO;
-import eu.arrowhead.common.dto.shared.ServiceSecurityType;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.api.exception.InvalidParameterException;
+import eu.arrowhead.api.serviceregistry.model.ServiceRegistryRequestDTO;
 import eu.arrowhead.common.intf.ServiceInterfaceNameVerifier;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Spy;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 public class ServiceRegistryDBServiceServiceRegistryTest {

@@ -1,12 +1,11 @@
 package eu.arrowhead.common.dto.internal;
 
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
+import org.springframework.util.Assert;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.springframework.util.Assert;
-
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
 
 public class TokenGenerationProviderDTO implements Serializable {
 	

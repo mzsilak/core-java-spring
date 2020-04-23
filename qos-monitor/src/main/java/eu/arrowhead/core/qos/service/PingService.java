@@ -1,8 +1,8 @@
 package eu.arrowhead.core.qos.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import eu.arrowhead.api.common.exception.InvalidParameterException;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.core.qos.measurement.properties.PingMeasurementProperties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.icmp4j.IcmpPingRequest;
@@ -11,9 +11,8 @@ import org.icmp4j.IcmpPingUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.api.exception.InvalidParameterException;
-import eu.arrowhead.core.qos.measurement.properties.PingMeasurementProperties;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class PingService {

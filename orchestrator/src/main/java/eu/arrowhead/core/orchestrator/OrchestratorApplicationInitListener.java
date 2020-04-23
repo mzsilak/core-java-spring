@@ -1,16 +1,5 @@
 package eu.arrowhead.core.orchestrator;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.stereotype.Component;
-import org.springframework.web.util.UriComponents;
-
 import eu.arrowhead.common.ApplicationInitListener;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.CoreCommonConstants;
@@ -25,6 +14,16 @@ import eu.arrowhead.core.orchestrator.matchmaking.RandomIntraCloudProviderMatchm
 import eu.arrowhead.core.qos.manager.QoSManager;
 import eu.arrowhead.core.qos.manager.impl.DummyQoSManager;
 import eu.arrowhead.core.qos.manager.impl.QoSManagerImpl;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.stereotype.Component;
+import org.springframework.web.util.UriComponents;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @Component
 public class OrchestratorApplicationInitListener extends ApplicationInitListener {

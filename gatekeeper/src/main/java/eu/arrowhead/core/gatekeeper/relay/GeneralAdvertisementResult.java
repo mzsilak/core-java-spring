@@ -1,12 +1,10 @@
 package eu.arrowhead.core.gatekeeper.relay;
 
-import java.security.PublicKey;
-
-import javax.jms.MessageConsumer;
-
+import eu.arrowhead.common.Utilities;
 import org.springframework.util.Assert;
 
-import eu.arrowhead.common.Utilities;
+import javax.jms.MessageConsumer;
+import java.security.PublicKey;
 
 public class GeneralAdvertisementResult {
 

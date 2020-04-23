@@ -1,20 +1,13 @@
 package eu.arrowhead.core.qos.manager.impl;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.ArgumentMatchers.anyMap;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.orchestration.model.OrchestrationFormRequestDTO;
+import eu.arrowhead.api.orchestration.model.OrchestrationResultDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceDefinitionResponseDTO;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
+import eu.arrowhead.api.systemregistry.model.SystemResponseDTO;
+import eu.arrowhead.core.qos.database.service.QoSReservationDBService;
+import eu.arrowhead.core.qos.manager.QoSVerifier;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,14 +17,20 @@ import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 
-import eu.arrowhead.common.dto.shared.OrchestrationFormRequestDTO;
-import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
-import eu.arrowhead.common.dto.shared.ServiceDefinitionResponseDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.dto.shared.SystemResponseDTO;
-import eu.arrowhead.common.api.exception.ArrowheadException;
-import eu.arrowhead.core.qos.database.service.QoSReservationDBService;
-import eu.arrowhead.core.qos.manager.QoSVerifier;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyMap;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 public class QoSManagerImplTest {

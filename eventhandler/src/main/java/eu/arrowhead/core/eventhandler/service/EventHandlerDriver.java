@@ -1,12 +1,20 @@
 package eu.arrowhead.core.eventhandler.service;
 
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeParseException;
-import java.util.Map;
-import java.util.Set;
-
-import javax.annotation.Resource;
-
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.common.exception.InvalidParameterException;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.core.CoreSystemService;
+import eu.arrowhead.common.database.entity.Subscription;
+import eu.arrowhead.common.dto.internal.AuthorizationSubscriptionCheckRequestDTO;
+import eu.arrowhead.common.dto.internal.AuthorizationSubscriptionCheckResponseDTO;
+import eu.arrowhead.common.dto.internal.EventPublishStartDTO;
+import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
+import eu.arrowhead.api.systemregistry.model.SystemResponseDTO;
+import eu.arrowhead.common.http.HttpService;
+import eu.arrowhead.core.eventhandler.publish.PublishingQueue;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,21 +25,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 import org.springframework.web.util.UriComponents;
 
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.core.CoreSystemService;
-import eu.arrowhead.common.database.entity.Subscription;
-import eu.arrowhead.common.dto.internal.AuthorizationSubscriptionCheckRequestDTO;
-import eu.arrowhead.common.dto.internal.AuthorizationSubscriptionCheckResponseDTO;
-import eu.arrowhead.common.dto.internal.EventPublishStartDTO;
-import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.dto.shared.SystemResponseDTO;
-import eu.arrowhead.common.api.exception.ArrowheadException;
-import eu.arrowhead.common.api.exception.InvalidParameterException;
-import eu.arrowhead.common.http.HttpService;
-import eu.arrowhead.core.eventhandler.publish.PublishingQueue;
+import javax.annotation.Resource;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeParseException;
+import java.util.Map;
+import java.util.Set;
 
 @Component
 public class EventHandlerDriver {	

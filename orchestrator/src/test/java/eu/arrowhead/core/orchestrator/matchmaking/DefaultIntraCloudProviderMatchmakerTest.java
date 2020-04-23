@@ -1,16 +1,15 @@
 package eu.arrowhead.core.orchestrator.matchmaking;
 
-import java.util.List;
-
+import eu.arrowhead.api.orchestration.model.OrchestrationResultDTO;
+import eu.arrowhead.api.orchestration.model.PreferredProviderDataDTO;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
+import eu.arrowhead.api.systemregistry.model.SystemResponseDTO;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
-import eu.arrowhead.common.dto.shared.PreferredProviderDataDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.dto.shared.SystemResponseDTO;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 public class DefaultIntraCloudProviderMatchmakerTest {

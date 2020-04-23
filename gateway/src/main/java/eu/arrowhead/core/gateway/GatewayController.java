@@ -1,17 +1,27 @@
 package eu.arrowhead.core.gateway;
 
-import java.security.InvalidParameterException;
-import java.security.PublicKey;
-import java.time.ZoneOffset;
-import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
-import javax.annotation.Resource;
-
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.common.exception.BadPayloadException;
+import eu.arrowhead.api.cloud.model.CloudRequestDTO;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.CoreUtilities;
+import eu.arrowhead.common.CoreUtilities.ValidatedPageParams;
+import eu.arrowhead.common.Defaults;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.dto.internal.GatewayConsumerConnectionRequestDTO;
+import eu.arrowhead.common.dto.internal.GatewayProviderConnectionRequestDTO;
+import eu.arrowhead.common.dto.internal.GatewayProviderConnectionResponseDTO;
+import eu.arrowhead.common.dto.internal.RelayRequestDTO;
+import eu.arrowhead.common.dto.internal.RelayType;
+import eu.arrowhead.core.gateway.service.ActiveSessionDTO;
+import eu.arrowhead.core.gateway.service.ActiveSessionListDTO;
+import eu.arrowhead.core.gateway.service.GatewayService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.apache.http.HttpStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,28 +39,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.CoreUtilities;
-import eu.arrowhead.common.CoreUtilities.ValidatedPageParams;
-import eu.arrowhead.common.Defaults;
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.dto.internal.GatewayConsumerConnectionRequestDTO;
-import eu.arrowhead.common.dto.internal.GatewayProviderConnectionRequestDTO;
-import eu.arrowhead.common.dto.internal.GatewayProviderConnectionResponseDTO;
-import eu.arrowhead.common.dto.internal.RelayRequestDTO;
-import eu.arrowhead.common.dto.internal.RelayType;
-import eu.arrowhead.common.dto.shared.CloudRequestDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.api.exception.ArrowheadException;
-import eu.arrowhead.common.api.exception.BadPayloadException;
-import eu.arrowhead.core.gateway.service.ActiveSessionDTO;
-import eu.arrowhead.core.gateway.service.ActiveSessionListDTO;
-import eu.arrowhead.core.gateway.service.GatewayService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import javax.annotation.Resource;
+import java.security.InvalidParameterException;
+import java.security.PublicKey;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Api(tags = { CoreCommonConstants.SWAGGER_TAG_ALL })
 @CrossOrigin(maxAge = Defaults.CORS_MAX_AGE, allowCredentials = Defaults.CORS_ALLOW_CREDENTIALS, 

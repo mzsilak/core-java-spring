@@ -1,11 +1,10 @@
 package eu.arrowhead.core.gatekeeper.service.matchmaking;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
 import org.springframework.util.Assert;
 
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ICNProviderMatchmakingParameters {
 	

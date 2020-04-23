@@ -1,6 +1,6 @@
 package eu.arrowhead.common.database.entity;
 
-import java.time.ZonedDateTime;
+import eu.arrowhead.common.CoreDefaults;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,8 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
-
-import eu.arrowhead.common.CoreDefaults;
+import java.time.ZonedDateTime;
 
 @Entity
 public class EventType {

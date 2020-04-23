@@ -1,9 +1,9 @@
 package eu.arrowhead.common.dto.internal;
 
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
+
 import java.io.Serializable;
 import java.util.List;
-
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
 
 public class AuthorizationIntraCloudCheckRequestDTO implements Serializable {
 	

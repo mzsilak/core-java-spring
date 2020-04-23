@@ -1,13 +1,13 @@
 package eu.arrowhead.core.deviceregistry;
 
+import eu.arrowhead.api.common.exception.BadPayloadException;
+import eu.arrowhead.api.deviceregistry.model.DeviceRegistryOnboardingWithCsrRequestDTO;
+import eu.arrowhead.api.deviceregistry.model.DeviceRegistryOnboardingWithNameRequestDTO;
+import eu.arrowhead.api.deviceregistry.model.DeviceRegistryRequestDTO;
+import eu.arrowhead.api.deviceregistry.model.DeviceRequestDTO;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.Utilities;
-import eu.arrowhead.deviceregistry.api.model.DeviceRegistryOnboardingWithCsrRequestDTO;
-import eu.arrowhead.deviceregistry.api.model.DeviceRegistryOnboardingWithNameRequestDTO;
-import eu.arrowhead.deviceregistry.api.model.DeviceRegistryRequestDTO;
-import eu.arrowhead.deviceregistry.api.model.DeviceRequestDTO;
-import eu.arrowhead.common.api.exception.BadPayloadException;
 import org.apache.http.HttpStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

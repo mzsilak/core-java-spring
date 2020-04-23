@@ -1,20 +1,19 @@
 package eu.arrowhead.core.serviceregistry.database.service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import eu.arrowhead.api.systemregistry.model.ServiceSecurityType;
+import eu.arrowhead.common.database.entity.ServiceInterface;
+import eu.arrowhead.common.database.entity.ServiceRegistry;
+import eu.arrowhead.common.database.entity.ServiceRegistryInterfaceConnection;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import eu.arrowhead.common.database.entity.ServiceInterface;
-import eu.arrowhead.common.database.entity.ServiceRegistry;
-import eu.arrowhead.common.database.entity.ServiceRegistryInterfaceConnection;
-import eu.arrowhead.common.dto.shared.ServiceSecurityType;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RunWith(SpringRunner.class)
 public class RegistryUtilsTest {

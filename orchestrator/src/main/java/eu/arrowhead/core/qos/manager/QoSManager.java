@@ -1,10 +1,10 @@
 package eu.arrowhead.core.qos.manager;
 
-import java.util.List;
+import eu.arrowhead.api.orchestration.model.OrchestrationFormRequestDTO;
+import eu.arrowhead.api.orchestration.model.OrchestrationResultDTO;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
 
-import eu.arrowhead.common.dto.shared.OrchestrationFormRequestDTO;
-import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
+import java.util.List;
 
 public interface QoSManager {
 

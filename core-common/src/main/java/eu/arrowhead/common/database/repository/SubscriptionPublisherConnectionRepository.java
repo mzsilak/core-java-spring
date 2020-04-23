@@ -1,11 +1,11 @@
 package eu.arrowhead.common.database.repository;
 
-import java.util.List;
-import java.util.Set;
-
 import eu.arrowhead.common.database.entity.Subscription;
 import eu.arrowhead.common.database.entity.SubscriptionPublisherConnection;
 import eu.arrowhead.common.database.entity.System;
+
+import java.util.List;
+import java.util.Set;
 
 public interface SubscriptionPublisherConnectionRepository extends RefreshableRepository<SubscriptionPublisherConnection,Long> {
 	

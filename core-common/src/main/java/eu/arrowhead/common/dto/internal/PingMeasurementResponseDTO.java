@@ -1,9 +1,9 @@
 package eu.arrowhead.common.dto.internal;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.time.ZonedDateTime;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class PingMeasurementResponseDTO  implements Serializable {
 

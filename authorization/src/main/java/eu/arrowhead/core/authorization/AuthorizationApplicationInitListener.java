@@ -1,13 +1,12 @@
 package eu.arrowhead.core.authorization;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-
 import eu.arrowhead.common.ApplicationInitListener;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.core.CoreSystemService;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public class AuthorizationApplicationInitListener extends ApplicationInitListener {

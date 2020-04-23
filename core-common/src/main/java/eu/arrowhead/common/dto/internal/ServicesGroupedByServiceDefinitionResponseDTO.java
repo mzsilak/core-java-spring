@@ -1,12 +1,11 @@
 package eu.arrowhead.common.dto.internal;
 
-import java.io.Serializable;
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import eu.arrowhead.api.serviceregistry.model.ServiceRegistryResponseDTO;
 
-import eu.arrowhead.common.dto.shared.ServiceRegistryResponseDTO;
+import java.io.Serializable;
+import java.util.List;
 
 @JsonInclude(Include.NON_NULL)
 public class ServicesGroupedByServiceDefinitionResponseDTO implements Serializable {

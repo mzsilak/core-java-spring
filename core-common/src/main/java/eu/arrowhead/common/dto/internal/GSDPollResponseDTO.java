@@ -1,12 +1,11 @@
 package eu.arrowhead.common.dto.internal;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import eu.arrowhead.api.common.model.ErrorWrapperDTO;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import eu.arrowhead.common.api.model.ErrorWrapperDTO;
 
 public class GSDPollResponseDTO implements Serializable, ErrorWrapperDTO {
 

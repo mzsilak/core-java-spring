@@ -1,13 +1,13 @@
 package eu.arrowhead.core.gatekeeper.quartz.subscriber;
 
-import java.util.Map;
-import java.util.Set;
-
-import javax.annotation.Resource;
-import javax.jms.JMSException;
-import javax.jms.MessageConsumer;
-import javax.jms.Session;
-
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.database.entity.Relay;
+import eu.arrowhead.core.gatekeeper.database.service.GatekeeperDBService;
+import eu.arrowhead.core.gatekeeper.quartz.subscriber.RelaySubscriberDataContainer.RelayResource;
+import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayClient;
+import eu.arrowhead.core.gatekeeper.relay.GeneralAdvertisementMessageListener;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.quartz.DisallowConcurrentExecution;
@@ -19,14 +19,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.database.entity.Relay;
-import eu.arrowhead.common.api.exception.ArrowheadException;
-import eu.arrowhead.core.gatekeeper.database.service.GatekeeperDBService;
-import eu.arrowhead.core.gatekeeper.quartz.subscriber.RelaySubscriberDataContainer.RelayResource;
-import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayClient;
-import eu.arrowhead.core.gatekeeper.relay.GeneralAdvertisementMessageListener;
+import javax.annotation.Resource;
+import javax.jms.JMSException;
+import javax.jms.MessageConsumer;
+import javax.jms.Session;
+import java.util.Map;
+import java.util.Set;
 
 @Component
 @DisallowConcurrentExecution

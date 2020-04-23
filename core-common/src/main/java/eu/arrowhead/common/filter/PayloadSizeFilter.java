@@ -1,6 +1,9 @@
 package eu.arrowhead.common.filter;
 
-import java.io.IOException;
+import eu.arrowhead.api.common.exception.ExceptionType;
+import eu.arrowhead.api.common.model.ErrorMessageDTO;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -8,12 +11,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import eu.arrowhead.common.api.model.ErrorMessageDTO;
-import eu.arrowhead.common.api.exception.ExceptionType;
+import java.io.IOException;
 
 public class PayloadSizeFilter extends ArrowheadFilter {
 

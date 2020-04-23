@@ -1,24 +1,22 @@
 package eu.arrowhead.core.eventhandler.publish;
 
-import java.security.InvalidParameterException;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeParseException;
-import java.util.Set;
-
-import javax.annotation.Resource;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.Utilities;
 import eu.arrowhead.common.database.entity.Subscription;
 import eu.arrowhead.common.dto.internal.EventPublishStartDTO;
 import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
 import eu.arrowhead.common.http.HttpService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+
+import javax.annotation.Resource;
+import java.security.InvalidParameterException;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeParseException;
+import java.util.Set;
 
 public class PublishingQueueWatcherTask extends Thread {
 

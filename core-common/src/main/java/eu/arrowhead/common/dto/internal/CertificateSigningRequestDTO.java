@@ -1,8 +1,7 @@
 package eu.arrowhead.common.dto.internal;
 
-import java.io.Serializable;
-
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 
 public class CertificateSigningRequestDTO implements Serializable {
 

@@ -1,6 +1,7 @@
 package eu.arrowhead.common.dto.shared;
 
-import eu.arrowhead.common.api.model.CertificateCreationResponseDTO;
+import eu.arrowhead.api.common.model.CertificateCreationResponseDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceEndpoint;
 
 public class OnboardingWithNameResponseDTO extends OnboardingResponseDTO {
 

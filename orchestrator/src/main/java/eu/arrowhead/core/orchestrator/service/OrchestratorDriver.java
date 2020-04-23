@@ -1,25 +1,14 @@
 package eu.arrowhead.core.orchestrator.service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
-import org.springframework.util.Assert;
-import org.springframework.web.util.UriComponents;
-
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.orchestration.model.OrchestrationFormRequestDTO;
+import eu.arrowhead.api.orchestration.model.OrchestrationResultDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceInterfaceResponseDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceQueryFormDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceQueryResultDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceRegistryResponseDTO;
+import eu.arrowhead.api.systemregistry.model.ServiceSecurityType;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.CoreDefaults;
@@ -37,17 +26,26 @@ import eu.arrowhead.common.dto.internal.TokenDataDTO;
 import eu.arrowhead.common.dto.internal.TokenGenerationProviderDTO;
 import eu.arrowhead.common.dto.internal.TokenGenerationRequestDTO;
 import eu.arrowhead.common.dto.internal.TokenGenerationResponseDTO;
-import eu.arrowhead.common.dto.shared.OrchestrationFormRequestDTO;
-import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
-import eu.arrowhead.common.dto.shared.ServiceInterfaceResponseDTO;
-import eu.arrowhead.common.dto.shared.ServiceQueryFormDTO;
-import eu.arrowhead.common.dto.shared.ServiceQueryResultDTO;
-import eu.arrowhead.common.dto.shared.ServiceRegistryResponseDTO;
-import eu.arrowhead.common.dto.shared.ServiceSecurityType;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.dto.shared.SystemResponseDTO;
-import eu.arrowhead.common.api.exception.ArrowheadException;
+import eu.arrowhead.api.systemregistry.model.SystemResponseDTO;
 import eu.arrowhead.common.http.HttpService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
+import org.springframework.web.util.UriComponents;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Component
 public class OrchestratorDriver {

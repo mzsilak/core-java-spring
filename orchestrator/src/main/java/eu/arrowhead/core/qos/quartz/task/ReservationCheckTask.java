@@ -1,5 +1,6 @@
 package eu.arrowhead.core.qos.quartz.task;
 
+import eu.arrowhead.core.qos.database.service.QoSReservationDBService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.quartz.DisallowConcurrentExecution;
@@ -8,8 +9,6 @@ import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import eu.arrowhead.core.qos.database.service.QoSReservationDBService;
 
 @Component
 @DisallowConcurrentExecution

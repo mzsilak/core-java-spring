@@ -1,9 +1,8 @@
 package eu.arrowhead.core.certificate_authority;
 
+import eu.arrowhead.common.CommonConstants;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
-import eu.arrowhead.common.CommonConstants;
 
 @Component
 public class CAProperties {

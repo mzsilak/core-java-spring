@@ -1,8 +1,5 @@
 package eu.arrowhead.common.database.entity;
 
-import java.time.ZonedDateTime;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import java.time.ZonedDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "qos_intra_ping_measurement")

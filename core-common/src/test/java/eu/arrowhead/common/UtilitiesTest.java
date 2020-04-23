@@ -1,5 +1,20 @@
 package eu.arrowhead.common;
 
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.common.exception.AuthException;
+import eu.arrowhead.api.common.exception.BadPayloadException;
+import eu.arrowhead.api.common.exception.DataNotFoundException;
+import eu.arrowhead.api.common.exception.ExceptionType;
+import eu.arrowhead.api.common.exception.InvalidParameterException;
+import eu.arrowhead.api.common.exception.TimeoutException;
+import eu.arrowhead.api.common.exception.UnavailableServerException;
+import eu.arrowhead.api.common.model.ErrorMessageDTO;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.http.HttpStatus;
+import org.springframework.test.context.junit4.SpringRunner;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.KeyStore;
@@ -17,22 +32,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ServiceConfigurationError;
-
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.http.HttpStatus;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import eu.arrowhead.common.api.model.ErrorMessageDTO;
-import eu.arrowhead.common.api.exception.ArrowheadException;
-import eu.arrowhead.common.api.exception.AuthException;
-import eu.arrowhead.common.api.exception.BadPayloadException;
-import eu.arrowhead.common.api.exception.DataNotFoundException;
-import eu.arrowhead.common.api.exception.ExceptionType;
-import eu.arrowhead.common.api.exception.InvalidParameterException;
-import eu.arrowhead.common.api.exception.TimeoutException;
-import eu.arrowhead.common.api.exception.UnavailableServerException;
 
 @RunWith(SpringRunner.class)
 public class UtilitiesTest {

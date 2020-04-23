@@ -1,8 +1,8 @@
 package eu.arrowhead.common.dto.internal;
 
-import java.io.Serializable;
+import eu.arrowhead.api.orchestration.model.OrchestrationResponseDTO;
 
-import eu.arrowhead.common.dto.shared.OrchestrationResponseDTO;
+import java.io.Serializable;
 
 public class ICNResponseDTO extends OrchestrationResponseDTO implements Serializable {
 

@@ -1,22 +1,21 @@
 package eu.arrowhead.core.qos.manager.impl;
 
-import java.time.ZonedDateTime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
+import eu.arrowhead.api.common.exception.InvalidParameterException;
+import eu.arrowhead.api.orchestration.model.OrchestrationFormRequestDTO;
+import eu.arrowhead.api.orchestration.model.OrchestrationResultDTO;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.dto.internal.PingMeasurementResponseDTO;
+import eu.arrowhead.core.orchestrator.service.OrchestratorDriver;
+import eu.arrowhead.core.qos.manager.QoSVerifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.Assert;
 
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.dto.internal.PingMeasurementResponseDTO;
-import eu.arrowhead.common.dto.shared.OrchestrationFormRequestDTO;
-import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
-import eu.arrowhead.common.api.exception.InvalidParameterException;
-import eu.arrowhead.core.orchestrator.service.OrchestratorDriver;
-import eu.arrowhead.core.qos.manager.QoSVerifier;
+import java.time.ZonedDateTime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class PingRequirementsVerifier implements QoSVerifier {
 	

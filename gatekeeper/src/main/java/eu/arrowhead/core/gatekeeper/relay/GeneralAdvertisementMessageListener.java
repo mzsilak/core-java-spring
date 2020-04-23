@@ -1,22 +1,20 @@
 package eu.arrowhead.core.gatekeeper.relay;
 
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.Utilities;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.context.ApplicationContext;
+import org.springframework.util.Assert;
+
+import javax.jms.Message;
+import javax.jms.MessageListener;
 import java.io.Closeable;
 import java.io.IOException;
 import java.time.ZonedDateTime;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ThreadPoolExecutor;
-
-import javax.jms.Message;
-import javax.jms.MessageListener;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.context.ApplicationContext;
-import org.springframework.util.Assert;
-
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.Utilities;
 
 public class GeneralAdvertisementMessageListener implements Closeable, MessageListener {
 	

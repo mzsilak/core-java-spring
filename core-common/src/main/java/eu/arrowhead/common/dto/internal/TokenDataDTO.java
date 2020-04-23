@@ -1,14 +1,12 @@
 package eu.arrowhead.common.dto.internal;
 
-import java.io.Serializable;
-import java.util.Map;
-
-import org.springframework.util.Assert;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
+import org.springframework.util.Assert;
 
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
+import java.io.Serializable;
+import java.util.Map;
 
 @JsonInclude(Include.NON_NULL)
 public class TokenDataDTO implements Serializable {

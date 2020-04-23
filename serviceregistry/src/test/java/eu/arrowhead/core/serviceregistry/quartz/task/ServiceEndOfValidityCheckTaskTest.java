@@ -1,16 +1,11 @@
 package eu.arrowhead.core.serviceregistry.quartz.task;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.anyIterable;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.when;
-
-import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.List;
-
+import eu.arrowhead.api.systemregistry.model.ServiceSecurityType;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.database.entity.ServiceDefinition;
+import eu.arrowhead.common.database.entity.ServiceRegistry;
+import eu.arrowhead.common.database.entity.System;
+import eu.arrowhead.core.serviceregistry.database.service.ServiceRegistryDBService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,12 +16,16 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.database.entity.ServiceDefinition;
-import eu.arrowhead.common.database.entity.ServiceRegistry;
-import eu.arrowhead.common.database.entity.System;
-import eu.arrowhead.common.dto.shared.ServiceSecurityType;
-import eu.arrowhead.core.serviceregistry.database.service.ServiceRegistryDBService;
+import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyIterable;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.when;
 
 
 @RunWith (SpringRunner.class)

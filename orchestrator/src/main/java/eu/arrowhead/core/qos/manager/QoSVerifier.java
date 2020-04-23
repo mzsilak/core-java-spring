@@ -1,8 +1,8 @@
 package eu.arrowhead.core.qos.manager;
 
-import java.util.Map;
+import eu.arrowhead.api.orchestration.model.OrchestrationResultDTO;
 
-import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
+import java.util.Map;
 
 public interface QoSVerifier {
 

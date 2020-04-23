@@ -1,27 +1,25 @@
 package eu.arrowhead.common.relay;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.KeyStore;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import eu.arrowhead.api.common.exception.AuthException;
+import eu.arrowhead.api.common.exception.ExceptionType;
+import eu.arrowhead.api.common.model.ErrorMessageDTO;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.dto.internal.DecryptedMessageDTO;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.dto.internal.DecryptedMessageDTO;
-import eu.arrowhead.common.api.model.ErrorMessageDTO;
-import eu.arrowhead.common.api.exception.AuthException;
-import eu.arrowhead.common.api.exception.ExceptionType;
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.KeyStore;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 
 @RunWith(SpringRunner.class)
 public class RelayCryptographerDecodeTest {

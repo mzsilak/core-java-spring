@@ -1,10 +1,10 @@
 package eu.arrowhead.common.dto.internal;
 
-import java.io.Serializable;
-import java.util.Set;
-
 import eu.arrowhead.common.database.entity.Subscription;
 import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
+
+import java.io.Serializable;
+import java.util.Set;
 
 public class EventPublishStartDTO implements Serializable {
 

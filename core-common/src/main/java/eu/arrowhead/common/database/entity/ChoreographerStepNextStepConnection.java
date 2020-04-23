@@ -1,7 +1,5 @@
 package eu.arrowhead.common.database.entity;
 
-import java.time.ZonedDateTime;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,9 +13,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
+import java.time.ZonedDateTime;
 
 @Entity
 @Table (uniqueConstraints = @UniqueConstraint(columnNames = {"stepId", "nextStepId"}))

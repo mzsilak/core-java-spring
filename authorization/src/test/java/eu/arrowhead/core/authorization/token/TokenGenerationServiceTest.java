@@ -1,14 +1,17 @@
 package eu.arrowhead.core.authorization.token;
 
-import static org.mockito.Mockito.when;
-
-import java.io.InputStream;
-import java.security.KeyStore;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.util.List;
-import java.util.Map;
-
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.common.exception.DataNotFoundException;
+import eu.arrowhead.api.common.exception.InvalidParameterException;
+import eu.arrowhead.api.cloud.model.CloudRequestDTO;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.database.service.CommonDBService;
+import eu.arrowhead.common.dto.internal.TokenGenerationProviderDTO;
+import eu.arrowhead.common.dto.internal.TokenGenerationRequestDTO;
+import eu.arrowhead.common.intf.ServiceInterfaceNameVerifier;
+import eu.arrowhead.core.authorization.AuthorizationMain;
 import org.jose4j.jwa.AlgorithmConstraints;
 import org.jose4j.jwa.AlgorithmConstraints.ConstraintType;
 import org.jose4j.jwt.JwtClaims;
@@ -25,18 +28,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.database.service.CommonDBService;
-import eu.arrowhead.common.dto.internal.TokenGenerationProviderDTO;
-import eu.arrowhead.common.dto.internal.TokenGenerationRequestDTO;
-import eu.arrowhead.common.dto.shared.CloudRequestDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.api.exception.ArrowheadException;
-import eu.arrowhead.common.api.exception.DataNotFoundException;
-import eu.arrowhead.common.api.exception.InvalidParameterException;
-import eu.arrowhead.common.intf.ServiceInterfaceNameVerifier;
-import eu.arrowhead.core.authorization.AuthorizationMain;
+import java.io.InputStream;
+import java.security.KeyStore;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.util.List;
+import java.util.Map;
+
+import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = AuthorizationMain.class)

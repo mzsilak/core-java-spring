@@ -1,10 +1,10 @@
 package eu.arrowhead.core.onboarding.security;
 
+import eu.arrowhead.api.common.exception.ArrowheadException;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.SecurityUtilities;
 import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.api.exception.ArrowheadException;
 import eu.arrowhead.common.filter.thirdparty.MultiReadRequestWrapper;
 import eu.arrowhead.common.security.CoreSystemAccessControlFilter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

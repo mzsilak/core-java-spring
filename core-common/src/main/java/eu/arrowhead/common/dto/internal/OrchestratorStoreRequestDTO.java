@@ -1,10 +1,10 @@
 package eu.arrowhead.common.dto.internal;
 
+import eu.arrowhead.api.cloud.model.CloudRequestDTO;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
+
 import java.io.Serializable;
 import java.util.Map;
-
-import eu.arrowhead.common.dto.shared.CloudRequestDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
 
 public class OrchestratorStoreRequestDTO implements Serializable {
 

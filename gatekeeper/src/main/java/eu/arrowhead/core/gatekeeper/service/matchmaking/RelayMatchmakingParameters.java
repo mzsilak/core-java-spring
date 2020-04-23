@@ -1,12 +1,11 @@
 package eu.arrowhead.core.gatekeeper.service.matchmaking;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.util.Assert;
-
 import eu.arrowhead.common.database.entity.Cloud;
 import eu.arrowhead.common.dto.internal.RelayRequestDTO;
+import org.springframework.util.Assert;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RelayMatchmakingParameters {
 

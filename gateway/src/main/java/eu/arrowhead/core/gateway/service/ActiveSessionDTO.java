@@ -1,17 +1,15 @@
 package eu.arrowhead.core.gateway.service;
 
-import java.io.Serializable;
-
-import org.springframework.util.Assert;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
+import eu.arrowhead.api.cloud.model.CloudRequestDTO;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
 import eu.arrowhead.common.Utilities;
 import eu.arrowhead.common.dto.internal.RelayRequestDTO;
-import eu.arrowhead.common.dto.shared.CloudRequestDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
 import eu.arrowhead.core.gateway.relay.GatewayRelayClient;
+import org.springframework.util.Assert;
+
+import java.io.Serializable;
 
 @JsonInclude(Include.NON_NULL)
 public class ActiveSessionDTO implements Serializable {

@@ -1,15 +1,14 @@
 package eu.arrowhead.core.gatekeeper.service.matchmaking;
 
-import java.util.List;
-import java.util.Random;
-
+import eu.arrowhead.api.orchestration.model.OrchestrationResultDTO;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
+import eu.arrowhead.common.dto.internal.DTOUtilities;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.util.Assert;
 
-import eu.arrowhead.common.dto.internal.DTOUtilities;
-import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
+import java.util.List;
+import java.util.Random;
 
 public class RandomICNProviderMatchmaker implements ICNProviderMatchmakingAlgorithm {
 	

@@ -1,7 +1,7 @@
 package eu.arrowhead.common.filter;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+import eu.arrowhead.common.Utilities;
+import org.springframework.web.util.ContentCachingResponseWrapper;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -9,10 +9,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.web.util.ContentCachingResponseWrapper;
-
-import eu.arrowhead.common.Utilities;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 public class OutboundDebugFilter extends ArrowheadFilter {
 	

@@ -1,11 +1,10 @@
 package eu.arrowhead.common.dto.internal;
 
+import eu.arrowhead.api.cloud.model.CloudRequestDTO;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
+import eu.arrowhead.api.systemregistry.model.SystemResponseDTO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import eu.arrowhead.common.dto.shared.CloudRequestDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.dto.shared.SystemResponseDTO;
 
 public class DTOUtilities {
 	

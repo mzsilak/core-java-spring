@@ -1,10 +1,10 @@
 package eu.arrowhead.common.dto.internal;
 
+import eu.arrowhead.api.orchestration.model.OrchestrationResponseDTO;
+import eu.arrowhead.api.orchestration.model.OrchestrationResultDTO;
+
 import java.io.Serializable;
 import java.util.List;
-
-import eu.arrowhead.common.dto.shared.OrchestrationResponseDTO;
-import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
 
 public class ICNProposalResponseDTO extends OrchestrationResponseDTO implements Serializable {
 

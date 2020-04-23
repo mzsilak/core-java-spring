@@ -1,5 +1,9 @@
 package eu.arrowhead.core.onboarding;
 
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.common.exception.AuthException;
+import eu.arrowhead.api.common.exception.BadPayloadException;
+import eu.arrowhead.api.common.exception.InvalidParameterException;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.Defaults;
@@ -9,10 +13,6 @@ import eu.arrowhead.common.dto.shared.OnboardingWithCsrRequestDTO;
 import eu.arrowhead.common.dto.shared.OnboardingWithCsrResponseDTO;
 import eu.arrowhead.common.dto.shared.OnboardingWithNameRequestDTO;
 import eu.arrowhead.common.dto.shared.OnboardingWithNameResponseDTO;
-import eu.arrowhead.common.api.exception.ArrowheadException;
-import eu.arrowhead.common.api.exception.AuthException;
-import eu.arrowhead.common.api.exception.BadPayloadException;
-import eu.arrowhead.common.api.exception.InvalidParameterException;
 import eu.arrowhead.core.onboarding.service.OnboardingService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

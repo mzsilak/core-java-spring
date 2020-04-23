@@ -1,13 +1,12 @@
 package eu.arrowhead.common.dto.internal;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import eu.arrowhead.api.systemregistry.model.SystemResponseDTO;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
-import eu.arrowhead.common.dto.shared.SystemResponseDTO;
 
 @JsonInclude(Include.NON_NULL)
 public class SystemListResponseDTO implements Serializable {

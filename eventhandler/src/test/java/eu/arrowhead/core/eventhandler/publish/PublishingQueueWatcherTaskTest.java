@@ -1,18 +1,13 @@
 package eu.arrowhead.core.eventhandler.publish;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import java.time.ZonedDateTime;
-import java.util.HashSet;
-import java.util.Set;
-
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.database.entity.EventType;
+import eu.arrowhead.common.database.entity.Subscription;
+import eu.arrowhead.common.database.entity.System;
+import eu.arrowhead.common.dto.internal.EventPublishStartDTO;
+import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
+import eu.arrowhead.common.http.HttpService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -20,14 +15,18 @@ import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.database.entity.EventType;
-import eu.arrowhead.common.database.entity.Subscription;
-import eu.arrowhead.common.database.entity.System;
-import eu.arrowhead.common.dto.internal.EventPublishStartDTO;
-import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.http.HttpService;
+import java.time.ZonedDateTime;
+import java.util.HashSet;
+import java.util.Set;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 public class PublishingQueueWatcherTaskTest {

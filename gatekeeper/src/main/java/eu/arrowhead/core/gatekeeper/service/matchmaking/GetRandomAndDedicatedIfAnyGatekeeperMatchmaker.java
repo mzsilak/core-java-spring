@@ -1,16 +1,15 @@
 package eu.arrowhead.core.gatekeeper.service.matchmaking;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
+import eu.arrowhead.common.database.entity.CloudGatekeeperRelay;
+import eu.arrowhead.common.database.entity.Relay;
+import eu.arrowhead.common.dto.internal.RelayType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.util.Assert;
 
-import eu.arrowhead.common.database.entity.CloudGatekeeperRelay;
-import eu.arrowhead.common.database.entity.Relay;
-import eu.arrowhead.common.dto.internal.RelayType;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class GetRandomAndDedicatedIfAnyGatekeeperMatchmaker implements RelayMatchmakingAlgorithm {
 	

@@ -1,12 +1,13 @@
 package eu.arrowhead.core.authorization.service;
 
-import java.security.PublicKey;
-import java.time.ZonedDateTime;
-import java.util.Base64;
-import java.util.Map;
-
-import javax.annotation.Resource;
-
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.core.CoreSystemService;
+import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
+import eu.arrowhead.common.http.HttpService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +17,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 import org.springframework.web.util.UriComponents;
 
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.core.CoreSystemService;
-import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.api.exception.ArrowheadException;
-import eu.arrowhead.common.http.HttpService;
+import javax.annotation.Resource;
+import java.security.PublicKey;
+import java.time.ZonedDateTime;
+import java.util.Base64;
+import java.util.Map;
 
 @Component
 public class AuthorizationDriver {

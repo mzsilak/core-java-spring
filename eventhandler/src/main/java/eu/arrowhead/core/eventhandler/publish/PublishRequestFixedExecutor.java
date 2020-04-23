@@ -1,23 +1,21 @@
 package eu.arrowhead.core.eventhandler.publish;
 
-import java.time.ZonedDateTime;
-import java.util.Set;
-import java.util.concurrent.Executors;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.ThreadPoolExecutor;
-
-import javax.annotation.PostConstruct;
-
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.database.entity.Subscription;
+import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
+import eu.arrowhead.common.http.HttpService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.Assert;
 
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.database.entity.Subscription;
-import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
-import eu.arrowhead.common.http.HttpService;
+import javax.annotation.PostConstruct;
+import java.time.ZonedDateTime;
+import java.util.Set;
+import java.util.concurrent.Executors;
+import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.ThreadPoolExecutor;
 
 public class PublishRequestFixedExecutor {
 	

@@ -1,15 +1,14 @@
 package eu.arrowhead.common.filter;
 
-import java.io.IOException;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.filter.thirdparty.MultiReadRequestWrapper;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.filter.thirdparty.MultiReadRequestWrapper;
+import java.io.IOException;
 
 public class InboundDebugFilter extends ArrowheadFilter {
 	

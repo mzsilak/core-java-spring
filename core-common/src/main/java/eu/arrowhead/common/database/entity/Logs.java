@@ -1,12 +1,11 @@
 package eu.arrowhead.common.database.entity;
 
-import java.time.ZonedDateTime;
+import eu.arrowhead.common.CoreDefaults;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
-import eu.arrowhead.common.CoreDefaults;
+import java.time.ZonedDateTime;
 
 @Entity
 public class Logs {

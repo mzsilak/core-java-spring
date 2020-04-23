@@ -1,8 +1,8 @@
 package eu.arrowhead.core.orchestrator.matchmaking;
 
-import java.util.List;
+import eu.arrowhead.api.orchestration.model.OrchestrationResultDTO;
 
-import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
+import java.util.List;
 
 public interface IntraCloudProviderMatchmakingAlgorithm {
 

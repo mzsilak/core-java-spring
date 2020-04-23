@@ -1,19 +1,18 @@
 package eu.arrowhead.core.qos.manager.impl;
 
-import java.util.Map;
-
+import eu.arrowhead.api.orchestration.model.OrchestrationFormRequestDTO;
+import eu.arrowhead.api.orchestration.model.OrchestrationResultDTO;
+import eu.arrowhead.api.orchestration.model.OrchestratorWarnings;
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.api.serviceregistry.model.ServiceRegistryRequestDTO;
+import eu.arrowhead.core.orchestrator.service.OrchestratorDriver;
+import eu.arrowhead.core.orchestrator.service.OrchestratorService;
+import eu.arrowhead.core.qos.manager.QoSVerifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.util.Assert;
 
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.dto.shared.OrchestrationFormRequestDTO;
-import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
-import eu.arrowhead.common.dto.shared.OrchestratorWarnings;
-import eu.arrowhead.common.dto.shared.ServiceRegistryRequestDTO;
-import eu.arrowhead.core.orchestrator.service.OrchestratorDriver;
-import eu.arrowhead.core.orchestrator.service.OrchestratorService;
-import eu.arrowhead.core.qos.manager.QoSVerifier;
+import java.util.Map;
 
 public class ServiceTimeVerifier implements QoSVerifier {
 	

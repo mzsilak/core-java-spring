@@ -1,11 +1,10 @@
 package eu.arrowhead.common.database.repository;
 
-import java.util.List;
-import java.util.Optional;
-
+import eu.arrowhead.common.database.entity.System;
 import org.springframework.stereotype.Repository;
 
-import eu.arrowhead.common.database.entity.System;
+import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface SystemRepository extends RefreshableRepository<System,Long> {

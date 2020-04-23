@@ -1,15 +1,14 @@
 package eu.arrowhead.common.database.repository;
 
-import java.util.List;
-import java.util.Optional;
-
+import eu.arrowhead.common.database.entity.Relay;
+import eu.arrowhead.common.dto.internal.RelayType;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.EntityGraph.EntityGraphType;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import eu.arrowhead.common.database.entity.Relay;
-import eu.arrowhead.common.dto.internal.RelayType;
+import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface RelayRepository extends RefreshableRepository<Relay,Long> {

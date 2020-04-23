@@ -1,9 +1,9 @@
 package eu.arrowhead.core.gateway.relay;
 
-import java.security.PrivateKey;
-
 import eu.arrowhead.common.SSLProperties;
 import eu.arrowhead.core.gateway.relay.activemq.ActiveMQGatewayRelayClient;
+
+import java.security.PrivateKey;
 
 public class GatewayRelayClientFactory {
 	

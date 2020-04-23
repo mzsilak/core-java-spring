@@ -1,11 +1,10 @@
 package eu.arrowhead.core.qos;
 
+import eu.arrowhead.core.qos.database.service.QoSDBService;
 import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-
-import eu.arrowhead.core.qos.database.service.QoSDBService;
 
 @Configuration
 public class QoSMonitorTestContext {

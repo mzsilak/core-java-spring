@@ -1,18 +1,20 @@
 package eu.arrowhead.core.authorization;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import java.util.ArrayList;
-import java.util.List;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.database.entity.AuthorizationIntraCloud;
+import eu.arrowhead.common.database.entity.ServiceDefinition;
+import eu.arrowhead.common.database.entity.System;
+import eu.arrowhead.common.dto.internal.AuthorizationIntraCloudCheckRequestDTO;
+import eu.arrowhead.common.dto.internal.AuthorizationIntraCloudCheckResponseDTO;
+import eu.arrowhead.common.dto.internal.AuthorizationIntraCloudListResponseDTO;
+import eu.arrowhead.common.dto.internal.AuthorizationIntraCloudRequestDTO;
+import eu.arrowhead.common.dto.internal.AuthorizationIntraCloudResponseDTO;
+import eu.arrowhead.common.dto.internal.DTOConverter;
+import eu.arrowhead.common.dto.internal.IdIdListDTO;
+import eu.arrowhead.api.systemregistry.model.SystemResponseDTO;
+import eu.arrowhead.core.authorization.database.service.AuthorizationDBService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,22 +31,18 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.ArrayList;
+import java.util.List;
 
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.database.entity.AuthorizationIntraCloud;
-import eu.arrowhead.common.database.entity.ServiceDefinition;
-import eu.arrowhead.common.database.entity.System;
-import eu.arrowhead.common.dto.internal.AuthorizationIntraCloudCheckRequestDTO;
-import eu.arrowhead.common.dto.internal.AuthorizationIntraCloudCheckResponseDTO;
-import eu.arrowhead.common.dto.internal.AuthorizationIntraCloudListResponseDTO;
-import eu.arrowhead.common.dto.internal.AuthorizationIntraCloudRequestDTO;
-import eu.arrowhead.common.dto.internal.AuthorizationIntraCloudResponseDTO;
-import eu.arrowhead.common.dto.internal.DTOConverter;
-import eu.arrowhead.common.dto.internal.IdIdListDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.dto.shared.SystemResponseDTO;
-import eu.arrowhead.core.authorization.database.service.AuthorizationDBService;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = AuthorizationMain.class)

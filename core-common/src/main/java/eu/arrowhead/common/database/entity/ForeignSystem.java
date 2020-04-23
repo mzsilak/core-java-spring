@@ -1,7 +1,6 @@
 package eu.arrowhead.common.database.entity;
 
-import java.time.ZonedDateTime;
-import java.util.List;
+import eu.arrowhead.common.CoreDefaults;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,8 +14,8 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-
-import eu.arrowhead.common.CoreDefaults;
+import java.time.ZonedDateTime;
+import java.util.List;
 
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = {"systemName", "address", "port"}))

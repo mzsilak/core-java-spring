@@ -1,8 +1,7 @@
 package eu.arrowhead.core.orchestrator;
 
-import org.springframework.stereotype.Component;
-
 import eu.arrowhead.common.testhelper.StandaloneModeInTests;
+import org.springframework.stereotype.Component;
 
 @Component
 public class StandaloneModeInOrchestratorTests extends StandaloneModeInTests {

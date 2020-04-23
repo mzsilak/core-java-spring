@@ -1,19 +1,18 @@
 package eu.arrowhead.core.orchestrator.matchmaking;
 
-import java.util.List;
-import java.util.NavigableMap;
-import java.util.TreeMap;
-import java.util.concurrent.ThreadLocalRandom;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.util.Assert;
-
+import eu.arrowhead.api.cloud.model.CloudRequestDTO;
 import eu.arrowhead.common.dto.internal.CloudResponseDTO;
 import eu.arrowhead.common.dto.internal.DTOUtilities;
 import eu.arrowhead.common.dto.internal.GSDPollResponseDTO;
 import eu.arrowhead.common.dto.internal.GSDQueryResultDTO;
-import eu.arrowhead.common.dto.shared.CloudRequestDTO;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.util.Assert;
+
+import java.util.List;
+import java.util.NavigableMap;
+import java.util.TreeMap;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomWeightedCloudMatchmaker implements CloudMatchmakingAlgorithm {
     

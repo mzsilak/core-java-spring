@@ -1,8 +1,24 @@
 package eu.arrowhead.core.eventhandler;
 
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeParseException;
-
+import eu.arrowhead.api.common.exception.BadPayloadException;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.CoreDefaults;
+import eu.arrowhead.common.CoreUtilities;
+import eu.arrowhead.common.CoreUtilities.ValidatedPageParams;
+import eu.arrowhead.common.Defaults;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
+import eu.arrowhead.common.dto.shared.SubscriptionListResponseDTO;
+import eu.arrowhead.common.dto.shared.SubscriptionRequestDTO;
+import eu.arrowhead.common.dto.shared.SubscriptionResponseDTO;
+import eu.arrowhead.core.eventhandler.database.service.EventHandlerDBService;
+import eu.arrowhead.core.eventhandler.service.EventHandlerService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.apache.http.HttpStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,25 +38,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.CoreDefaults;
-import eu.arrowhead.common.CoreUtilities;
-import eu.arrowhead.common.CoreUtilities.ValidatedPageParams;
-import eu.arrowhead.common.Defaults;
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
-import eu.arrowhead.common.dto.shared.SubscriptionListResponseDTO;
-import eu.arrowhead.common.dto.shared.SubscriptionRequestDTO;
-import eu.arrowhead.common.dto.shared.SubscriptionResponseDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.api.exception.BadPayloadException;
-import eu.arrowhead.core.eventhandler.database.service.EventHandlerDBService;
-import eu.arrowhead.core.eventhandler.service.EventHandlerService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeParseException;
 
 @Api(tags = { CoreCommonConstants.SWAGGER_TAG_ALL })
 @CrossOrigin(maxAge = Defaults.CORS_MAX_AGE, allowCredentials = Defaults.CORS_ALLOW_CREDENTIALS, 

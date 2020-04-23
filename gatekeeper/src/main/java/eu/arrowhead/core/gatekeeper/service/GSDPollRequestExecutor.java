@@ -1,5 +1,18 @@
 package eu.arrowhead.core.gatekeeper.service;
 
+import eu.arrowhead.api.common.model.ErrorWrapperDTO;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.database.entity.Cloud;
+import eu.arrowhead.common.database.entity.Relay;
+import eu.arrowhead.common.dto.internal.GSDPollRequestDTO;
+import eu.arrowhead.common.dto.internal.GSDPollResponseDTO;
+import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayClient;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.util.Assert;
+
+import javax.jms.JMSException;
+import javax.jms.Session;
 import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -8,21 +21,6 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ThreadPoolExecutor;
-
-import javax.jms.JMSException;
-import javax.jms.Session;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.util.Assert;
-
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.database.entity.Cloud;
-import eu.arrowhead.common.database.entity.Relay;
-import eu.arrowhead.common.dto.internal.GSDPollRequestDTO;
-import eu.arrowhead.common.dto.internal.GSDPollResponseDTO;
-import eu.arrowhead.common.api.model.ErrorWrapperDTO;
-import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayClient;
 
 public class GSDPollRequestExecutor {
 	

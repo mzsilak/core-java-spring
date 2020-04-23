@@ -1,16 +1,15 @@
 package eu.arrowhead.core.qos;
 
-import java.util.Map;
-
+import eu.arrowhead.common.ApplicationInitListener;
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.Utilities;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponents;
 
-import eu.arrowhead.common.ApplicationInitListener;
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.Utilities;
+import java.util.Map;
 
 @Component
 public class QoSMonitorApplicationInitListener extends ApplicationInitListener {

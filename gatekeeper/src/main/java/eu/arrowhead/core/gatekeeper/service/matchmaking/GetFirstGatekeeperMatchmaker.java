@@ -1,8 +1,7 @@
 package eu.arrowhead.core.gatekeeper.service.matchmaking;
 
-import org.springframework.util.Assert;
-
 import eu.arrowhead.common.database.entity.Relay;
+import org.springframework.util.Assert;
 
 public class GetFirstGatekeeperMatchmaker implements RelayMatchmakingAlgorithm {
 

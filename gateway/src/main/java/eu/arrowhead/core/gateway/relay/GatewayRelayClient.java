@@ -1,14 +1,13 @@
 package eu.arrowhead.core.gateway.relay;
 
-import java.security.PublicKey;
+import eu.arrowhead.common.relay.RelayClient;
 
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.MessageProducer;
 import javax.jms.Session;
-
-import eu.arrowhead.common.relay.RelayClient;
+import java.security.PublicKey;
 
 public interface GatewayRelayClient extends RelayClient {
 	

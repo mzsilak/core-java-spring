@@ -1,20 +1,9 @@
 package eu.arrowhead.core.eventhandler.quartz.task;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.Mockito.atLeastOnce;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import java.time.ZonedDateTime;
-import java.util.List;
-
+import eu.arrowhead.common.database.entity.EventType;
+import eu.arrowhead.common.database.entity.Subscription;
+import eu.arrowhead.common.database.entity.System;
+import eu.arrowhead.core.eventhandler.database.service.EventHandlerDBService;
 import org.apache.logging.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,10 +17,20 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 
-import eu.arrowhead.common.database.entity.EventType;
-import eu.arrowhead.common.database.entity.Subscription;
-import eu.arrowhead.common.database.entity.System;
-import eu.arrowhead.core.eventhandler.database.service.EventHandlerDBService;
+import java.time.ZonedDateTime;
+import java.util.List;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 
 @RunWith (SpringRunner.class)

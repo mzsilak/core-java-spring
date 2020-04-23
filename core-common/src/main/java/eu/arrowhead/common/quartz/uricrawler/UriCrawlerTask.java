@@ -1,10 +1,15 @@
 package eu.arrowhead.common.quartz.uricrawler;
 
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Resource;
-
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.serviceregistry.model.ServiceQueryFormDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceQueryResultDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceRegistryResponseDTO;
+import eu.arrowhead.api.systemregistry.model.ServiceSecurityType;
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.core.CoreSystemService;
+import eu.arrowhead.common.http.HttpService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.quartz.DisallowConcurrentExecution;
@@ -20,16 +25,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponents;
 
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.core.CoreSystemService;
-import eu.arrowhead.common.dto.shared.ServiceQueryFormDTO;
-import eu.arrowhead.common.dto.shared.ServiceQueryResultDTO;
-import eu.arrowhead.common.dto.shared.ServiceRegistryResponseDTO;
-import eu.arrowhead.common.dto.shared.ServiceSecurityType;
-import eu.arrowhead.common.api.exception.ArrowheadException;
-import eu.arrowhead.common.http.HttpService;
+import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
 
 @Component
 @DisallowConcurrentExecution

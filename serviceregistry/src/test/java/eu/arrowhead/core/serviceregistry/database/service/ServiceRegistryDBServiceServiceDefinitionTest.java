@@ -1,11 +1,8 @@
 package eu.arrowhead.core.serviceregistry.database.service;
 
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.when;
-
-import java.util.Optional;
-
+import eu.arrowhead.api.common.exception.InvalidParameterException;
+import eu.arrowhead.common.database.entity.ServiceDefinition;
+import eu.arrowhead.common.database.repository.ServiceDefinitionRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -13,9 +10,11 @@ import org.mockito.Mock;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import eu.arrowhead.common.database.entity.ServiceDefinition;
-import eu.arrowhead.common.database.repository.ServiceDefinitionRepository;
-import eu.arrowhead.common.api.exception.InvalidParameterException;
+import java.util.Optional;
+
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.when;
 
 @RunWith (SpringRunner.class)
 public class ServiceRegistryDBServiceServiceDefinitionTest {

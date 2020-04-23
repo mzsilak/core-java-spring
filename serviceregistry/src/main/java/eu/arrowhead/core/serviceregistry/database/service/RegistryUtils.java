@@ -1,5 +1,12 @@
 package eu.arrowhead.core.serviceregistry.database.service;
 
+import eu.arrowhead.api.systemregistry.model.ServiceSecurityType;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.database.entity.ServiceRegistry;
+import eu.arrowhead.common.database.entity.ServiceRegistryInterfaceConnection;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -9,14 +16,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.database.entity.ServiceRegistry;
-import eu.arrowhead.common.database.entity.ServiceRegistryInterfaceConnection;
-import eu.arrowhead.common.dto.shared.ServiceSecurityType;
 
 public class RegistryUtils {
 	

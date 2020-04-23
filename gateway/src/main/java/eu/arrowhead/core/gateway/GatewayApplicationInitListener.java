@@ -1,5 +1,15 @@
 package eu.arrowhead.core.gateway;
 
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.common.ApplicationInitListener;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.core.gateway.service.ActiveSessionDTO;
+import eu.arrowhead.core.gateway.service.GatewayService;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
@@ -7,17 +17,6 @@ import java.util.ServiceConfigurationError;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ConcurrentMap;
-
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.stereotype.Component;
-
-import eu.arrowhead.common.ApplicationInitListener;
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.api.exception.ArrowheadException;
-import eu.arrowhead.core.gateway.service.ActiveSessionDTO;
-import eu.arrowhead.core.gateway.service.GatewayService;
 
 @Component
 public class GatewayApplicationInitListener extends ApplicationInitListener {

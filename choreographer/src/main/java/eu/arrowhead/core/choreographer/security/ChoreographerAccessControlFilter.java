@@ -1,12 +1,11 @@
 package eu.arrowhead.core.choreographer.security;
 
-import java.util.Map;
-
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.security.AccessControlFilter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.security.AccessControlFilter;
+import java.util.Map;
 
 @Component
 @ConditionalOnProperty(name = CommonConstants.SERVER_SSL_ENABLED, matchIfMissing = true) 

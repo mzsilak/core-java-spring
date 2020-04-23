@@ -1,11 +1,11 @@
 package eu.arrowhead.core.qos.manager.impl;
 
-import java.util.List;
-
-import eu.arrowhead.common.dto.shared.OrchestrationFormRequestDTO;
-import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
+import eu.arrowhead.api.orchestration.model.OrchestrationFormRequestDTO;
+import eu.arrowhead.api.orchestration.model.OrchestrationResultDTO;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
 import eu.arrowhead.core.qos.manager.QoSManager;
+
+import java.util.List;
 
 public class DummyQoSManager implements QoSManager {
 	

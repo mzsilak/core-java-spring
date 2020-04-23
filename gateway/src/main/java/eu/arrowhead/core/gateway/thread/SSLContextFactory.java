@@ -1,5 +1,15 @@
 package eu.arrowhead.core.gateway.thread;
 
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.SSLProperties;
+import eu.arrowhead.common.Utilities;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.util.Assert;
+
+import javax.net.ssl.KeyManagerFactory;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManagerFactory;
 import java.io.IOException;
 import java.security.KeyManagementException;
 import java.security.KeyStore;
@@ -8,18 +18,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 import java.util.ServiceConfigurationError;
-
-import javax.net.ssl.KeyManagerFactory;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManagerFactory;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.util.Assert;
-
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.SSLProperties;
-import eu.arrowhead.common.Utilities;
 
 public class SSLContextFactory {
 	

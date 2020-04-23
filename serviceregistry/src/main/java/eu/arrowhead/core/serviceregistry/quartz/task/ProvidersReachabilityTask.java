@@ -1,8 +1,10 @@
 package eu.arrowhead.core.serviceregistry.quartz.task;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.database.entity.ServiceRegistry;
+import eu.arrowhead.common.database.entity.System;
+import eu.arrowhead.core.serviceregistry.database.service.RegistryUtils;
+import eu.arrowhead.core.serviceregistry.database.service.ServiceRegistryDBService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.quartz.DisallowConcurrentExecution;
@@ -15,11 +17,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Component;
 
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.database.entity.ServiceRegistry;
-import eu.arrowhead.common.database.entity.System;
-import eu.arrowhead.core.serviceregistry.database.service.RegistryUtils;
-import eu.arrowhead.core.serviceregistry.database.service.ServiceRegistryDBService;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 @DisallowConcurrentExecution

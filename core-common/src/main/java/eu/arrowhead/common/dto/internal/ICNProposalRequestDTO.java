@@ -1,15 +1,14 @@
 package eu.arrowhead.common.dto.internal;
 
+import eu.arrowhead.api.cloud.model.CloudRequestDTO;
+import eu.arrowhead.api.orchestration.model.OrchestrationFlags;
+import eu.arrowhead.api.serviceregistry.model.ServiceQueryFormDTO;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
+import org.springframework.util.Assert;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.springframework.util.Assert;
-
-import eu.arrowhead.common.dto.shared.CloudRequestDTO;
-import eu.arrowhead.common.dto.shared.OrchestrationFlags;
-import eu.arrowhead.common.dto.shared.ServiceQueryFormDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
 
 public class ICNProposalRequestDTO implements Serializable {
 	

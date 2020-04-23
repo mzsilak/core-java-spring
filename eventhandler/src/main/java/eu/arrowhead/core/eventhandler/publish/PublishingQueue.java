@@ -1,9 +1,9 @@
 package eu.arrowhead.core.eventhandler.publish;
 
+import eu.arrowhead.common.dto.internal.EventPublishStartDTO;
+
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-
-import eu.arrowhead.common.dto.internal.EventPublishStartDTO;
 
 public class PublishingQueue {
 

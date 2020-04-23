@@ -7,9 +7,9 @@ import org.springframework.util.Assert;
 import java.util.Collections;
 import java.util.List;
 
+import static eu.arrowhead.common.core.CoreSystemService.DEVICE_REGISTRY_ONBOARDING_WITH_CSR_SERVICE;
 import static eu.arrowhead.common.core.CoreSystemService.DEVICE_REGISTRY_ONBOARDING_WITH_NAME_SERVICE;
 import static eu.arrowhead.common.core.CoreSystemService.DEVICE_REGISTRY_REGISTER_SERVICE;
-import static eu.arrowhead.common.core.CoreSystemService.DEVICE_REGISTRY_ONBOARDING_WITH_CSR_SERVICE;
 import static eu.arrowhead.common.core.CoreSystemService.DEVICE_REGISTRY_UNREGISTER_SERVICE;
 import static eu.arrowhead.common.core.CoreSystemService.ONBOARDING_WITH_CERTIFICATE_AND_CSR_SERVICE;
 import static eu.arrowhead.common.core.CoreSystemService.ONBOARDING_WITH_CERTIFICATE_AND_NAME_SERVICE;

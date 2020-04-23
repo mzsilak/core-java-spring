@@ -1,9 +1,8 @@
 package eu.arrowhead.core.qos.quartz.task;
 
-import java.util.Map;
-
-import javax.annotation.Resource;
-
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.core.qos.database.service.QoSDBService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.quartz.DisallowConcurrentExecution;
@@ -13,9 +12,8 @@ import org.quartz.JobExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.core.qos.database.service.QoSDBService;
+import javax.annotation.Resource;
+import java.util.Map;
 
 @Component
 @DisallowConcurrentExecution

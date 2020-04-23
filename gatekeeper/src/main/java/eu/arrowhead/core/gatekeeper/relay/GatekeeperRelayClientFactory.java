@@ -1,10 +1,10 @@
 package eu.arrowhead.core.gatekeeper.relay;
 
-import java.security.PrivateKey;
-import java.security.PublicKey;
-
 import eu.arrowhead.common.SSLProperties;
 import eu.arrowhead.core.gatekeeper.relay.activemq.ActiveMQGatekeeperRelayClient;
+
+import java.security.PrivateKey;
+import java.security.PublicKey;
 
 public class GatekeeperRelayClientFactory {
 	

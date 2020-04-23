@@ -1,13 +1,12 @@
 package eu.arrowhead.common.dto.internal;
 
-import java.io.Serializable;
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import eu.arrowhead.api.orchestration.model.OrchestrationResponseDTO;
+import eu.arrowhead.api.orchestration.model.OrchestrationResultDTO;
 
-import eu.arrowhead.common.dto.shared.OrchestrationResponseDTO;
-import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
+import java.io.Serializable;
+import java.util.List;
 
 @JsonInclude(Include.NON_NULL)
 public class ICNResultDTO extends OrchestrationResponseDTO implements Serializable {

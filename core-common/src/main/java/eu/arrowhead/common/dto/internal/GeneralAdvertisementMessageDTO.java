@@ -1,10 +1,9 @@
 package eu.arrowhead.common.dto.internal;
 
-import java.io.Serializable;
-
+import eu.arrowhead.common.Utilities;
 import org.springframework.util.Assert;
 
-import eu.arrowhead.common.Utilities;
+import java.io.Serializable;
 
 public class GeneralAdvertisementMessageDTO implements Serializable {
 	

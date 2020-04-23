@@ -1,10 +1,9 @@
 package eu.arrowhead.common.database.repository;
 
-import java.util.Optional;
-
+import eu.arrowhead.common.database.entity.ChoreographerAction;
 import org.springframework.stereotype.Repository;
 
-import eu.arrowhead.common.database.entity.ChoreographerAction;
+import java.util.Optional;
 
 @Repository
 public interface ChoreographerActionRepository extends RefreshableRepository<ChoreographerAction,Long> {

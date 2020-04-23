@@ -2,7 +2,7 @@ package eu.arrowhead.common.dto.shared;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import eu.arrowhead.common.api.model.CertificateCreationRequestDTO;
+import eu.arrowhead.api.common.model.CertificateCreationRequestDTO;
 
 import java.io.Serializable;
 import java.util.StringJoiner;

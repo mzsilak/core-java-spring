@@ -1,5 +1,10 @@
 package eu.arrowhead.common.security;
 
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.filter.InboundDebugFilter;
+import eu.arrowhead.common.filter.OutboundDebugFilter;
+import eu.arrowhead.common.filter.PayloadSizeFilter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -7,12 +12,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.access.channel.ChannelProcessingFilter;
 import org.springframework.security.web.authentication.preauth.x509.X509AuthenticationFilter;
 import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter;
-
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.filter.InboundDebugFilter;
-import eu.arrowhead.common.filter.OutboundDebugFilter;
-import eu.arrowhead.common.filter.PayloadSizeFilter;
 
 public class DefaultSecurityConfig extends WebSecurityConfigurerAdapter {
 	

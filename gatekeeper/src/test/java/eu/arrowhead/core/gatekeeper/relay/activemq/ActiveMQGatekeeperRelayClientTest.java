@@ -1,15 +1,32 @@
 package eu.arrowhead.core.gatekeeper.relay.activemq;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.Serializable;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.security.cert.CertificateException;
-import java.util.Base64;
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.common.exception.AuthException;
+import eu.arrowhead.api.common.exception.DataNotFoundException;
+import eu.arrowhead.api.common.exception.ExceptionType;
+import eu.arrowhead.api.common.exception.InvalidParameterException;
+import eu.arrowhead.api.common.model.ErrorMessageDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceQueryFormDTO;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.SSLProperties;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.dto.internal.GSDPollRequestDTO;
+import eu.arrowhead.common.dto.internal.GSDPollResponseDTO;
+import eu.arrowhead.common.dto.internal.GeneralAdvertisementMessageDTO;
+import eu.arrowhead.common.relay.RelayCryptographer;
+import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayClientFactory;
+import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayRequest;
+import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayResponse;
+import eu.arrowhead.core.gatekeeper.relay.GeneralAdvertisementResult;
+import org.apache.activemq.command.ActiveMQObjectMessage;
+import org.apache.activemq.command.ActiveMQTextMessage;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.jms.BytesMessage;
 import javax.jms.CompletionListener;
@@ -30,35 +47,16 @@ import javax.jms.TemporaryTopic;
 import javax.jms.TextMessage;
 import javax.jms.Topic;
 import javax.jms.TopicSubscriber;
-
-import org.apache.activemq.command.ActiveMQObjectMessage;
-import org.apache.activemq.command.ActiveMQTextMessage;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.SSLProperties;
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.dto.internal.GSDPollRequestDTO;
-import eu.arrowhead.common.dto.internal.GSDPollResponseDTO;
-import eu.arrowhead.common.dto.internal.GeneralAdvertisementMessageDTO;
-import eu.arrowhead.common.api.model.ErrorMessageDTO;
-import eu.arrowhead.common.dto.shared.ServiceQueryFormDTO;
-import eu.arrowhead.common.api.exception.ArrowheadException;
-import eu.arrowhead.common.api.exception.AuthException;
-import eu.arrowhead.common.api.exception.DataNotFoundException;
-import eu.arrowhead.common.api.exception.ExceptionType;
-import eu.arrowhead.common.api.exception.InvalidParameterException;
-import eu.arrowhead.common.relay.RelayCryptographer;
-import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayRequest;
-import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayResponse;
-import eu.arrowhead.core.gatekeeper.relay.GeneralAdvertisementResult;
-import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayClientFactory;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Serializable;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.cert.CertificateException;
+import java.util.Base64;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

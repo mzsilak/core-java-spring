@@ -1,15 +1,15 @@
 package eu.arrowhead.core.onboarding;
 
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.serviceregistry.model.ServiceInterfaceResponseDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceRegistryResponseDTO;
 import eu.arrowhead.common.ApplicationInitListener;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.core.CoreSystemService;
 import eu.arrowhead.common.drivers.DriverUtilities;
 import eu.arrowhead.common.dto.internal.AuthorizationIntraCloudListResponseDTO;
 import eu.arrowhead.common.dto.internal.AuthorizationIntraCloudRequestDTO;
-import eu.arrowhead.common.dto.shared.ServiceInterfaceResponseDTO;
-import eu.arrowhead.common.dto.shared.ServiceRegistryResponseDTO;
-import eu.arrowhead.common.dto.shared.SystemResponseDTO;
-import eu.arrowhead.common.api.exception.ArrowheadException;
+import eu.arrowhead.api.systemregistry.model.SystemResponseDTO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

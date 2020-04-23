@@ -1,12 +1,12 @@
 package eu.arrowhead.core.deviceregistry;
 
+import eu.arrowhead.api.deviceregistry.model.DeviceRegistryOnboardingWithCsrRequestDTO;
+import eu.arrowhead.api.deviceregistry.model.DeviceRegistryOnboardingWithCsrResponseDTO;
+import eu.arrowhead.api.deviceregistry.model.DeviceRegistryOnboardingWithNameRequestDTO;
+import eu.arrowhead.api.deviceregistry.model.DeviceRegistryOnboardingWithNameResponseDTO;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.Defaults;
-import eu.arrowhead.deviceregistry.api.model.DeviceRegistryOnboardingWithCsrRequestDTO;
-import eu.arrowhead.deviceregistry.api.model.DeviceRegistryOnboardingWithCsrResponseDTO;
-import eu.arrowhead.deviceregistry.api.model.DeviceRegistryOnboardingWithNameRequestDTO;
-import eu.arrowhead.deviceregistry.api.model.DeviceRegistryOnboardingWithNameResponseDTO;
 import eu.arrowhead.core.deviceregistry.database.service.DeviceRegistryDBService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

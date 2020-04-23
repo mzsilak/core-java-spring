@@ -1,14 +1,13 @@
 package eu.arrowhead.core.orchestrator.matchmaking;
 
-import java.util.List;
-
+import eu.arrowhead.api.orchestration.model.OrchestrationResultDTO;
+import eu.arrowhead.api.orchestration.model.PreferredProviderDataDTO;
+import eu.arrowhead.common.dto.internal.DTOUtilities;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.util.Assert;
 
-import eu.arrowhead.common.dto.internal.DTOUtilities;
-import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
-import eu.arrowhead.common.dto.shared.PreferredProviderDataDTO;
+import java.util.List;
 
 public class DefaultIntraCloudProviderMatchmaker implements IntraCloudProviderMatchmakingAlgorithm {
 	

@@ -1,7 +1,6 @@
 package eu.arrowhead.common.database.service;
 
 import eu.arrowhead.common.database.entity.Device;
-import eu.arrowhead.common.database.entity.System;
 import eu.arrowhead.common.database.repository.DeviceRepository;
 import org.junit.Assert;
 import org.junit.Test;

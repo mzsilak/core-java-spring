@@ -1,14 +1,21 @@
 package eu.arrowhead.core.qos.quartz.task;
 
-import java.time.ZonedDateTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
-import javax.annotation.Resource;
-
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.common.exception.InvalidParameterException;
+import eu.arrowhead.api.serviceregistry.model.ServiceRegistryResponseDTO;
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.database.entity.QoSIntraMeasurement;
+import eu.arrowhead.common.database.entity.QoSIntraPingMeasurement;
+import eu.arrowhead.common.database.entity.QoSIntraPingMeasurementLog;
+import eu.arrowhead.common.dto.internal.ServiceRegistryListResponseDTO;
+import eu.arrowhead.api.systemregistry.model.SystemResponseDTO;
+import eu.arrowhead.common.http.HttpService;
+import eu.arrowhead.core.qos.database.service.QoSDBService;
+import eu.arrowhead.core.qos.dto.PingMeasurementCalculationsDTO;
+import eu.arrowhead.core.qos.measurement.properties.PingMeasurementProperties;
+import eu.arrowhead.core.qos.service.PingService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.icmp4j.IcmpPingResponse;
@@ -23,22 +30,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 import org.springframework.web.util.UriComponents;
 
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.database.entity.QoSIntraMeasurement;
-import eu.arrowhead.common.database.entity.QoSIntraPingMeasurement;
-import eu.arrowhead.common.database.entity.QoSIntraPingMeasurementLog;
-import eu.arrowhead.common.dto.internal.ServiceRegistryListResponseDTO;
-import eu.arrowhead.common.dto.shared.ServiceRegistryResponseDTO;
-import eu.arrowhead.common.dto.shared.SystemResponseDTO;
-import eu.arrowhead.common.api.exception.ArrowheadException;
-import eu.arrowhead.common.api.exception.InvalidParameterException;
-import eu.arrowhead.common.http.HttpService;
-import eu.arrowhead.core.qos.database.service.QoSDBService;
-import eu.arrowhead.core.qos.dto.PingMeasurementCalculationsDTO;
-import eu.arrowhead.core.qos.measurement.properties.PingMeasurementProperties;
-import eu.arrowhead.core.qos.service.PingService;
+import javax.annotation.Resource;
+import java.time.ZonedDateTime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 @DisallowConcurrentExecution

@@ -1,13 +1,15 @@
 package eu.arrowhead.core.gateway.thread;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.security.PublicKey;
-import java.util.ServiceConfigurationError;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.ConcurrentMap;
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.SSLProperties;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.core.gateway.relay.GatewayRelayClient;
+import eu.arrowhead.core.gateway.service.ActiveSessionDTO;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.context.ApplicationContext;
+import org.springframework.util.Assert;
 
 import javax.jms.Destination;
 import javax.jms.JMSException;
@@ -20,18 +22,14 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLServerSocket;
 import javax.net.ssl.SSLServerSocketFactory;
 import javax.net.ssl.SSLSocket;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.context.ApplicationContext;
-import org.springframework.util.Assert;
-
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.SSLProperties;
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.api.exception.ArrowheadException;
-import eu.arrowhead.core.gateway.relay.GatewayRelayClient;
-import eu.arrowhead.core.gateway.service.ActiveSessionDTO;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.security.PublicKey;
+import java.util.ServiceConfigurationError;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.ConcurrentMap;
 
 public class ConsumerSideServerSocketThread extends Thread implements MessageListener {
 	

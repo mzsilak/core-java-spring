@@ -1,9 +1,8 @@
 package eu.arrowhead.common.swagger;
 
+import eu.arrowhead.common.CoreCommonConstants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import eu.arrowhead.common.CoreCommonConstants;
 
 @Controller
 public class DefaultSwaggerController {

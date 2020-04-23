@@ -1,6 +1,7 @@
 package eu.arrowhead.common.database.entity;
 
-import java.time.ZonedDateTime;
+import eu.arrowhead.common.CoreDefaults;
+import eu.arrowhead.common.dto.shared.QoSMeasurementType;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,9 +17,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-
-import eu.arrowhead.common.CoreDefaults;
-import eu.arrowhead.common.dto.shared.QoSMeasurementType;
+import java.time.ZonedDateTime;
 
 @Entity
 @Table(name = "qos_intra_measurement", uniqueConstraints = @UniqueConstraint(columnNames = {"systemId", "measurementType"}))

@@ -1,8 +1,9 @@
 package eu.arrowhead.common.token;
 
-import java.security.PrivateKey;
-import java.security.PublicKey;
-
+import eu.arrowhead.api.common.exception.AuthException;
+import eu.arrowhead.api.common.exception.InvalidParameterException;
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.Utilities;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jose4j.jwa.AlgorithmConstraints;
@@ -15,10 +16,8 @@ import org.jose4j.jwt.consumer.JwtConsumer;
 import org.jose4j.jwt.consumer.JwtConsumerBuilder;
 import org.springframework.util.Assert;
 
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.api.exception.AuthException;
-import eu.arrowhead.common.api.exception.InvalidParameterException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 
 public class TokenUtilities {
 	

@@ -1,19 +1,20 @@
 package eu.arrowhead.core.serviceregistry.security;
 
+import eu.arrowhead.api.common.exception.AuthException;
+import eu.arrowhead.api.serviceregistry.model.ServiceQueryFormDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceRegistryRequestDTO;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.Utilities;
 import eu.arrowhead.common.core.CoreSystem;
 import eu.arrowhead.common.core.CoreSystemService;
-import eu.arrowhead.common.dto.shared.ServiceQueryFormDTO;
-import eu.arrowhead.common.dto.shared.ServiceRegistryRequestDTO;
-import eu.arrowhead.common.api.exception.AuthException;
 import eu.arrowhead.common.security.CoreSystemAccessControlFilter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
+import java.util.Objects;
 
 @Component
 @ConditionalOnProperty(name = CommonConstants.SERVER_SSL_ENABLED, matchIfMissing = true)
@@ -73,7 +74,8 @@ public class SRAccessControlFilter extends CoreSystemAccessControlFilter {
     private void checkProviderAccessToRegister(final String clientCN, final String requestJSON, final String requestTarget) {
         final String clientName = getClientNameFromCN(clientCN);
         final ServiceRegistryRequestDTO requestBody = Utilities.fromJson(requestJSON, ServiceRegistryRequestDTO.class);
-        final String providerName = requestBody.getProviderSystem() != null ? requestBody.getProviderSystem().getSystemName() : "";
+        final String providerName = (Objects.nonNull(requestBody) && Objects.nonNull(requestBody.getProviderSystem())) ?
+                requestBody.getProviderSystem().getSystemName() : "";
         if (Utilities.isEmpty(providerName)) {
             log.debug("Provider name is not set in the body when use {}", requestTarget);
             return; // we can't continue the check and the endpoint will throw BadPayloadException
@@ -108,7 +110,7 @@ public class SRAccessControlFilter extends CoreSystemAccessControlFilter {
     private void checkIfRequestedServiceIsAPublicCoreSystemService(final String requestJSON) {
         final ServiceQueryFormDTO requestBody = Utilities.fromJson(requestJSON, ServiceQueryFormDTO.class);
 
-        if (Utilities.isEmpty(requestBody.getServiceDefinitionRequirement())) {
+        if (Objects.isNull(requestBody) || Utilities.isEmpty(requestBody.getServiceDefinitionRequirement())) {
             throw new AuthException("Service is not defined.", HttpStatus.UNAUTHORIZED.value());
         }
 
@@ -145,7 +147,7 @@ public class SRAccessControlFilter extends CoreSystemAccessControlFilter {
             if (coreSystem != null) {
                 final ServiceQueryFormDTO requestBody = Utilities.fromJson(requestJSON, ServiceQueryFormDTO.class);
 
-                if (Utilities.isEmpty(requestBody.getServiceDefinitionRequirement())) {
+                if (Objects.isNull(requestBody) || Utilities.isEmpty(requestBody.getServiceDefinitionRequirement())) {
                     throw new AuthException("Service is not defined.", HttpStatus.UNAUTHORIZED.value());
                 }
 

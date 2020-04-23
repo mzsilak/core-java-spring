@@ -1,11 +1,10 @@
 package eu.arrowhead.core.authorization;
 
+import eu.arrowhead.core.authorization.database.service.AuthorizationDBService;
 import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-
-import eu.arrowhead.core.authorization.database.service.AuthorizationDBService;
 
 @Configuration
 public class AuthorizationDBServiceTestContext {

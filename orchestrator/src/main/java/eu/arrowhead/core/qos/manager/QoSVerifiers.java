@@ -1,10 +1,9 @@
 package eu.arrowhead.core.qos.manager;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
 import eu.arrowhead.core.qos.manager.impl.PingRequirementsVerifier;
 import eu.arrowhead.core.qos.manager.impl.ServiceTimeVerifier;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class QoSVerifiers {

@@ -1,7 +1,6 @@
 package eu.arrowhead.common.database.repository;
 
 import eu.arrowhead.common.database.entity.Device;
-import eu.arrowhead.common.database.entity.System;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

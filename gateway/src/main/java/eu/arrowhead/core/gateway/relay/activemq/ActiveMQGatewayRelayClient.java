@@ -1,8 +1,25 @@
 package eu.arrowhead.core.gateway.relay.activemq;
 
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.util.Base64;
+import eu.arrowhead.api.common.exception.AuthException;
+import eu.arrowhead.api.common.exception.InvalidParameterException;
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.SSLProperties;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.dto.internal.DecryptedMessageDTO;
+import eu.arrowhead.common.relay.RelayCryptographer;
+import eu.arrowhead.core.gateway.relay.ConsumerSideRelayInfo;
+import eu.arrowhead.core.gateway.relay.ControlRelayInfo;
+import eu.arrowhead.core.gateway.relay.GatewayRelayClient;
+import eu.arrowhead.core.gateway.relay.ProviderSideRelayInfo;
+import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.activemq.ActiveMQSession;
+import org.apache.activemq.ActiveMQSslConnectionFactory;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.util.Assert;
+import org.springframework.web.util.UriComponents;
 
 import javax.jms.Connection;
 import javax.jms.JMSException;
@@ -13,28 +30,9 @@ import javax.jms.MessageProducer;
 import javax.jms.Queue;
 import javax.jms.Session;
 import javax.jms.TextMessage;
-
-import org.apache.activemq.ActiveMQConnectionFactory;
-import org.apache.activemq.ActiveMQSession;
-import org.apache.activemq.ActiveMQSslConnectionFactory;
-import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.util.Assert;
-import org.springframework.web.util.UriComponents;
-
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.SSLProperties;
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.dto.internal.DecryptedMessageDTO;
-import eu.arrowhead.common.api.exception.AuthException;
-import eu.arrowhead.common.api.exception.InvalidParameterException;
-import eu.arrowhead.common.relay.RelayCryptographer;
-import eu.arrowhead.core.gateway.relay.ConsumerSideRelayInfo;
-import eu.arrowhead.core.gateway.relay.ControlRelayInfo;
-import eu.arrowhead.core.gateway.relay.GatewayRelayClient;
-import eu.arrowhead.core.gateway.relay.ProviderSideRelayInfo;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.util.Base64;
 
 public class ActiveMQGatewayRelayClient implements GatewayRelayClient {
 

@@ -1,10 +1,9 @@
 package eu.arrowhead.common;
 
+import eu.arrowhead.api.common.exception.BadPayloadException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.data.domain.Sort.Direction;
-
-import eu.arrowhead.common.api.exception.BadPayloadException;
 
 public class CoreUtilities {
 	

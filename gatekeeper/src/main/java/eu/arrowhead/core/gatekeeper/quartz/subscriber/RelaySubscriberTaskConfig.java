@@ -1,5 +1,7 @@
 package eu.arrowhead.core.gatekeeper.quartz.subscriber;
 
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.quartz.AutoWiringSpringBeanQuartzTaskFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.quartz.SimpleTrigger;
@@ -11,9 +13,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.quartz.JobDetailFactoryBean;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.scheduling.quartz.SimpleTriggerFactoryBean;
-
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.quartz.AutoWiringSpringBeanQuartzTaskFactory;
 
 @Configuration
 public class RelaySubscriberTaskConfig {

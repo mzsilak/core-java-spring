@@ -1,15 +1,9 @@
 package eu.arrowhead.core.gatekeeper.quartz.subscriber;
 
-import java.io.Closeable;
-import java.io.IOException;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.annotation.Resource;
-import javax.jms.Session;
-
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.SSLProperties;
+import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayClient;
+import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayClientFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.quartz.Scheduler;
@@ -20,10 +14,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.SSLProperties;
-import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayClient;
-import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayClientFactory;
+import javax.annotation.Resource;
+import javax.jms.Session;
+import java.io.Closeable;
+import java.io.IOException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
 public class RelaySubscriberDataContainer {

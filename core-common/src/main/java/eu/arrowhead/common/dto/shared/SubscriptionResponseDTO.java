@@ -1,5 +1,7 @@
 package eu.arrowhead.common.dto.shared;
 
+import eu.arrowhead.api.systemregistry.model.SystemResponseDTO;
+
 import java.io.Serializable;
 import java.util.Map;
 import java.util.Set;

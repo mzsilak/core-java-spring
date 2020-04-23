@@ -1,5 +1,10 @@
 package eu.arrowhead.common.log4j2;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+import eu.arrowhead.common.CoreCommonConstants;
+
+import javax.sql.DataSource;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -7,13 +12,6 @@ import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
-
-import javax.sql.DataSource;
-
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
-
-import eu.arrowhead.common.CoreCommonConstants;
 
 public class JDBCConnectionFactoryForLog4J2 {
 	

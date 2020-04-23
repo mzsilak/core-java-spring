@@ -1,10 +1,9 @@
 package eu.arrowhead.common.database.repository;
 
-import java.util.Optional;
-
+import eu.arrowhead.common.database.entity.ServiceDefinition;
 import org.springframework.stereotype.Repository;
 
-import eu.arrowhead.common.database.entity.ServiceDefinition;
+import java.util.Optional;
 
 @Repository
 public interface ServiceDefinitionRepository extends RefreshableRepository<ServiceDefinition,Long> {

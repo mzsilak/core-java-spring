@@ -1,10 +1,10 @@
 package eu.arrowhead.common.database.repository;
 
+import eu.arrowhead.common.database.entity.QoSIntraPingMeasurementLog;
+import org.springframework.stereotype.Repository;
+
 import java.time.ZonedDateTime;
 import java.util.Optional;
-
-import org.springframework.stereotype.Repository;
-import eu.arrowhead.common.database.entity.QoSIntraPingMeasurementLog;
 
 @Repository
 public interface QoSIntraPingMeasurementLogRepository extends RefreshableRepository<QoSIntraPingMeasurementLog, Long> {

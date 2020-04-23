@@ -1,9 +1,8 @@
 package eu.arrowhead.core.eventhandler.quartz.task;
 
-import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.List;
-
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.database.entity.Subscription;
+import eu.arrowhead.core.eventhandler.database.service.EventHandlerDBService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.quartz.DisallowConcurrentExecution;
@@ -15,9 +14,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Component;
 
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.database.entity.Subscription;
-import eu.arrowhead.core.eventhandler.database.service.EventHandlerDBService;
+import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 @DisallowConcurrentExecution

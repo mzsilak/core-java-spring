@@ -1,11 +1,10 @@
 package eu.arrowhead.core.orchestrator.matchmaking;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import eu.arrowhead.api.orchestration.model.PreferredProviderDataDTO;
 import org.springframework.util.Assert;
 
-import eu.arrowhead.common.dto.shared.PreferredProviderDataDTO;
+import java.util.ArrayList;
+import java.util.List;
 
 public class IntraCloudProviderMatchmakingParameters {
 	

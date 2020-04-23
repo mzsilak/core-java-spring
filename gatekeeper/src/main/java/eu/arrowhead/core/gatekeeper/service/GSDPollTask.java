@@ -1,24 +1,22 @@
 package eu.arrowhead.core.gatekeeper.service;
 
-import java.util.concurrent.BlockingQueue;
-
-import javax.jms.Session;
-
+import eu.arrowhead.api.common.exception.BadPayloadException;
+import eu.arrowhead.api.common.exception.InvalidParameterException;
+import eu.arrowhead.api.common.exception.TimeoutException;
+import eu.arrowhead.api.common.model.ErrorMessageDTO;
+import eu.arrowhead.api.common.model.ErrorWrapperDTO;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.dto.internal.GSDPollRequestDTO;
+import eu.arrowhead.common.dto.internal.GSDPollResponseDTO;
+import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayClient;
+import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayResponse;
+import eu.arrowhead.core.gatekeeper.relay.GeneralAdvertisementResult;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.util.Assert;
 
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.dto.internal.GSDPollRequestDTO;
-import eu.arrowhead.common.dto.internal.GSDPollResponseDTO;
-import eu.arrowhead.common.api.model.ErrorMessageDTO;
-import eu.arrowhead.common.api.model.ErrorWrapperDTO;
-import eu.arrowhead.common.api.exception.BadPayloadException;
-import eu.arrowhead.common.api.exception.InvalidParameterException;
-import eu.arrowhead.common.api.exception.TimeoutException;
-import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayClient;
-import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayResponse;
-import eu.arrowhead.core.gatekeeper.relay.GeneralAdvertisementResult;
+import javax.jms.Session;
+import java.util.concurrent.BlockingQueue;
 
 public class GSDPollTask implements Runnable {
 	

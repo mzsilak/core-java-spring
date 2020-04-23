@@ -1,11 +1,10 @@
 package eu.arrowhead.core.serviceregistry;
 
+import eu.arrowhead.core.serviceregistry.database.service.ServiceRegistryDBService;
 import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-
-import eu.arrowhead.core.serviceregistry.database.service.ServiceRegistryDBService;
 
 @Configuration
 public class ServiceRegistryDBServiceTestContext {

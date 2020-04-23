@@ -1,11 +1,8 @@
 package eu.arrowhead.core.gatekeeper.service;
 
-import static org.mockito.Mockito.when;
-
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.util.Map;
-
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.SSLProperties;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,9 +11,11 @@ import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.SSLProperties;
-import eu.arrowhead.common.api.exception.ArrowheadException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.util.Map;
+
+import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 public class GatekeeperDriverTest {

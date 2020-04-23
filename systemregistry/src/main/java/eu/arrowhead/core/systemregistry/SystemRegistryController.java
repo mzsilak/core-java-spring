@@ -1,14 +1,14 @@
 package eu.arrowhead.core.systemregistry;
 
+import eu.arrowhead.api.systemregistry.model.SystemQueryFormDTO;
+import eu.arrowhead.api.systemregistry.model.SystemQueryResultDTO;
+import eu.arrowhead.api.systemregistry.model.SystemRegistryRequestDTO;
+import eu.arrowhead.api.systemregistry.model.SystemRegistryResponseDTO;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.Defaults;
-import eu.arrowhead.common.dto.shared.SystemQueryFormDTO;
-import eu.arrowhead.common.dto.shared.SystemQueryResultDTO;
-import eu.arrowhead.common.dto.shared.SystemRegistryRequestDTO;
-import eu.arrowhead.common.dto.shared.SystemRegistryResponseDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.dto.shared.SystemResponseDTO;
+import eu.arrowhead.api.systemregistry.model.SystemResponseDTO;
 import eu.arrowhead.core.systemregistry.database.service.SystemRegistryDBService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

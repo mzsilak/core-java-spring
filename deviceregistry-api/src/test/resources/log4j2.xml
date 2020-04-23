@@ -4,7 +4,9 @@
         <Property name="LOG_PATTERN">
             %d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${hostName} --- [%15.15t] %-40.40c{1.} : %m%n%ex
         </Property>
-		<Property name="CONSOLE_FILE_LEVEL">TRACE</Property>
+        <Property name="CONSOLE_API_LEVEL">DEBUG</Property>
+        <Property name="CONSOLE_CORE_LEVEL">INFO</Property>
+        <Property name="CONSOLE_COMMON_LEVEL">DEBUG</Property>
     </Properties>
     <Appenders>
         <Console name="ConsoleAppender" target="SYSTEM_OUT" follow="true">
@@ -15,7 +17,8 @@
 		<Root level="INFO">
             <AppenderRef ref="ConsoleAppender" />
         </Root>
-		<Logger name="eu.arrowhead.common" level="${CONSOLE_FILE_LEVEL}" additivity="true"/>
-		<Logger name="eu.arrowhead.core" level="${CONSOLE_FILE_LEVEL}" additivity="true"/>
+		<Logger name="eu.arrowhead.common" level="${CONSOLE_COMMON_LEVEL}" additivity="true"/>
+        <Logger name="eu.arrowhead.api" level="${CONSOLE_API_LEVEL}" additivity="true"/>
+        <Logger name="eu.arrowhead.core" level="${CONSOLE_CORE_LEVEL}" additivity="true"/>
     </Loggers>
 </Configuration>

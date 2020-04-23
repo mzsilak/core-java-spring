@@ -1,18 +1,17 @@
 package eu.arrowhead.core.qos.manager.impl;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import eu.arrowhead.api.orchestration.model.OrchestrationFormRequestDTO;
+import eu.arrowhead.api.orchestration.model.OrchestrationResultDTO;
+import eu.arrowhead.api.orchestration.model.OrchestratorWarnings;
+import eu.arrowhead.api.serviceregistry.model.ServiceRegistryRequestDTO;
+import eu.arrowhead.core.orchestrator.service.OrchestratorDriver;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import eu.arrowhead.common.dto.shared.OrchestrationFormRequestDTO;
-import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
-import eu.arrowhead.common.dto.shared.OrchestratorWarnings;
-import eu.arrowhead.common.dto.shared.ServiceRegistryRequestDTO;
-import eu.arrowhead.core.orchestrator.service.OrchestratorDriver;
+import java.util.HashMap;
+import java.util.Map;
 
 @RunWith(SpringRunner.class)
 public class ServiceTimeVerifierTest {

@@ -1,12 +1,11 @@
 package eu.arrowhead.core.orchestrator;
 
+import eu.arrowhead.core.orchestrator.database.service.OrchestratorStoreDBService;
+import eu.arrowhead.core.orchestrator.service.OrchestratorService;
 import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-
-import eu.arrowhead.core.orchestrator.database.service.OrchestratorStoreDBService;
-import eu.arrowhead.core.orchestrator.service.OrchestratorService;
 
 @Configuration
 public class OrchestratorServiceTestContext {

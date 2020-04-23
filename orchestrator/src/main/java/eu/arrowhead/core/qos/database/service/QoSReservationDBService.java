@@ -1,9 +1,13 @@
 package eu.arrowhead.core.qos.database.service;
 
-import java.time.ZonedDateTime;
-import java.util.List;
-import java.util.Optional;
-
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.orchestration.model.OrchestrationResultDTO;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.database.entity.QoSReservation;
+import eu.arrowhead.common.database.repository.QoSReservationRepository;
+import eu.arrowhead.core.orchestrator.service.OrchestratorDriver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +16,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.database.entity.QoSReservation;
-import eu.arrowhead.common.database.repository.QoSReservationRepository;
-import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.api.exception.ArrowheadException;
-import eu.arrowhead.core.orchestrator.service.OrchestratorDriver;
+import java.time.ZonedDateTime;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class QoSReservationDBService {

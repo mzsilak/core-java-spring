@@ -1,15 +1,14 @@
 package eu.arrowhead.common.database.repository;
 
-import java.util.List;
-import java.util.Optional;
-
+import eu.arrowhead.common.database.entity.ServiceDefinition;
+import eu.arrowhead.common.database.entity.ServiceRegistry;
+import eu.arrowhead.common.database.entity.System;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
-import eu.arrowhead.common.database.entity.ServiceDefinition;
-import eu.arrowhead.common.database.entity.ServiceRegistry;
-import eu.arrowhead.common.database.entity.System;
+import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ServiceRegistryRepository extends RefreshableRepository<ServiceRegistry,Long> {

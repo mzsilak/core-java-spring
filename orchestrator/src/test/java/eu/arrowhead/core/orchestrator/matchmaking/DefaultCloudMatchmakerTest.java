@@ -1,16 +1,15 @@
 package eu.arrowhead.core.orchestrator.matchmaking;
 
-import java.util.List;
-
+import eu.arrowhead.api.cloud.model.CloudRequestDTO;
+import eu.arrowhead.common.dto.internal.CloudResponseDTO;
+import eu.arrowhead.common.dto.internal.GSDPollResponseDTO;
+import eu.arrowhead.common.dto.internal.GSDQueryResultDTO;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import eu.arrowhead.common.dto.internal.CloudResponseDTO;
-import eu.arrowhead.common.dto.internal.GSDPollResponseDTO;
-import eu.arrowhead.common.dto.internal.GSDQueryResultDTO;
-import eu.arrowhead.common.dto.shared.CloudRequestDTO;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 public class DefaultCloudMatchmakerTest {

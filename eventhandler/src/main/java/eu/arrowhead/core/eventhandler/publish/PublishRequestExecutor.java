@@ -1,18 +1,17 @@
 package eu.arrowhead.core.eventhandler.publish;
 
+import eu.arrowhead.common.database.entity.Subscription;
+import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
+import eu.arrowhead.common.http.HttpService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.util.Assert;
+
 import java.time.ZonedDateTime;
 import java.util.Set;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ThreadPoolExecutor;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.util.Assert;
-
-import eu.arrowhead.common.database.entity.Subscription;
-import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
-import eu.arrowhead.common.http.HttpService;
 
 public class PublishRequestExecutor {
 	

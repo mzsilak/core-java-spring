@@ -1,11 +1,11 @@
 package eu.arrowhead.common.dto.internal;
 
+import eu.arrowhead.api.serviceregistry.model.ServiceDefinitionResponseDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceInterfaceResponseDTO;
+import eu.arrowhead.api.systemregistry.model.SystemResponseDTO;
+
 import java.io.Serializable;
 import java.util.List;
-
-import eu.arrowhead.common.dto.shared.ServiceDefinitionResponseDTO;
-import eu.arrowhead.common.dto.shared.ServiceInterfaceResponseDTO;
-import eu.arrowhead.common.dto.shared.SystemResponseDTO;
 
 public class AuthorizationIntraCloudResponseDTO implements Serializable {
 

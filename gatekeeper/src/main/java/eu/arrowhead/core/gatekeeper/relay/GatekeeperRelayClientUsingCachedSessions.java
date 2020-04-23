@@ -1,23 +1,21 @@
 package eu.arrowhead.core.gatekeeper.relay;
 
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.SSLProperties;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.dto.internal.GeneralAdvertisementMessageDTO;
+import org.springframework.util.Assert;
+
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.MessageConsumer;
+import javax.jms.Session;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageConsumer;
-import javax.jms.Session;
-
-import org.springframework.util.Assert;
-
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.SSLProperties;
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.dto.internal.GeneralAdvertisementMessageDTO;
 
 public class GatekeeperRelayClientUsingCachedSessions implements GatekeeperRelayClient {
 	

@@ -1,6 +1,5 @@
 package eu.arrowhead.common.database.repository;
 
-import eu.arrowhead.common.database.entity.ChoreographerPlan;
 import eu.arrowhead.common.database.entity.ChoreographerRunningStep;
 import org.springframework.stereotype.Repository;
 

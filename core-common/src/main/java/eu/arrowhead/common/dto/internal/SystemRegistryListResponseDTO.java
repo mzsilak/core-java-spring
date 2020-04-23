@@ -2,8 +2,7 @@ package eu.arrowhead.common.dto.internal;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import eu.arrowhead.common.dto.shared.ServiceRegistryResponseDTO;
-import eu.arrowhead.common.dto.shared.SystemRegistryResponseDTO;
+import eu.arrowhead.api.systemregistry.model.SystemRegistryResponseDTO;
 
 import java.io.Serializable;
 import java.util.List;

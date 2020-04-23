@@ -1,23 +1,22 @@
 package eu.arrowhead.core.gatekeeper.relay;
 
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.Session;
-
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.common.exception.BadPayloadException;
+import eu.arrowhead.api.common.model.ErrorMessageDTO;
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.dto.internal.GeneralAdvertisementMessageDTO;
+import eu.arrowhead.core.gatekeeper.service.GatekeeperService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.Assert;
 
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.dto.internal.GeneralAdvertisementMessageDTO;
-import eu.arrowhead.common.api.model.ErrorMessageDTO;
-import eu.arrowhead.common.api.exception.ArrowheadException;
-import eu.arrowhead.common.api.exception.BadPayloadException;
-import eu.arrowhead.core.gatekeeper.service.GatekeeperService;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
 
 public class GatekeeperTask implements Runnable {
 	

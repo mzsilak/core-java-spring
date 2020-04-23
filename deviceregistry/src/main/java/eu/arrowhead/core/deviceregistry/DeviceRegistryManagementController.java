@@ -1,5 +1,10 @@
 package eu.arrowhead.core.deviceregistry;
 
+import eu.arrowhead.api.common.exception.BadPayloadException;
+import eu.arrowhead.api.deviceregistry.model.DeviceRegistryRequestDTO;
+import eu.arrowhead.api.deviceregistry.model.DeviceRegistryResponseDTO;
+import eu.arrowhead.api.deviceregistry.model.DeviceRequestDTO;
+import eu.arrowhead.api.deviceregistry.model.DeviceResponseDTO;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.CoreDefaults;
@@ -8,11 +13,6 @@ import eu.arrowhead.common.Defaults;
 import eu.arrowhead.common.Utilities;
 import eu.arrowhead.common.dto.internal.DeviceListResponseDTO;
 import eu.arrowhead.common.dto.internal.DeviceRegistryListResponseDTO;
-import eu.arrowhead.deviceregistry.api.model.DeviceRegistryRequestDTO;
-import eu.arrowhead.deviceregistry.api.model.DeviceRegistryResponseDTO;
-import eu.arrowhead.deviceregistry.api.model.DeviceRequestDTO;
-import eu.arrowhead.deviceregistry.api.model.DeviceResponseDTO;
-import eu.arrowhead.common.api.exception.BadPayloadException;
 import eu.arrowhead.core.deviceregistry.database.service.DeviceRegistryDBService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

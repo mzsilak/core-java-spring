@@ -1,18 +1,27 @@
 package eu.arrowhead.core.gateway.service;
 
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.time.ZonedDateTime;
-import java.util.Base64;
-import java.util.Map;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.ConcurrentMap;
-
-import javax.annotation.Resource;
-import javax.jms.JMSException;
-import javax.jms.Session;
-
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.common.exception.InvalidParameterException;
+import eu.arrowhead.api.common.exception.UnavailableServerException;
+import eu.arrowhead.api.cloud.model.CloudRequestDTO;
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.SSLProperties;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.dto.internal.GatewayConsumerConnectionRequestDTO;
+import eu.arrowhead.common.dto.internal.GatewayProviderConnectionRequestDTO;
+import eu.arrowhead.common.dto.internal.GatewayProviderConnectionResponseDTO;
+import eu.arrowhead.common.dto.internal.RelayRequestDTO;
+import eu.arrowhead.common.dto.internal.RelayType;
 import eu.arrowhead.core.gateway.GateWayUtilities;
+import eu.arrowhead.core.gateway.relay.ConsumerSideRelayInfo;
+import eu.arrowhead.core.gateway.relay.ControlRelayInfo;
+import eu.arrowhead.core.gateway.relay.GatewayRelayClient;
+import eu.arrowhead.core.gateway.relay.GatewayRelayClientFactory;
+import eu.arrowhead.core.gateway.relay.ProviderSideRelayInfo;
+import eu.arrowhead.core.gateway.thread.ConsumerSideServerSocketThread;
+import eu.arrowhead.core.gateway.thread.ProviderSideSocketThread;
 import org.apache.http.HttpStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,27 +33,16 @@ import org.springframework.context.event.EventListener;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.SSLProperties;
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.dto.internal.GatewayConsumerConnectionRequestDTO;
-import eu.arrowhead.common.dto.internal.GatewayProviderConnectionRequestDTO;
-import eu.arrowhead.common.dto.internal.GatewayProviderConnectionResponseDTO;
-import eu.arrowhead.common.dto.internal.RelayRequestDTO;
-import eu.arrowhead.common.dto.internal.RelayType;
-import eu.arrowhead.common.dto.shared.CloudRequestDTO;
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
-import eu.arrowhead.common.api.exception.ArrowheadException;
-import eu.arrowhead.common.api.exception.InvalidParameterException;
-import eu.arrowhead.common.api.exception.UnavailableServerException;
-import eu.arrowhead.core.gateway.relay.ConsumerSideRelayInfo;
-import eu.arrowhead.core.gateway.relay.ControlRelayInfo;
-import eu.arrowhead.core.gateway.relay.GatewayRelayClient;
-import eu.arrowhead.core.gateway.relay.GatewayRelayClientFactory;
-import eu.arrowhead.core.gateway.relay.ProviderSideRelayInfo;
-import eu.arrowhead.core.gateway.thread.ConsumerSideServerSocketThread;
-import eu.arrowhead.core.gateway.thread.ProviderSideSocketThread;
+import javax.annotation.Resource;
+import javax.jms.JMSException;
+import javax.jms.Session;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.time.ZonedDateTime;
+import java.util.Base64;
+import java.util.Map;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.ConcurrentMap;
 
 @Component
 public class GatewayService {

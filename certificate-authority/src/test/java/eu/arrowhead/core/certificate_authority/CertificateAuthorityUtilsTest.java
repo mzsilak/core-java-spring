@@ -1,13 +1,9 @@
 package eu.arrowhead.core.certificate_authority;
 
-import static org.junit.Assert.assertNotNull;
-
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.util.Base64;
-import java.util.ServiceConfigurationError;
-
+import eu.arrowhead.api.common.exception.AuthException;
+import eu.arrowhead.api.common.exception.BadPayloadException;
+import eu.arrowhead.api.common.exception.DataNotFoundException;
+import eu.arrowhead.common.dto.internal.CertificateSigningRequestDTO;
 import org.bouncycastle.pkcs.jcajce.JcaPKCS10CertificationRequest;
 import org.hamcrest.core.IsInstanceOf;
 import org.junit.Rule;
@@ -17,10 +13,13 @@ import org.junit.runner.RunWith;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import eu.arrowhead.common.dto.internal.CertificateSigningRequestDTO;
-import eu.arrowhead.common.api.exception.AuthException;
-import eu.arrowhead.common.api.exception.BadPayloadException;
-import eu.arrowhead.common.api.exception.DataNotFoundException;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.Base64;
+import java.util.ServiceConfigurationError;
+
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
 public class CertificateAuthorityUtilsTest {

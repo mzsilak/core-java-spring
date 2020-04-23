@@ -1,10 +1,10 @@
 package eu.arrowhead.core.qos.measurement.properties;
 
-import javax.annotation.PostConstruct;
-
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.Assert;
+
+import javax.annotation.PostConstruct;
 
 @Configuration
 @ConfigurationProperties(prefix = "ping")

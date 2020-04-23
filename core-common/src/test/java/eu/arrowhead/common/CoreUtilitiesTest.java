@@ -1,13 +1,12 @@
 package eu.arrowhead.common;
 
+import eu.arrowhead.api.common.exception.BadPayloadException;
+import eu.arrowhead.common.CoreUtilities.ValidatedPageParams;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import eu.arrowhead.common.CoreUtilities.ValidatedPageParams;
-import eu.arrowhead.common.api.exception.BadPayloadException;
 
 @RunWith(SpringRunner.class)
 public class CoreUtilitiesTest {

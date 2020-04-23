@@ -1,8 +1,8 @@
 package eu.arrowhead.core.gateway.relay;
 
-import javax.jms.MessageProducer;
-
 import org.springframework.util.Assert;
+
+import javax.jms.MessageProducer;
 
 public class ConsumerSideRelayInfo {
 

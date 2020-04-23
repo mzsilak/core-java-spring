@@ -1,11 +1,13 @@
 package eu.arrowhead.common.relay;
 
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.util.Base64;
-
-import javax.validation.constraints.NotNull;
-
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.common.exception.AuthException;
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.CoreCommonConstants;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.dto.internal.DecryptedMessageDTO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jose4j.jwa.AlgorithmConstraints;
@@ -20,15 +22,10 @@ import org.jose4j.jwt.consumer.JwtConsumerBuilder;
 import org.jose4j.lang.JoseException;
 import org.springframework.util.Assert;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.CoreCommonConstants;
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.dto.internal.DecryptedMessageDTO;
-import eu.arrowhead.common.api.exception.ArrowheadException;
-import eu.arrowhead.common.api.exception.AuthException;
+import javax.validation.constraints.NotNull;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.util.Base64;
 
 public class RelayCryptographer {
 

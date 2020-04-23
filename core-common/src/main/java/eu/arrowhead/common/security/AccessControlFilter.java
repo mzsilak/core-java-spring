@@ -1,7 +1,15 @@
 package eu.arrowhead.common.security;
 
-import java.io.IOException;
-import java.util.Map;
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.common.exception.AuthException;
+import eu.arrowhead.common.CommonConstants;
+import eu.arrowhead.common.SecurityUtilities;
+import eu.arrowhead.common.Utilities;
+import eu.arrowhead.common.filter.ArrowheadFilter;
+import eu.arrowhead.common.filter.thirdparty.MultiReadRequestWrapper;
+import org.apache.http.HttpStatus;
+import org.springframework.lang.Nullable;
+import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
 import javax.servlet.FilterChain;
@@ -9,18 +17,8 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-
-import eu.arrowhead.common.SecurityUtilities;
-import org.apache.http.HttpStatus;
-import org.springframework.lang.Nullable;
-import org.springframework.util.Assert;
-
-import eu.arrowhead.common.CommonConstants;
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.api.exception.ArrowheadException;
-import eu.arrowhead.common.api.exception.AuthException;
-import eu.arrowhead.common.filter.ArrowheadFilter;
-import eu.arrowhead.common.filter.thirdparty.MultiReadRequestWrapper;
+import java.io.IOException;
+import java.util.Map;
 
 public abstract class AccessControlFilter extends ArrowheadFilter {
 	

@@ -1,17 +1,16 @@
 package eu.arrowhead.core.eventhandler.publish;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.http.HttpMethod;
-import org.springframework.util.Assert;
-import org.springframework.web.util.UriComponents;
-
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.Utilities;
 import eu.arrowhead.common.database.entity.Subscription;
 import eu.arrowhead.common.dto.internal.DTOConverter;
 import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
 import eu.arrowhead.common.http.HttpService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.http.HttpMethod;
+import org.springframework.util.Assert;
+import org.springframework.web.util.UriComponents;
 
 public class PublishEventTask implements Runnable {
 

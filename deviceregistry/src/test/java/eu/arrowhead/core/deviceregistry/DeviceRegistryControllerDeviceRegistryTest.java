@@ -1,12 +1,12 @@
 package eu.arrowhead.core.deviceregistry;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import eu.arrowhead.api.common.exception.InvalidParameterException;
+import eu.arrowhead.api.deviceregistry.model.DeviceRegistryRequestDTO;
+import eu.arrowhead.api.deviceregistry.model.DeviceRegistryResponseDTO;
+import eu.arrowhead.api.deviceregistry.model.DeviceRequestDTO;
+import eu.arrowhead.api.deviceregistry.model.DeviceResponseDTO;
 import eu.arrowhead.common.dto.internal.DeviceRegistryListResponseDTO;
-import eu.arrowhead.deviceregistry.api.model.DeviceRegistryRequestDTO;
-import eu.arrowhead.deviceregistry.api.model.DeviceRegistryResponseDTO;
-import eu.arrowhead.deviceregistry.api.model.DeviceRequestDTO;
-import eu.arrowhead.deviceregistry.api.model.DeviceResponseDTO;
-import eu.arrowhead.common.api.exception.InvalidParameterException;
 import eu.arrowhead.core.deviceregistry.database.service.DeviceRegistryDBService;
 import org.junit.Before;
 import org.junit.Test;

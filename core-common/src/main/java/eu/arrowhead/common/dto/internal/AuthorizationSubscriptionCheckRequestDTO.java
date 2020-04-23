@@ -1,9 +1,9 @@
 package eu.arrowhead.common.dto.internal;
 
+import eu.arrowhead.api.systemregistry.model.SystemRequestDTO;
+
 import java.io.Serializable;
 import java.util.Set;
-
-import eu.arrowhead.common.dto.shared.SystemRequestDTO;
 
 public class AuthorizationSubscriptionCheckRequestDTO implements Serializable {
 	

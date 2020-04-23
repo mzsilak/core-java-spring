@@ -1,12 +1,11 @@
 package eu.arrowhead.common.dto.internal;
 
-import java.io.Serializable;
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import eu.arrowhead.api.systemregistry.model.SystemResponseDTO;
 
-import eu.arrowhead.common.dto.shared.SystemResponseDTO;
+import java.io.Serializable;
+import java.util.List;
 
 @JsonInclude(Include.NON_NULL)
 public class AutoCompleteDataResponseDTO implements Serializable {

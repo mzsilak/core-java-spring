@@ -1,10 +1,10 @@
 package eu.arrowhead.common.dto.internal;
 
+import eu.arrowhead.common.dto.shared.QoSMeasurementType;
+import eu.arrowhead.api.systemregistry.model.SystemResponseDTO;
+
 import java.io.Serializable;
 import java.time.ZonedDateTime;
-
-import eu.arrowhead.common.dto.shared.QoSMeasurementType;
-import eu.arrowhead.common.dto.shared.SystemResponseDTO;
 
 public class QoSIntraMeasurementResponseDTO implements Serializable {
 

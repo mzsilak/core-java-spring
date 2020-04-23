@@ -1,15 +1,13 @@
 package eu.arrowhead.core.gatekeeper.relay;
 
-import java.security.PublicKey;
-
-import javax.jms.MessageProducer;
-
-import org.springframework.util.Assert;
-
+import eu.arrowhead.api.common.exception.DataNotFoundException;
 import eu.arrowhead.common.Utilities;
 import eu.arrowhead.common.dto.internal.GSDPollRequestDTO;
 import eu.arrowhead.common.dto.internal.ICNProposalRequestDTO;
-import eu.arrowhead.common.api.exception.DataNotFoundException;
+import org.springframework.util.Assert;
+
+import javax.jms.MessageProducer;
+import java.security.PublicKey;
 
 public class GatekeeperRelayRequest {
 

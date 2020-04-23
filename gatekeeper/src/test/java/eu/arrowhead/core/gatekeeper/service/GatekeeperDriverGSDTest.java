@@ -1,17 +1,16 @@
 package eu.arrowhead.core.gatekeeper.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import eu.arrowhead.api.cloud.model.CloudRequestDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceQueryFormDTO;
+import eu.arrowhead.api.serviceregistry.model.ServiceRegistryResponseDTO;
+import eu.arrowhead.common.database.entity.Cloud;
+import eu.arrowhead.common.dto.internal.GSDPollRequestDTO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import eu.arrowhead.common.database.entity.Cloud;
-import eu.arrowhead.common.dto.internal.GSDPollRequestDTO;
-import eu.arrowhead.common.dto.shared.CloudRequestDTO;
-import eu.arrowhead.common.dto.shared.ServiceQueryFormDTO;
-import eu.arrowhead.common.dto.shared.ServiceRegistryResponseDTO;
+import java.util.ArrayList;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 public class GatekeeperDriverGSDTest {

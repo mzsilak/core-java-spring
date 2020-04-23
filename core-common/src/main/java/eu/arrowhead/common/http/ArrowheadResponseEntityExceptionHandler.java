@@ -1,5 +1,8 @@
 package eu.arrowhead.common.http;
 
+import eu.arrowhead.api.common.exception.ArrowheadException;
+import eu.arrowhead.api.common.model.ErrorMessageDTO;
+import eu.arrowhead.common.Utilities;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpHeaders;
@@ -10,10 +13,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-
-import eu.arrowhead.common.Utilities;
-import eu.arrowhead.common.api.model.ErrorMessageDTO;
-import eu.arrowhead.common.api.exception.ArrowheadException;
 
 @ControllerAdvice
 public class ArrowheadResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {

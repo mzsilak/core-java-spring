@@ -1,12 +1,11 @@
 package eu.arrowhead.common.database.repository;
 
+import eu.arrowhead.common.database.entity.QoSReservation;
+import org.springframework.stereotype.Repository;
+
 import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
-
-import org.springframework.stereotype.Repository;
-
-import eu.arrowhead.common.database.entity.QoSReservation;
 
 @Repository
 public interface QoSReservationRepository extends RefreshableRepository<QoSReservation,Long> {

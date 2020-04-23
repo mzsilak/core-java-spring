@@ -2,8 +2,10 @@ package eu.arrowhead.common.dto.shared;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import eu.arrowhead.common.api.model.CertificateCreationResponseDTO;
-import eu.arrowhead.deviceregistry.api.model.DeviceResponseDTO;
+import eu.arrowhead.api.common.model.CertificateCreationResponseDTO;
+import eu.arrowhead.api.deviceregistry.model.DeviceResponseDTO;
+import eu.arrowhead.api.systemregistry.model.SystemRegistryResponseDTO;
+import eu.arrowhead.api.systemregistry.model.SystemResponseDTO;
 import org.springframework.util.Assert;
 
 import java.io.Serializable;

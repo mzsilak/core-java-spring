@@ -1,0 +1,130 @@
+# JMH version: 1.23
+# VM version: JDK 11.0.4, Java HotSpot(TM) 64-Bit Server VM, 11.0.4+10-LTS
+# VM invoker: C:\Program Files\Java\jdk-11.0.4\bin\java.exe
+# VM options: -server
+# Warmup: 10 iterations, 10 s each
+# Measurement: 5 iterations, 30 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+
+Result "eu.arrowhead.benchmark.eventhandler.BenchmarkDriver.performBenchmark":
+  232,482 ±(99.9%) 19,009 ops/s [Average]
+  (min, avg, max) = (224,796, 232,482, 236,909), stdev = 4,937
+  CI (99.9%): [213,473, 251,491] (assumes normal distribution)
+
+Result "eu.arrowhead.benchmark.eventhandler.BenchmarkHttpService.performBenchmark":
+  227,317 ±(99.9%) 7,348 ops/s [Average]
+  (min, avg, max) = (224,645, 227,317, 229,318), stdev = 1,908
+  CI (99.9%): [219,969, 234,664] (assumes normal distribution)
+
+Result "eu.arrowhead.benchmark.eventhandler.BenchmarkProxy.performBenchmark":
+  237,092 ±(99.9%) 18,798 ops/s [Average]
+  (min, avg, max) = (228,551, 237,092, 240,555), stdev = 4,882
+  CI (99.9%): [218,295, 255,890] (assumes normal distribution)
+
+# Run complete. Total time: 00:13:07
+
+Benchmark                               Mode  Cnt    Score    Error  Units
+BenchmarkDriver.performBenchmark       thrpt    5  232,482 ± 19,009  ops/s
+BenchmarkHttpService.performBenchmark  thrpt    5  227,317 ±  7,348  ops/s
+BenchmarkProxy.performBenchmark        thrpt    5  237,092 ± 18,798  ops/s
+
+
+# JMH version: 1.23
+# VM version: JDK 11.0.4, Java HotSpot(TM) 64-Bit Server VM, 11.0.4+10-LTS
+# VM invoker: C:\Program Files\Java\jdk-11.0.4\bin\java.exe
+# VM options: -server
+# Warmup: 10 iterations, 10 s each
+# Measurement: 5 iterations, 30 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+
+Result "eu.arrowhead.benchmark.eventhandler.BenchmarkDriver.performBenchmark":
+  444,154 ±(99.9%) 3,277 ops/s [Average]
+  (min, avg, max) = (443,311, 444,154, 445,250), stdev = 0,851
+  CI (99.9%): [440,877, 447,431] (assumes normal distribution)
+
+Result "eu.arrowhead.benchmark.eventhandler.BenchmarkHttpService.performBenchmark":
+  431,599 ±(99.9%) 17,168 ops/s [Average]
+  (min, avg, max) = (424,382, 431,599, 436,084), stdev = 4,459
+  CI (99.9%): [414,431, 448,767] (assumes normal distribution)
+
+Result "eu.arrowhead.benchmark.eventhandler.BenchmarkProxy.performBenchmark":
+  751,857 ±(99.9%) 12,153 ops/s [Average]
+  (min, avg, max) = (746,492, 751,857, 754,784), stdev = 3,156
+  CI (99.9%): [739,705, 764,010] (assumes normal distribution)
+
+# Run complete. Total time: 00:13:10
+
+Benchmark                               Mode  Cnt    Score    Error  Units
+BenchmarkDriver.performBenchmark       thrpt    5  444,154 ±  3,277  ops/s
+BenchmarkHttpService.performBenchmark  thrpt    5  431,599 ± 17,168  ops/s
+BenchmarkProxy.performBenchmark        thrpt    5  751,857 ± 12,153  ops/s
+
+
+# JMH version: 1.23
+# VM version: JDK 11.0.4, Java HotSpot(TM) 64-Bit Server VM, 11.0.4+10-LTS
+# VM invoker: C:\Program Files\Java\jdk-11.0.4\bin\java.exe
+# VM options: -server
+# Warmup: 10 iterations, 10 s each
+# Measurement: 5 iterations, 30 s each
+# Timeout: 10 min per iteration
+# Threads: 10 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+
+Result "eu.arrowhead.benchmark.eventhandler.BenchmarkDriver.performBenchmark":
+  438,461 ±(99.9%) 9,935 ops/s [Average]
+  (min, avg, max) = (434,298, 438,461, 440,962), stdev = 2,580
+  CI (99.9%): [428,526, 448,396] (assumes normal distribution)
+
+Result "eu.arrowhead.benchmark.eventhandler.BenchmarkHttpService.performBenchmark":
+  447,719 ±(99.9%) 9,148 ops/s [Average]
+  (min, avg, max) = (444,132, 447,719, 449,837), stdev = 2,376
+  CI (99.9%): [438,571, 456,866] (assumes normal distribution)
+
+Result "eu.arrowhead.benchmark.eventhandler.BenchmarkProxy.performBenchmark":
+  1399,534 ±(99.9%) 69,842 ops/s [Average]
+  (min, avg, max) = (1376,458, 1399,534, 1425,757), stdev = 18,138
+  CI (99.9%): [1329,692, 1469,376] (assumes normal distribution)
+
+# Run complete. Total time: 00:13:11
+
+Benchmark                               Mode  Cnt     Score    Error  Units
+BenchmarkDriver.performBenchmark       thrpt    5   438,461 ±  9,935  ops/s
+BenchmarkHttpService.performBenchmark  thrpt    5   447,719 ±  9,148  ops/s
+BenchmarkProxy.performBenchmark        thrpt    5  1399,534 ± 69,842  ops/s
+
+
+# JMH version: 1.23
+# VM version: JDK 11.0.4, Java HotSpot(TM) 64-Bit Server VM, 11.0.4+10-LTS
+# VM invoker: C:\Program Files\Java\jdk-11.0.4\bin\java.exe
+# VM options: -server
+# Warmup: 10 iterations, 10 s each
+# Measurement: 5 iterations, 30 s each
+# Timeout: 10 min per iteration
+# Threads: 20 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+
+Result "eu.arrowhead.benchmark.eventhandler.BenchmarkDriver.performBenchmark":
+  476,433 ±(99.9%) 13,889 ops/s [Average]
+  (min, avg, max) = (473,385, 476,433, 480,450), stdev = 3,607
+  CI (99.9%): [462,544, 490,322] (assumes normal distribution)
+
+Result "eu.arrowhead.benchmark.eventhandler.BenchmarkHttpService.performBenchmark":
+  480,405 ±(99.9%) 6,230 ops/s [Average]
+  (min, avg, max) = (479,294, 480,405, 483,268), stdev = 1,618
+  CI (99.9%): [474,175, 486,635] (assumes normal distribution)
+
+Result "eu.arrowhead.benchmark.eventhandler.BenchmarkProxy.performBenchmark":
+  1451,529 ±(99.9%) 30,271 ops/s [Average]
+  (min, avg, max) = (1439,677, 1451,529, 1459,682), stdev = 7,861
+  CI (99.9%): [1421,258, 1481,799] (assumes normal distribution)
+
+# Run complete. Total time: 00:13:15
+
+Benchmark                               Mode  Cnt     Score    Error  Units
+BenchmarkDriver.performBenchmark       thrpt    5   476,433 ± 13,889  ops/s
+BenchmarkHttpService.performBenchmark  thrpt    5   480,405 ±  6,230  ops/s
+BenchmarkProxy.performBenchmark        thrpt    5  1451,529 ± 30,271  ops/s

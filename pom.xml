@@ -29,7 +29,8 @@
 	    <module>authorization</module>
 	    <module>certificate-authority</module>
 	    <module>orchestrator</module>
-	    <module>eventhandler</module>
+		<module>eventhandler-api</module>
+		<module>eventhandler</module>
 	    <module>gatekeeper</module>
 	    <module>gateway</module>
 	    <module>choreographer</module>
@@ -39,7 +40,8 @@
 		<module>onboarding</module>
 	    <module>qos-monitor</module>
 	    <module>deb-installer</module>
-	    <module>docker-all</module>
+		<module>docker-all</module>
+		<module>microbenchmark</module>
   	</modules>
   	
 	<properties>

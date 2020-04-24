@@ -5,7 +5,7 @@ import eu.arrowhead.common.Utilities;
 import eu.arrowhead.common.database.entity.EventType;
 import eu.arrowhead.common.database.entity.Subscription;
 import eu.arrowhead.common.database.entity.System;
-import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
+import eu.arrowhead.api.eventhandler.model.EventPublishRequestDTO;
 import eu.arrowhead.common.http.HttpService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

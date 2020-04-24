@@ -1,4 +1,4 @@
-package eu.arrowhead.common.dto.shared;
+package eu.arrowhead.api.eventhandler.model;
 
 import java.io.Serializable;
 

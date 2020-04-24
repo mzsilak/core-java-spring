@@ -12,11 +12,16 @@
   	<description>Arrowhead Event Handler core service</description>
   	
   	<dependencies>
-	    <dependency>
-	      	<groupId>eu.arrowhead</groupId>
-	      	<artifactId>arrowhead-core-common</artifactId>
-	      	<version>${revision}</version>
-	    </dependency>
+		<dependency>
+			<groupId>eu.arrowhead</groupId>
+			<artifactId>arrowhead-core-common</artifactId>
+			<version>${revision}</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.arrowhead</groupId>
+			<artifactId>arrowhead-eventhandler-api</artifactId>
+			<version>${revision}</version>
+		</dependency>
   	</dependencies>
   	
   	<build>

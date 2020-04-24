@@ -31,6 +31,21 @@ public class SSLProperties {
     @Value(CommonConstants.$TRUSTSTORE_PASSWORD)
     private String trustStorePassword;
 
+    public SSLProperties() {
+        super();
+    }
+
+    public SSLProperties(final boolean sslEnabled, final String keyStoreType, final Resource keyStore, final String keyStorePassword, final String keyPassword,
+                         final Resource trustStore, final String trustStorePassword) {
+        this.sslEnabled = sslEnabled;
+        this.keyStoreType = keyStoreType;
+        this.keyStore = keyStore;
+        this.keyStorePassword = keyStorePassword;
+        this.keyPassword = keyPassword;
+        this.trustStore = trustStore;
+        this.trustStorePassword = trustStorePassword;
+    }
+
     //=================================================================================================
     // methods
 

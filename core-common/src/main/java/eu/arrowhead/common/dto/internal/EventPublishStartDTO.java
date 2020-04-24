@@ -1,7 +1,7 @@
 package eu.arrowhead.common.dto.internal;
 
 import eu.arrowhead.common.database.entity.Subscription;
-import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
+import eu.arrowhead.api.eventhandler.model.EventPublishRequestDTO;
 
 import java.io.Serializable;
 import java.util.Set;

@@ -12,10 +12,10 @@ import eu.arrowhead.common.database.repository.SubscriptionPublisherConnectionRe
 import eu.arrowhead.common.database.repository.SubscriptionRepository;
 import eu.arrowhead.common.database.repository.SystemRepository;
 import eu.arrowhead.common.dto.internal.DTOConverter;
-import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
-import eu.arrowhead.common.dto.shared.SubscriptionListResponseDTO;
-import eu.arrowhead.common.dto.shared.SubscriptionRequestDTO;
-import eu.arrowhead.common.dto.shared.SubscriptionResponseDTO;
+import eu.arrowhead.api.eventhandler.model.EventPublishRequestDTO;
+import eu.arrowhead.api.eventhandler.model.SubscriptionListResponseDTO;
+import eu.arrowhead.api.eventhandler.model.SubscriptionRequestDTO;
+import eu.arrowhead.api.eventhandler.model.SubscriptionResponseDTO;
 import eu.arrowhead.api.systemregistry.model.SystemResponseDTO;
 import eu.arrowhead.core.eventhandler.service.EventHandlerDriver;
 import eu.arrowhead.core.eventhandler.service.EventHandlerService;

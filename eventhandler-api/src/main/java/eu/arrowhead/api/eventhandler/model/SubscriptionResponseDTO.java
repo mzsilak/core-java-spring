@@ -1,4 +1,4 @@
-package eu.arrowhead.common.dto.shared;
+package eu.arrowhead.api.eventhandler.model;
 
 import eu.arrowhead.api.systemregistry.model.SystemResponseDTO;
 

@@ -6,7 +6,7 @@ import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.CoreCommonConstants;
 import eu.arrowhead.common.Utilities;
 import eu.arrowhead.common.core.CoreSystemService;
-import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
+import eu.arrowhead.api.eventhandler.model.EventPublishRequestDTO;
 import eu.arrowhead.common.http.HttpService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

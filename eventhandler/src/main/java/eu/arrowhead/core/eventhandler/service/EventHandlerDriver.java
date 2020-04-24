@@ -11,7 +11,7 @@ import eu.arrowhead.common.database.entity.Subscription;
 import eu.arrowhead.common.dto.internal.AuthorizationSubscriptionCheckRequestDTO;
 import eu.arrowhead.common.dto.internal.AuthorizationSubscriptionCheckResponseDTO;
 import eu.arrowhead.common.dto.internal.EventPublishStartDTO;
-import eu.arrowhead.common.dto.shared.EventPublishRequestDTO;
+import eu.arrowhead.api.eventhandler.model.EventPublishRequestDTO;
 import eu.arrowhead.api.systemregistry.model.SystemResponseDTO;
 import eu.arrowhead.common.http.HttpService;
 import eu.arrowhead.core.eventhandler.publish.PublishingQueue;

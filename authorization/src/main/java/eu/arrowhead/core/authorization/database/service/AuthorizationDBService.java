@@ -423,7 +423,12 @@ public class AuthorizationDBService {
 	public AuthorizationIntraCloudCheckResponseDTO checkAuthorizationIntraCloudRequest(final String consumerName, final String consumerAddress, final int consumerPort, final long serviceDefinitionId,
 																					   final Set<IdIdListDTO> providerIdsWithInterfaceIds) {
 		logger.debug("checkAuthorizationIntraCloudRequest started...");
-				
+		final System consumer = checkAndGetConsumer(consumerName, consumerAddress, consumerPort);
+		return new AuthorizationIntraCloudCheckResponseDTO(DTOConverter.convertSystemToSystemResponseDTO(consumer),
+														   serviceDefinitionId,
+														   new ArrayList<>(providerIdsWithInterfaceIds));
+/* // FOR THE TEST CLOUD - EVERYTHING IS AUTHORIZED
+
 		try {
 			final boolean isServiceDefinitionIdInvalid = serviceDefinitionId < 1 || !serviceDefinitionRepository.existsById(serviceDefinitionId);
 			final boolean isProviderListEmpty = providerIdsWithInterfaceIds == null || providerIdsWithInterfaceIds.isEmpty();
@@ -477,6 +482,7 @@ public class AuthorizationDBService {
 			logger.debug(ex.getMessage(), ex);
 			throw new ArrowheadException(CoreCommonConstants.DATABASE_OPERATION_EXCEPTION_MSG);
 		}
+		*/
 	}
 	
 	//-------------------------------------------------------------------------------------------------

@@ -1,3 +1,17 @@
+/********************************************************************************
+ * Copyright (c) 2019 AITIA
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *   AITIA - implementation
+ *   Arrowhead Consortia - conceptualization
+ ********************************************************************************/
+
 package eu.arrowhead.core.orchestrator;
 
 import java.util.Collection;
@@ -122,7 +136,7 @@ public class OrchestratorStoreController {
 		
 		final ValidatedPageParams vpp = CoreUtilities.validatePageParameters(page, size, direction, CommonConstants.ORCHESTRATOR_URI + CoreCommonConstants.ORCHESTRATOR_STORE_MGMT_URI);
 		final OrchestratorStoreListResponseDTO orchestratorStoreListResponse = orchestratorStoreDBService.getOrchestratorStoreEntriesResponse(vpp.getValidatedPage(), vpp.getValidatedSize(), 
-																																			  vpp.getValidatedDirecion(), sortField);
+																																			  vpp.getValidatedDirection(), sortField);
 		logger.debug("OrchestratorStores  with page: {} and item_per page: {} retrieved successfully", page, size);
 		
 		return orchestratorStoreListResponse;
@@ -147,7 +161,7 @@ public class OrchestratorStoreController {
 		
 		final ValidatedPageParams vpp = CoreUtilities.validatePageParameters(page, size, direction, CommonConstants.ORCHESTRATOR_URI + ORCHESTRATOR_STORE_MGMT_ALL_TOP_PRIORITY);
 		final OrchestratorStoreListResponseDTO orchestratorStoreResponse = orchestratorStoreDBService.getAllTopPriorityOrchestratorStoreEntriesResponse(vpp.getValidatedPage(), vpp.getValidatedSize(),
-																																					    vpp.getValidatedDirecion(), sortField);
+																																					    vpp.getValidatedDirection(), sortField);
 		logger.debug("OrchestratorStores  with page: {} and item_per page: {} retrieved successfully", page, size);
 		
 		return orchestratorStoreResponse;
@@ -174,7 +188,7 @@ public class OrchestratorStoreController {
 		final ValidatedPageParams vpp = CoreUtilities.validatePageParameters(page, size, direction, CommonConstants.ORCHESTRATOR_URI + ORCHESTRATOR_STORE_MGMT_ALL_BY_CONSUMER);
 		checkOrchestratorStoreRequestDTOForConsumerIdAndServiceDefinitionName(request, CommonConstants.ORCHESTRATOR_URI + ORCHESTRATOR_STORE_MGMT_ALL_BY_CONSUMER);
 		final OrchestratorStoreListResponseDTO orchestratorStoreResponse = orchestratorStoreDBService.getOrchestratorStoresByConsumerResponse(vpp.getValidatedPage(), vpp.getValidatedSize(),
-																																			  vpp.getValidatedDirecion(), sortField,
+																																			  vpp.getValidatedDirection(), sortField,
 																																			  request.getConsumerSystemId(),
 																																			  request.getServiceDefinitionName(),
 																																			  request.getServiceInterfaceName());

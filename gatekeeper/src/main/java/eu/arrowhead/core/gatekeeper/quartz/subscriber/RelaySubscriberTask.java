@@ -1,3 +1,17 @@
+/********************************************************************************
+ * Copyright (c) 2019 AITIA
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *   AITIA - implementation
+ *   Arrowhead Consortia - conceptualization
+ ********************************************************************************/
+
 package eu.arrowhead.core.gatekeeper.quartz.subscriber;
 
 import java.util.Map;
@@ -25,8 +39,8 @@ import eu.arrowhead.common.database.entity.Relay;
 import eu.arrowhead.common.exception.ArrowheadException;
 import eu.arrowhead.core.gatekeeper.database.service.GatekeeperDBService;
 import eu.arrowhead.core.gatekeeper.quartz.subscriber.RelaySubscriberDataContainer.RelayResource;
-import eu.arrowhead.core.gatekeeper.relay.GatekeeperRelayClient;
-import eu.arrowhead.core.gatekeeper.relay.GeneralAdvertisementMessageListener;
+import eu.arrowhead.core.gatekeeper.service.GeneralAdvertisementMessageListener;
+import eu.arrowhead.relay.gatekeeper.GatekeeperRelayClient;
 
 @Component
 @DisallowConcurrentExecution
@@ -61,7 +75,8 @@ public class RelaySubscriberTask implements Job {
 		logger.debug("STARTED: Relay Subscriber task");
 		
 		if (arrowheadContext.containsKey(CoreCommonConstants.SERVER_STANDALONE_MODE)) {
-			dataContainer.cancelJob();
+			logger.debug("FINISHED: Relay Subscriber task can not run if server is in standalon mode");
+			dataContainer.shutdown();
 			return;
 		}
 		

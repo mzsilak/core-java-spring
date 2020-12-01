@@ -1,3 +1,17 @@
+/********************************************************************************
+ * Copyright (c) 2019 AITIA
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *   AITIA - implementation
+ *   Arrowhead Consortia - conceptualization
+ ********************************************************************************/
+
 package eu.arrowhead.common.token;
 
 import java.io.IOException;
@@ -11,6 +25,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
+import eu.arrowhead.common.SecurityUtilities;
 import org.springframework.lang.Nullable;
 
 import eu.arrowhead.common.CommonConstants;
@@ -48,6 +63,7 @@ public abstract class TokenSecurityFilter extends ArrowheadFilter {
 				checkToken(clientCN, token, requestTarget);
 			} catch (final ArrowheadException ex) {
 				handleException(ex, response);
+				return;
 			}
 		}
 		
@@ -81,12 +97,6 @@ public abstract class TokenSecurityFilter extends ArrowheadFilter {
 	//-------------------------------------------------------------------------------------------------
 	@Nullable
 	private String getCertificateCNFromRequest(final HttpServletRequest request) {
-		final X509Certificate[] certificates = (X509Certificate[]) request.getAttribute(CommonConstants.ATTR_JAVAX_SERVLET_REQUEST_X509_CERTIFICATE);
-		if (certificates != null && certificates.length != 0) {
-			final X509Certificate cert = certificates[0];
-			return Utilities.getCertCNFromSubject(cert.getSubjectDN().getName());
-		}
-		
-		return null;
+		return SecurityUtilities.getCertificateCNFromRequest(request);
 	}
 }

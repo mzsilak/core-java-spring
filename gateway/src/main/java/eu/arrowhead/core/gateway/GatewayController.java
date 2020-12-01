@@ -1,3 +1,17 @@
+/********************************************************************************
+ * Copyright (c) 2019 AITIA
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *   AITIA - implementation
+ *   Arrowhead Consortia - conceptualization
+ ********************************************************************************/
+
 package eu.arrowhead.core.gateway;
 
 import java.security.InvalidParameterException;
@@ -70,6 +84,7 @@ public class GatewayController {
 	
 	private static final String POST_CONNECT_HTTP_201_MESSAGE = "Connection created";
 	private static final String POST_CONNECT_HTTP_400_MESSAGE = "Could not create connection";
+	private static final String POST_CONNECT_HTTP_502_MESSAGE = "Error occured when initialize relay communication.";
 	
 	private static final String POST_CLOSE_SESSION_HTTP_200_MESSAGE = "Session closed";
 	private static final String POST_CLOSE_SESSION_400_MESSAGE = "Could not close session";
@@ -178,11 +193,12 @@ public class GatewayController {
 	}
 	
 	//-------------------------------------------------------------------------------------------------
-	@ApiOperation(value = "Creates a Socket and Message queue between the given Relay and Provider and return the necesarry connection informations",
+	@ApiOperation(value = "Creates a Socket and Message queue between the given Relay and Provider and return the necessary connection informations",
 				  response = GatewayProviderConnectionResponseDTO.class, tags = { CoreCommonConstants.SWAGGER_TAG_PRIVATE })
 	@ApiResponses (value = {
 			@ApiResponse(code = HttpStatus.SC_CREATED, message = POST_CONNECT_HTTP_201_MESSAGE),
 			@ApiResponse(code = HttpStatus.SC_BAD_REQUEST, message = POST_CONNECT_HTTP_400_MESSAGE),
+			@ApiResponse(code = HttpStatus.SC_BAD_GATEWAY, message = POST_CONNECT_HTTP_502_MESSAGE),
 			@ApiResponse(code = HttpStatus.SC_UNAUTHORIZED, message = CoreCommonConstants.SWAGGER_HTTP_401_MESSAGE),
 			@ApiResponse(code = HttpStatus.SC_INTERNAL_SERVER_ERROR, message = CoreCommonConstants.SWAGGER_HTTP_500_MESSAGE)
 	})
@@ -204,6 +220,7 @@ public class GatewayController {
 	@ApiResponses (value = {
 			@ApiResponse(code = HttpStatus.SC_CREATED, message = POST_CONNECT_HTTP_201_MESSAGE),
 			@ApiResponse(code = HttpStatus.SC_BAD_REQUEST, message = POST_CONNECT_HTTP_400_MESSAGE),
+			@ApiResponse(code = HttpStatus.SC_BAD_GATEWAY, message = POST_CONNECT_HTTP_502_MESSAGE),
 			@ApiResponse(code = HttpStatus.SC_UNAUTHORIZED, message = CoreCommonConstants.SWAGGER_HTTP_401_MESSAGE),
 			@ApiResponse(code = HttpStatus.SC_INTERNAL_SERVER_ERROR, message = CoreCommonConstants.SWAGGER_HTTP_500_MESSAGE)
 	})

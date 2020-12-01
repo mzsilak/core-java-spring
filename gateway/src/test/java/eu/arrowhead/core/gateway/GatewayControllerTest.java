@@ -1,3 +1,17 @@
+/********************************************************************************
+ * Copyright (c) 2019 AITIA
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *   AITIA - implementation
+ *   Arrowhead Consortia - conceptualization
+ ********************************************************************************/
+
 package eu.arrowhead.core.gateway;
 
 import static org.junit.Assume.assumeFalse;
@@ -163,23 +177,23 @@ public class GatewayControllerTest {
 	//-------------------------------------------------------------------------------------------------
 	@Test
 	public void testGetActiveSessionsWithInvalidPageParameter() throws Exception {
-		final MvcResult result = getActiveSessions(status().isBadRequest(), "-2", "3");
+		final MvcResult result = getActiveSessions(status().isBadRequest(), null, "3");
 		final ErrorMessageDTO error = objectMapper.readValue(result.getResponse().getContentAsByteArray(), ErrorMessageDTO.class);
 		
 		Assert.assertEquals(ExceptionType.BAD_PAYLOAD, error.getExceptionType());
 		Assert.assertEquals(GATEWAY_ACTIVE_SESSIONS_URI, error.getOrigin());
-		Assert.assertEquals("Page parameter has to be equals or greater than zero and size parameter has to be equals or greater than one.", error.getErrorMessage());
+		Assert.assertEquals("Defined page or size could not be with undefined size or page.", error.getErrorMessage());
 	}
 	
 	//-------------------------------------------------------------------------------------------------
 	@Test
 	public void testGetActiveSessionsWithInvalidSizeParameter() throws Exception {
-		final MvcResult result = getActiveSessions(status().isBadRequest(), "0", "-1");
+		final MvcResult result = getActiveSessions(status().isBadRequest(), "0", null);
 		final ErrorMessageDTO error = objectMapper.readValue(result.getResponse().getContentAsByteArray(), ErrorMessageDTO.class);
 		
 		Assert.assertEquals(ExceptionType.BAD_PAYLOAD, error.getExceptionType());
 		Assert.assertEquals(GATEWAY_ACTIVE_SESSIONS_URI, error.getOrigin());
-		Assert.assertEquals("Page parameter has to be equals or greater than zero and size parameter has to be equals or greater than one.", error.getErrorMessage());
+		Assert.assertEquals("Defined page or size could not be with undefined size or page.", error.getErrorMessage());
 	}
 	
 	//-------------------------------------------------------------------------------------------------

@@ -1,3 +1,17 @@
+/********************************************************************************
+ * Copyright (c) 2019 AITIA
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *   AITIA - implementation
+ *   Arrowhead Consortia - conceptualization
+ ********************************************************************************/
+
 package eu.arrowhead.core.orchestrator.security;
 
 import java.util.Map;
@@ -31,13 +45,18 @@ public class OrchestratorAccessControlFilter extends CoreSystemAccessControlFilt
 		if (requestTarget.contains(CoreCommonConstants.MGMT_URI)) {
 			// Only the local System Operator can use these methods
 			checkIfLocalSystemOperator(clientCN, cloudCN, requestTarget);
+		} else if (requestTarget.contains(CommonConstants.OP_ORCH_QOS_ENABLED_URI) || requestTarget.contains(CommonConstants.OP_ORCH_QOS_RESERVATIONS_URI) ||
+				   requestTarget.contains(CommonConstants.OP_ORCH_QOS_TEMPORARY_LOCK_URI)) {
+			// Only the local Gatekeeper can use these methods
+			final CoreSystem[] allowedCoreSystems = { CoreSystem.GATEKEEPER };
+			checkIfClientIsAnAllowedCoreSystem(clientCN, cloudCN, allowedCoreSystems, requestTarget);
 		} else if (Utilities.isEmpty(requestJSON)) {
 			// If request body is empty (example: GET..../orchestrator/{systemId}), than everybody in the local cloud can use these methods => no further check is necessary
 		} else {
 			final OrchestrationFormRequestDTO orchestrationFormRequestDTO = Utilities.fromJson(requestJSON, OrchestrationFormRequestDTO.class);
 			final OrchestrationFlags orchestrationFlags = orchestrationFormRequestDTO.getOrchestrationFlags();
 			
-			if (orchestrationFlags.getOrDefault(CommonConstants.ORCHESTRATON_FLAG_EXTERNAL_SERVICE_REQUEST, false)) {
+			if (orchestrationFlags.getOrDefault(CommonConstants.ORCHESTRATION_FLAG_EXTERNAL_SERVICE_REQUEST, false)) {
 				// If this is an external service request, only the local Gatekeeper can use these methods
 				final CoreSystem[] allowedCoreSystems = { CoreSystem.GATEKEEPER };
 				checkIfClientIsAnAllowedCoreSystem(clientCN, cloudCN, allowedCoreSystems, requestTarget);				

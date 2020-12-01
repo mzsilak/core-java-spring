@@ -1,3 +1,17 @@
+/********************************************************************************
+ * Copyright (c) 2019 AITIA
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *   AITIA - implementation
+ *   Arrowhead Consortia - conceptualization
+ ********************************************************************************/
+
 package eu.arrowhead.core.orchestrator.matchmaking;
 
 import java.util.List;
@@ -31,11 +45,11 @@ public class RandomWeightedCloudMatchmakerTest {
 
 		final CloudResponseDTO providerCloud1 = new CloudResponseDTO(1L, "operator1", "cloudname1",	false, true, false,	null, null,	null);
 		final int numOfProviders10 = 10;		
-		final GSDPollResponseDTO gsdPollResponseDTO1 = new GSDPollResponseDTO(providerCloud1, "requiredServiceDefinition", null, numOfProviders10, null);
+		final GSDPollResponseDTO gsdPollResponseDTO1 = new GSDPollResponseDTO(providerCloud1, "requiredServiceDefinition", null, numOfProviders10, null, null, false);
 		
 		final CloudResponseDTO providerCloud2 = new CloudResponseDTO(1L, "operator2", "cloudname2",	false, true, false, null, null,	null);
 		final int numOfProviders1 = 1;		
-		final GSDPollResponseDTO gsdPollResponseDTO2 = new GSDPollResponseDTO(providerCloud2, "requiredServiceDefinition", null, numOfProviders1, null);
+		final GSDPollResponseDTO gsdPollResponseDTO2 = new GSDPollResponseDTO(providerCloud2, "requiredServiceDefinition", null, numOfProviders1, null, null, false);
 		
 		final List<GSDPollResponseDTO> gsdPollResponseDTOList = List.of(gsdPollResponseDTO1, gsdPollResponseDTO2);
 		final int unsuccessfulRequests = 0;
@@ -61,11 +75,11 @@ public class RandomWeightedCloudMatchmakerTest {
 
 		final CloudResponseDTO providerCloud1 = new CloudResponseDTO(1L, "operator1", "cloudname1", false, true, false, null, null,	null);
 		final int numOfProviders10 = 10;		
-		final GSDPollResponseDTO gsdPollResponseDTO1 = new GSDPollResponseDTO(providerCloud1, "requiredServiceDefinition", null, numOfProviders10, null);
+		final GSDPollResponseDTO gsdPollResponseDTO1 = new GSDPollResponseDTO(providerCloud1, "requiredServiceDefinition", null, numOfProviders10, null, null, false);
 		
 		final CloudResponseDTO providerCloud2 = new CloudResponseDTO(1L, "operator2", "cloudname2", false, true, false, null, null, null);
 		final int numOfProviders1 = 1;		
-		final GSDPollResponseDTO gsdPollResponseDTO2 = new GSDPollResponseDTO(providerCloud2, "requiredServiceDefinition", null, numOfProviders1, null);
+		final GSDPollResponseDTO gsdPollResponseDTO2 = new GSDPollResponseDTO(providerCloud2, "requiredServiceDefinition", null, numOfProviders1, null, null, false);
 		
 		final List<GSDPollResponseDTO> gsdPollResponseDTOList = List.of(gsdPollResponseDTO1, gsdPollResponseDTO2);
 		final int unsuccessfulRequests = 0;
@@ -92,11 +106,11 @@ public class RandomWeightedCloudMatchmakerTest {
 
 		final CloudResponseDTO providerCloud1 = new CloudResponseDTO(1L, "operator1", "cloudname1", false, true, false, null, null,	null);
 		final int numOfProviders10 = 10;		
-		final GSDPollResponseDTO gsdPollResponseDTO1 = new GSDPollResponseDTO(providerCloud1, "requiredServiceDefinition", null, numOfProviders10, null);
+		final GSDPollResponseDTO gsdPollResponseDTO1 = new GSDPollResponseDTO(providerCloud1, "requiredServiceDefinition", null, numOfProviders10, null, null, false);
 		
 		final CloudResponseDTO providerCloud2 = new CloudResponseDTO(1L, "operator2", "cloudname2", false, true, false, null, null,	null);
 		final int numOfProviders1 = 1;		
-		final GSDPollResponseDTO gsdPollResponseDTO2 = new GSDPollResponseDTO(providerCloud2, "requiredServiceDefinition", null, numOfProviders1, null);
+		final GSDPollResponseDTO gsdPollResponseDTO2 = new GSDPollResponseDTO(providerCloud2, "requiredServiceDefinition", null, numOfProviders1, null, null, false);
 		
 		final List<GSDPollResponseDTO> gsdPollResponseDTOList = List.of(gsdPollResponseDTO1, gsdPollResponseDTO2);
 		final int unsuccessfulRequests = 0;
@@ -120,11 +134,11 @@ public class RandomWeightedCloudMatchmakerTest {
 
 		final CloudResponseDTO providerCloud1 = new CloudResponseDTO(1L, "operator1", "cloudname1", false, true, false, null, null, null);
 		final int numOfProviders10 = 10;		
-		final GSDPollResponseDTO gsdPollResponseDTO1 = new GSDPollResponseDTO(providerCloud1, "requiredServiceDefinition", null, numOfProviders10, null);
+		final GSDPollResponseDTO gsdPollResponseDTO1 = new GSDPollResponseDTO(providerCloud1, "requiredServiceDefinition", null, numOfProviders10, null, null, false);
 		
 		final CloudResponseDTO providerCloud2 = new CloudResponseDTO(1L, "operator2", "cloudname2", false, true, false, null, null,	null);
 		final int numOfProviders1 = 1;		
-		final GSDPollResponseDTO gsdPollResponseDTO2 = new GSDPollResponseDTO(providerCloud2, "requiredServiceDefinition", null, numOfProviders1, null);
+		final GSDPollResponseDTO gsdPollResponseDTO2 = new GSDPollResponseDTO(providerCloud2, "requiredServiceDefinition", null, numOfProviders1, null, null, false);
 		
 		final List<GSDPollResponseDTO> gsdPollResponseDTOList = List.of(gsdPollResponseDTO1, gsdPollResponseDTO2);
 		final int unsuccessfulRequests = 0;
@@ -193,11 +207,11 @@ public class RandomWeightedCloudMatchmakerTest {
 
 		final CloudResponseDTO providerCloud1 = new CloudResponseDTO(1L, "operator1", "cloudname1", false, true, false, null, null, null);
 		final int numOfProviders10 = 0;		
-		final GSDPollResponseDTO gsdPollResponseDTO1 = new GSDPollResponseDTO(providerCloud1, "requiredServiceDefinition", null, numOfProviders10, null);
+		final GSDPollResponseDTO gsdPollResponseDTO1 = new GSDPollResponseDTO(providerCloud1, "requiredServiceDefinition", null, numOfProviders10, null, null, false);
 		
 		final CloudResponseDTO providerCloud2 = new CloudResponseDTO(1L, "operator2", "cloudname2", false, true, false, null, null, null);
 		final int numOfProviders1 = 0;		
-		final GSDPollResponseDTO gsdPollResponseDTO2 = new GSDPollResponseDTO(providerCloud2, "requiredServiceDefinition", null, numOfProviders1, null);
+		final GSDPollResponseDTO gsdPollResponseDTO2 = new GSDPollResponseDTO(providerCloud2, "requiredServiceDefinition", null, numOfProviders1, null, null, false);
 		
 		final List<GSDPollResponseDTO> gsdPollResponseDTOList = List.of(gsdPollResponseDTO1, gsdPollResponseDTO2);
 		final int unsuccessfulRequests = 0;
@@ -217,11 +231,11 @@ public class RandomWeightedCloudMatchmakerTest {
 
 		final CloudResponseDTO providerCloud1 = new CloudResponseDTO(1L, "operator1", "cloudname1", false, true, false, null, null,	null);
 		final int numOfProviders2 = 2;		
-		final GSDPollResponseDTO gsdPollResponseDTO1 = new GSDPollResponseDTO(providerCloud1, "requiredServiceDefinition", null, numOfProviders2, null);
+		final GSDPollResponseDTO gsdPollResponseDTO1 = new GSDPollResponseDTO(providerCloud1, "requiredServiceDefinition", null, numOfProviders2, null, null, false);
 		
 		final CloudResponseDTO providerCloud2 = new CloudResponseDTO(1L, "operator2", "cloudname2", false, true, false, null, null,	null);
 		final int numOfProviders1 = 1;		
-		final GSDPollResponseDTO gsdPollResponseDTO2 = new GSDPollResponseDTO(providerCloud2, "requiredServiceDefinition", null, numOfProviders1, null);
+		final GSDPollResponseDTO gsdPollResponseDTO2 = new GSDPollResponseDTO(providerCloud2, "requiredServiceDefinition", null, numOfProviders1, null, null, false);
 		
 		final List<GSDPollResponseDTO> gsdPollResponseDTOList = List.of(gsdPollResponseDTO1, gsdPollResponseDTO2, gsdPollResponseDTO2, gsdPollResponseDTO2);
 		final int unsuccessfulRequests = 0;

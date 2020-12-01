@@ -1,3 +1,17 @@
+/********************************************************************************
+ * Copyright (c) 2019 AITIA
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *   AITIA - implementation
+ *   Arrowhead Consortia - conceptualization
+ ********************************************************************************/
+
 package eu.arrowhead.core.eventhandler.database.service;
 
 import static org.junit.Assert.assertFalse;
@@ -1469,6 +1483,7 @@ public class EventHandlerDBServiceTest {
 		final Set<SystemResponseDTO> authorizedPublishers = getSystemResponseDTOSet(7);
 		final Set<SubscriptionPublisherConnection> involvedPublisherSystems = Set.of();
 
+		when(subscriptionRepository.findById(anyLong())).thenReturn(Optional.of(subscription));
 		when(subscriptionPublisherConnectionRepository.findBySubscriptionEntry(any())).thenReturn(involvedPublisherSystems);
 		doNothing().when(subscriptionPublisherConnectionRepository).deleteInBatch(any());
 		doNothing().when(subscriptionRepository).refresh(any());
@@ -1494,6 +1509,7 @@ public class EventHandlerDBServiceTest {
 		final Set<SystemResponseDTO> authorizedPublishers = getSystemResponseDTOSet(7);
 		final Set<SubscriptionPublisherConnection> involvedPublisherSystems = Set.of();
 
+		when(subscriptionRepository.findById(anyLong())).thenReturn(Optional.of(subscription));
 		when(subscriptionPublisherConnectionRepository.findBySubscriptionEntry(any())).thenReturn(involvedPublisherSystems);
 		doNothing().when(subscriptionPublisherConnectionRepository).deleteInBatch(any());
 		doNothing().when(subscriptionRepository).refresh(any());

@@ -1,3 +1,17 @@
+/********************************************************************************
+ * Copyright (c) 2019 AITIA
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *   AITIA - implementation
+ *   Arrowhead Consortia - conceptualization
+ ********************************************************************************/
+
 package eu.arrowhead.core.gatekeeper.service.matchmaking;
 
 import java.util.List;
@@ -32,6 +46,10 @@ public class DefaultICNProviderMatchmaker implements ICNProviderMatchmakingAlgor
 		Assert.notNull(params, "params is null");
 		
 		if (params.getPreferredLocalProviders().isEmpty()) {
+			if (params.isOnlyPreferred()) {
+				return null;
+			}
+			
 			logger.debug("No preferred provider is specified, the first one in the OR list is selected.");
 			return orList.get(0);
 		}

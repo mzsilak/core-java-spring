@@ -1,3 +1,17 @@
+/********************************************************************************
+ * Copyright (c) 2019 AITIA
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *   AITIA - implementation
+ *   Arrowhead Consortia - conceptualization
+ ********************************************************************************/
+
 package eu.arrowhead.common.dto.shared;
 
 import java.io.Serializable;
@@ -6,6 +20,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.util.Assert;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class OrchestrationResultDTO implements Serializable {
 
@@ -21,6 +37,9 @@ public class OrchestrationResultDTO implements Serializable {
 	private Map<String,String> metadata;
 	private List<ServiceInterfaceResponseDTO> interfaces;
 	private Integer version;
+	
+	@JsonIgnore
+	private QoSMeasurementAttributesFormDTO qosMeasurements;
 	
 	private Map<String,String> authorizationTokens;
 	private List<OrchestratorWarnings> warnings = new ArrayList<>();
@@ -64,6 +83,7 @@ public class OrchestrationResultDTO implements Serializable {
 	public Map<String,String> getMetadata() { return metadata; }
 	public List<ServiceInterfaceResponseDTO> getInterfaces() { return interfaces; }
 	public Integer getVersion() { return version; }
+	public QoSMeasurementAttributesFormDTO getQosMeasurements() { return qosMeasurements; }
 	public Map<String,String> getAuthorizationTokens() { return authorizationTokens; }
 	public List<OrchestratorWarnings> getWarnings() { return warnings; }
 	
@@ -75,6 +95,7 @@ public class OrchestrationResultDTO implements Serializable {
 	public void setMetadata(final Map<String,String> metadata) { this.metadata = metadata; }
 	public void setInterfaces(final List<ServiceInterfaceResponseDTO> interfaces) { this.interfaces = interfaces; }
 	public void setVersion(final Integer version) { this.version = version; }
+	public void setQosMeasurements(final QoSMeasurementAttributesFormDTO qosMeasurements) { this.qosMeasurements = qosMeasurements; }
 	public void setAuthorizationTokens(final Map<String,String> authorizationTokens) { this.authorizationTokens = authorizationTokens; }
 	public void setWarnings(final List<OrchestratorWarnings> warnings) { this.warnings = warnings; }
 }

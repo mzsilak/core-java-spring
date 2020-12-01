@@ -1,3 +1,17 @@
+/********************************************************************************
+ * Copyright (c) 2019 AITIA
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *   AITIA - implementation
+ *   Arrowhead Consortia - conceptualization
+ ********************************************************************************/
+
 package eu.arrowhead.core.eventhandler;
 
 import java.time.ZonedDateTime;
@@ -141,7 +155,8 @@ public class EventHandlerController {
 				
 		final ValidatedPageParams validParameters = CoreUtilities.validatePageParameters(page, size, direction, CommonConstants.EVENT_HANDLER_URI + EVENT_HANDLER_MGMT_URI);
 		final SubscriptionListResponseDTO subscriptionsResponse = eventHandlerDBService.getSubscriptionsResponse(validParameters.getValidatedPage(), validParameters.getValidatedSize(), 
-																												 validParameters.getValidatedDirecion(), sortField);
+																												 validParameters.getValidatedDirection(),
+																												 sortField);
 		
 		logger.debug("Subscriptions  with page: {} and item_per page: {} retrieved successfully", page, size);
 		return subscriptionsResponse;

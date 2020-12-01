@@ -1,7 +1,22 @@
+/********************************************************************************
+ * Copyright (c) 2019 AITIA
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *   AITIA - implementation
+ *   Arrowhead Consortia - conceptualization
+ ********************************************************************************/
+
 package eu.arrowhead.common.dto.shared;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.StringJoiner;
 
 public class SystemRequestDTO implements Serializable {
 	
@@ -17,7 +32,18 @@ public class SystemRequestDTO implements Serializable {
 	
 	//=================================================================================================
 	// methods
-	
+
+
+	public SystemRequestDTO() {
+	}
+
+	public SystemRequestDTO(final String systemName, final String address, final Integer port, final String authenticationInfo) {
+		this.systemName = systemName;
+		this.address = address;
+		this.port = port;
+		this.authenticationInfo = authenticationInfo;
+	}
+
 	//-------------------------------------------------------------------------------------------------
 	public String getSystemName() { return systemName; }
 	public String getAddress() { return address; }
@@ -51,5 +77,15 @@ public class SystemRequestDTO implements Serializable {
 		final SystemRequestDTO other = (SystemRequestDTO) obj;
 		
 		return Objects.equals(address, other.address) && Objects.equals(port, other.port) && Objects.equals(systemName, other.systemName);
+	}
+
+	@Override
+	public String toString() {
+		return new StringJoiner(", ", SystemRequestDTO.class.getSimpleName() + "[", "]")
+				.add("systemName='" + systemName + "'")
+				.add("address='" + address + "'")
+				.add("port=" + port)
+				.add("authenticationInfo='" + authenticationInfo + "'")
+				.toString();
 	}
 }

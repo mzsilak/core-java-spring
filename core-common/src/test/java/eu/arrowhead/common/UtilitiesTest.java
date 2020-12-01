@@ -1,3 +1,17 @@
+/********************************************************************************
+ * Copyright (c) 2019 AITIA
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *   AITIA - implementation
+ *   Arrowhead Consortia - conceptualization
+ ********************************************************************************/
+
 package eu.arrowhead.common;
 
 import java.io.IOException;
@@ -287,23 +301,23 @@ public class UtilitiesTest {
 	
 	//-------------------------------------------------------------------------------------------------
 	@Test(expected = IllegalArgumentException.class)
-	public void testGetFirstCertFromKeyStoreNullKeyStore() throws KeyStoreException {
-		Utilities.getFirstCertFromKeyStore(null);
+	public void testGetSystemCertFromKeyStoreNullKeyStore() throws KeyStoreException {
+		Utilities.getSystemCertFromKeyStore(null);
 	}
 	
 	//-------------------------------------------------------------------------------------------------
 	@Test(expected = ServiceConfigurationError.class)
-	public void testGetFirstCertFromKeyStoreNotInitializedKeyStore() throws KeyStoreException {
+	public void testGetSystemCertFromKeyStoreNotInitializedKeyStore() throws KeyStoreException {
 		final KeyStore keystore = KeyStore.getInstance(KeyStore.getDefaultType());
-		Utilities.getFirstCertFromKeyStore(keystore);
+		Utilities.getSystemCertFromKeyStore(keystore);
 	}
 	
 	//-------------------------------------------------------------------------------------------------
 	@Test(expected = ServiceConfigurationError.class)
-	public void testGetFirstCertFromKeyStoreEmptyKeyStore() throws KeyStoreException, NoSuchAlgorithmException, CertificateException, IOException {
+	public void testGetSystemCertFromKeyStoreEmptyKeyStore() throws KeyStoreException, NoSuchAlgorithmException, CertificateException, IOException {
 		final KeyStore keystore = KeyStore.getInstance(KeyStore.getDefaultType());
 		keystore.load(null, null);
-		Utilities.getFirstCertFromKeyStore(keystore);
+		Utilities.getSystemCertFromKeyStore(keystore);
 	}
 	
 	//-------------------------------------------------------------------------------------------------

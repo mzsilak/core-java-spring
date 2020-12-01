@@ -1,3 +1,17 @@
+/********************************************************************************
+ * Copyright (c) 2019 AITIA
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *   AITIA - implementation
+ *   Arrowhead Consortia - conceptualization
+ ********************************************************************************/
+
 package eu.arrowhead.common.security;
 
 import java.io.IOException;
@@ -11,6 +25,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
+import eu.arrowhead.common.SecurityUtilities;
+import org.apache.http.HttpStatus;
 import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
@@ -67,13 +83,13 @@ public abstract class AccessControlFilter extends ArrowheadFilter {
 	protected void checkClientAuthorized(final String clientCN, final String method, final String requestTarget, final String requestJSON, final Map<String,String[]> queryParams) {
 		if (!Utilities.isKeyStoreCNArrowheadValid(clientCN)) {
 			log.debug("{} is not a valid common name, access denied!", clientCN);
-	        throw new AuthException(clientCN + " is unauthorized to access " + requestTarget);
+	        throw new AuthException(clientCN + " is unauthorized to access " + requestTarget, HttpStatus.SC_UNAUTHORIZED, requestTarget);
 		}
 
 	    // All requests from the local cloud are allowed
 	    if (!Utilities.isKeyStoreCNArrowheadValid(clientCN, getServerCloudCN())) {
 	        log.debug("{} is unauthorized to access {}", clientCN, requestTarget);
-	        throw new AuthException(clientCN + " is unauthorized to access " + requestTarget);
+	        throw new AuthException(clientCN + " is unauthorized to access " + requestTarget, HttpStatus.SC_UNAUTHORIZED, requestTarget);
 	    }
 	}
 	
@@ -89,12 +105,6 @@ public abstract class AccessControlFilter extends ArrowheadFilter {
 	//-------------------------------------------------------------------------------------------------
 	@Nullable
 	private String getCertificateCNFromRequest(final HttpServletRequest request) {
-		final X509Certificate[] certificates = (X509Certificate[]) request.getAttribute(CommonConstants.ATTR_JAVAX_SERVLET_REQUEST_X509_CERTIFICATE);
-		if (certificates != null && certificates.length != 0) {
-			final X509Certificate cert = certificates[0];
-			return Utilities.getCertCNFromSubject(cert.getSubjectDN().getName());
-		}
-		
-		return null;
+		return SecurityUtilities.getCertificateCNFromRequest(request);
 	}
 }

@@ -1,3 +1,17 @@
+/********************************************************************************
+ * Copyright (c) 2019 AITIA
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *   AITIA - implementation
+ *   Arrowhead Consortia - conceptualization
+ ********************************************************************************/
+
 package eu.arrowhead.common.database.entity;
 
 import java.time.ZonedDateTime;
@@ -16,10 +30,12 @@ import javax.persistence.PreUpdate;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.hibernate.annotations.SQLInsert;
 
 import eu.arrowhead.common.CoreDefaults;
 
 @Entity
+@SQLInsert(sql = "INSERT IGNORE INTO service_interface(created_at, interface_name, updated_at) VALUES (?, ?, ?)") //members' sequence is strictly defined
 public class ServiceInterface {
 	
 	//=================================================================================================

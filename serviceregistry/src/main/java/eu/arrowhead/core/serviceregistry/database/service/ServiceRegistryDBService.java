@@ -1,3 +1,17 @@
+/********************************************************************************
+ * Copyright (c) 2019 AITIA
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *   AITIA - implementation
+ *   Arrowhead Consortia - conceptualization
+ ********************************************************************************/
+
 package eu.arrowhead.core.serviceregistry.database.service;
 
 import java.time.ZonedDateTime;
@@ -290,7 +304,7 @@ public class ServiceRegistryDBService {
 			if (find.isPresent()) {
 				return find.get();
 			} else {
-				throw new InvalidParameterException("Service definition with id of '" + id + "' not exists");
+				throw new InvalidParameterException("Service definition with id of '" + id + "' does not exist");
 			}
 		} catch (final InvalidParameterException ex) {
 			throw ex;
@@ -388,7 +402,7 @@ public class ServiceRegistryDBService {
 				serviceDefinitionEntry.setServiceDefinition(validatedServiceDefinition);
 				return serviceDefinitionRepository.saveAndFlush(serviceDefinitionEntry);
 			} else {
-				throw new InvalidParameterException("Service definition with id of '" + id + "' not exists");
+				throw new InvalidParameterException("Service definition with id of '" + id + "' does not exist");
 			}
 		} catch (final InvalidParameterException ex) {
 			throw ex;
@@ -415,7 +429,7 @@ public class ServiceRegistryDBService {
 
 		try {
 			if (!serviceDefinitionRepository.existsById(id)) {
-				throw new InvalidParameterException("Service Definition with id '" + id + "' not exists");
+				throw new InvalidParameterException("Service Definition with id '" + id + "' does not exist");
 			}
 			
 			serviceDefinitionRepository.deleteById(id);
@@ -437,7 +451,7 @@ public class ServiceRegistryDBService {
 			if (find.isPresent()) {
 				return find.get();
 			} else {
-				throw new InvalidParameterException("Service Registry with id of '" + id + "' not exists");
+				throw new InvalidParameterException("Service Registry with id of '" + id + "' does not exist");
 			}
 		} catch (final InvalidParameterException ex) {
 			throw ex;
@@ -589,7 +603,7 @@ public class ServiceRegistryDBService {
 			if (srEntryOptional.isPresent()) {
 				srEntry = srEntryOptional.get();
 			} else {
-				throw new InvalidParameterException("Service Registry entry with id '" + id + "' not exists");
+				throw new InvalidParameterException("Service Registry entry with id '" + id + "' does not exist");
 			}
 			
 			final String validatedServiceDefinition = request.getServiceDefinition().toLowerCase().trim();
@@ -630,7 +644,7 @@ public class ServiceRegistryDBService {
 			if (srEntryOptional.isPresent()) {
 				srEntry = srEntryOptional.get();
 			} else {
-				throw new InvalidParameterException("Service Registry entry with id '" + id + "' not exists");
+				throw new InvalidParameterException("Service Registry entry with id '" + id + "' does not exist");
 			}
 			
 			final String validatedServiceDefinition = !Utilities.isEmpty(request.getServiceDefinition()) ? request.getServiceDefinition().toLowerCase().trim() :
@@ -858,7 +872,7 @@ public class ServiceRegistryDBService {
 		
 		try {
 			if (!serviceRegistryRepository.existsById(id)) {
-				throw new InvalidParameterException("Service Registry entry with id '" + id + "' not exists");
+				throw new InvalidParameterException("Service Registry entry with id '" + id + "' does not exist");
 			}
 			
 			serviceRegistryRepository.deleteById(id);
